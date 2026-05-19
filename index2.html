@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>ねこ描き Web - 試作 v1.0</title>
+  <style>
+    body { 
+      margin:0; padding:0; background:#111; color:#fff; 
+      font-family: sans-serif; overflow:hidden; touch-action:none;
+    }
+    #header { 
+      background:#1a1a1a; padding:12px; text-align:center; font-size:18px; 
+    }
+    #canvasContainer {
+      display:flex; justify-content:center; align-items:center;
+      background:#222; width:100vw; height:calc(100vh - 280px);
+    }
+    canvas { 
+      background:#ffffff; box-shadow:0 0 20px rgba(0,0,0,0.5); 
+      image-rendering: pixelated;
+    }
+    #toolbar { 
+      position:fixed; bottom:0; left:0; right:0; height:240px;
+      background:#1a1a1a; border-top:2px solid #444;
+      padding:10px; display:flex; flex-direction:column; gap:10px;
+    }
+    .row { display:flex; gap:8px; justify-content:center; flex-wrap:wrap; }
+    button { 
+      padding:12px 18px; font-size:16px; background:#333; color:white; 
+      border:none; border-radius:8px; min-width:60px;
+    }
+    button.active { background:#0066ff; }
+    .layer-btn { min-width:80px; }
+  </style>
+</head>
+<body>
+  <div id="header">ねこ描き Web 試作 v1.0</div>
+  
+  <div id="canvasContainer">
+    <canvas id="canvas"></canvas>
+  </div>
+
+  <div id="toolbar">
+    <!-- ツール選択 -->
+    <div class="row">
+      <button id="penBtn" class="active" onclick="setTool('pen')">✏️ ペン</button>
+      <button id="eraserBtn" onclick="setTool('eraser')">🧼 消しゴム</button>
+    </div>
+
+    <!-- ブラシサイズ -->
+    <div class="row">
+      <button onclick="setSize(4)">細</button>
+      <button onclick="setSize(12)">普通</button>
+      <button onclick="setSize(30)">太</button>
+    </div>
+
+    <!-- レイヤー -->
+    <div class="row">
+      <button class="layer-btn active" onclick="switchLayer(0)">Layer 1</button>
+      <button class="layer-btn" onclick="switchLayer(1)">Layer 2</button>
+      <button class="layer-btn" onclick="switchLayer(2)">Layer 3</button>
+      <button class="layer-btn" onclick="switchLayer(3)">Layer 4</button>
+      <button class="layer-btn" onclick="switchLayer(4)">Layer 5</button>
+    </div>
+
+    <!-- キャンバスサイズ選択（最初だけ表示） -->
+    <div id="sizeSelector" class="row">
+      <button onclick="initCanvas(2000,2000)">2000×2000</button>
+      <button onclick="initCanvas(3000,2000)">3000×2000</button>
+    </div>
+  </div>
+
+  <script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    let currentLayer = 0;
+    let layers = Array(5).fill().map(() => ({
+      data: null,  // ImageDataを保持
+      visible: true
+    }));
+    let isDrawing = false;
+    let tool = 'pen';
+    let brushSize = 12;
+    let lastX, lastY;
+
+    function initCanvas(w, h) {
+      canvas.width = w;
+      canvas.height = h;
+      
+      // すべてのレイヤーを初期化
+      layers.forEach(layer => {
+        layer.data = ctx.createImageData(w, h);
+      });
+      
+      // 背景を白く
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0, 0, w, h);
+      saveLayerState();
+      
+      document.getElementById('sizeSelector').style.display = 'none';
+    }
+
+    function saveLayerState() {
+      layers[currentLayer].data = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    }
+
+    function loadLayerState() {
+      if (layers[currentLayer].data) {
+        ctx.putImageData(layers[currentLayer].data, 0, 0);
+      } else {
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+      }
+    }
+
+    function switchLayer(n) {
+      if (canvas.width === 0) return; // まだ初期化前
+      
+      saveLayerState();
+      currentLayer = n;
+      
+      // ボタンのアクティブ状態
+      document.querySelectorAll('.layer-btn').forEach((btn, i) => {
+        btn.classList.toggle('active', i === n);
+      });
+      
+      loadLayerState();
+    }
+
+    function setTool(t) {
+      tool = t;
+      document.getElementById('penBtn').classList.toggle('active', t==='pen');
+      document.getElementById('eraserBtn').classList.toggle('active', t==='eraser');
+    }
+
+    function setSize(size) {
+      brushSize = size;
+    }
+
+    // 描画処理
+    function draw(e) {
+      if (!isDrawing) return;
+      
+      const rect = canvas.getBoundingClientRect();
+      const x = e.touches ? e.touches[0].clientX - rect.left : e.clientX - rect.left;
+      const y = e.touches ? e.touches[0].clientY - rect.top : e.clientY - rect.top;
+
+      ctx.lineWidth = brushSize;
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+      
+      if (tool === 'eraser') {
+        ctx.globalCompositeOperation = 'destination-out';
+      } else {
+        ctx.globalCompositeOperation = 'source-over';
+        ctx.strokeStyle = '#000000';
+      }
+
+      ctx.beginPath();
+      ctx.moveTo(lastX, lastY);
+      ctx.lineTo(x, y);
+      ctx.stroke();
+
+      lastX = x;
+      lastY = y;
+    }
+
+    // イベント設定
+    function setupEvents() {
+      canvas.addEventListener('mousedown', startDrawing);
+      canvas.addEventListener('mousemove', draw);
+      canvas.addEventListener('mouseup', endDrawing);
+      canvas.addEventListener('mouseout', endDrawing);
+
+      canvas.addEventListener('touchstart', startDrawing);
+      canvas.addEventListener('touchmove', draw);
+      canvas.addEventListener('touchend', endDrawing);
+    }
+
+    function startDrawing(e) {
+      isDrawing = true;
+      const rect = canvas.getBoundingClientRect();
+      lastX = e.touches ? e.touches[0].clientX - rect.left : e.clientX - rect.left;
+      lastY = e.touches ? e.touches[0].clientY - rect.top : e.clientY - rect.top;
+      draw(e); // 1点だけでも描画
+    }
+
+    function endDrawing() {
+      if (isDrawing) {
+        isDrawing = false;
+        saveLayerState();
+      }
+    }
+
+    // 初期化
+    window.onload = () => {
+      setupEvents();
+      // まだサイズ未選択なので待機
+    };
+  </script>
+</body>
+</html>
