@@ -1,0 +1,21 @@
+# Mac OS specific files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+.webloc
+ehthumbs.db
+Thumbs.db
+
+# Node.js / Web
+node_modules/
+dist/
+*.log
+
+# Local Files
+*.bak
+*.tmp
+tmp/
+
+# eof
