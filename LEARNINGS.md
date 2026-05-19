@@ -16,6 +16,7 @@
   - LEARNINGS.mdを手作業で作る
   - Live Server機能拡張をVScodeに入れてテスト
   - 3.2K画面のレイアウト https://x.com/YojiNishimura/status/2056556472759386511 @sns
+  - リポジトリの再作成を行なった
 
 - Key Learnings
   - Gitコマンドはターミナル上でも難しくない。でもVScodeからも可能なはず
