@@ -1,15 +1,17 @@
-# web-opentoonz
+# 🇺🇸Web-OpenToonz
 Web-based OpenToonz compatible drawing app (HTML5 Canvas) - Mobile First, Portrait Default
 
-# ねこ描き Web (Web OpenToonz Demo)
-
+🗽
+# 🇯🇵Web-OpenToonz
 モバイルファースト・縦持ち最適なお絵描きアプリのプロトタイプ。  
-将来的にOpenToonz .tnz互換の軽量XMLデータ構造を目指します。
+将来的にOpenToonz .tnz互換の軽量XMLデータ構造を目指します。  
 
 ## 特徴
-- タブレット縦位置（ポートレート）最適化
-- 親指が届く下部固定ツールバー
-- スマホをマスターモニターにできる準備（将来的にWebSocket）
+- ブラウザーだけでアニメーション作業ができる
+- OpenToonzのセル形式に対応
+- タブレット縦位置（ポートレート）に最適化
+- 下部に固定されたツールバー
+- 2台目のスマホをモニターとして活用（将来的にWebSocket）
 - 純粋HTML5 Canvas + JavaScript（軽量・低スペック対応）
 
 Demo:
@@ -17,4 +19,6 @@ Demo:
 2. https://cat-nekomaru.github.io/web-opentoonz/index2.html
 
 Sample:
-<img width="95%" alt="Image" src="https://github.com/user-attachments/assets/b2aa4752-241a-4233-ba8f-fd7d2118fac5" />
+<img width="90%" alt="Image" src="https://github.com/user-attachments/assets/b2aa4752-241a-4233-ba8f-fd7d2118fac5" />
+
+🐾
