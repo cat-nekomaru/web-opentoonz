@@ -12,6 +12,9 @@ Web-based OpenToonz compatible drawing app (HTML5 Canvas) - Mobile First, Portra
 - スマホをマスターモニターにできる準備（将来的にWebSocket）
 - 純粋HTML5 Canvas + JavaScript（軽量・低スペック対応）
 
-デモ:
+Demo for me:
 1. https://cat-nekomaru.github.io/web-opentoonz/
 2. https://cat-nekomaru.github.io/web-opentoonz/index2.html
+
+Sample:
+<img width="95%" alt="Image" src="https://github.com/user-attachments/assets/ac01c73b-0e94-4e76-97c4-eaa783e38c4a" />
