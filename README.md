@@ -21,7 +21,7 @@ Demo:
 UI Layout - 11inch Tablet :  
 <img width="90%" alt="Image" src="https://github.com/user-attachments/assets/b2aa4752-241a-4233-ba8f-fd7d2118fac5" />
 
-<img alt="Image" src="https://github.com/user-attachments/assets/3f2e5e60-201a-4982-9564-acac6170fbe4" />
+<img width="90%" alt="Image" src="https://github.com/user-attachments/assets/3f2e5e60-201a-4982-9564-acac6170fbe4" />
 
 <table border="1" style="color: #fff;">
     <tr align="center" bgcolor=#404060>
@@ -45,12 +45,12 @@ UI Layout - 11inch Tablet :
 </table>
 
 UI Layout - 8inch Tablet :  
-<img width="350" height="560" alt="Image" src="https://github.com/user-attachments/assets/eca5415e-02a5-4db3-a535-f10b7c32723f" />
+<img width="75%" alt="Image" src="https://github.com/user-attachments/assets/eca5415e-02a5-4db3-a535-f10b7c32723f" />
 
 <table border="1" style="color: #fff;">
     <tr align="center" bgcolor=#404060>
         <td>.　　A, B　　.<BR>button</td>
-        <td>.　　H　　.<BR>text</td>
+        <td>.　H　.<BR>text</td>
         <td colspan="2">.　　C, D, E, F, G　　.<BR>button</td>
     </tr>
     <tr align="center" valign="center" bgcolor=#404050>
@@ -75,7 +75,7 @@ UI Layout - Smartphone :
         <td>C, D, E, F, G<BR>button</td>
     </tr>
     <tr align="center" valign="center" bgcolor=#404050>
-        <td><br><br><u>Interface ID:</u> I<br>.　　<u>Interface Type:</u> canvas　　.<br><br><br></td>
+        <td><br><br><br><u>Interface ID:</u> I<br>.　　<u>Interface Type:</u> canvas　　.<br><br><br><br></td>
     </tr>
     <tr align="center" bgcolor=#50404>
         <td>Q, R, S, T, U<br>button</td>
