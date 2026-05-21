@@ -18,11 +18,40 @@ Demo:
 1. https://cat-nekomaru.github.io/web-opentoonz/
 2. https://cat-nekomaru.github.io/web-opentoonz/index2.html
 
-Sample:  
+UI Layout - Tablet :  
 <img width="90%" alt="Image" src="https://github.com/user-attachments/assets/b2aa4752-241a-4233-ba8f-fd7d2118fac5" />
 
 <img width="90%" alt="Image" src="https://github.com/user-attachments/assets/3f2e5e60-201a-4982-9564-acac6170fbe4" />
 
+<table border="1" width="90%">
+    <tr align="center" bgcolor=#443>
+        <td>[I/F id] A, B<BR>[type] button</td><td colspan="2">H<BR>text</td><td>C, D, E, F, G<BR>button</td>
+    </tr>
+    <tr align="center" valign="center" bgcolor=#445>
+        <td colspan="4"><br><br><br>I<br>canvas<br><br><br><br></td>
+    </tr>
+    <tr align="center">
+        <td rowspan="2" bgcolor=#444>J, K<br>widget<br>(toggle)</td>
+        <td bgcolor=#544>O<br>button</td><td bgcolor=#544>Q, R, S, T, U<br>button</td><td rowspan="2" bgcolor=#444>L, M, N<br>widget<br>(toggle)</td>
+    </tr>
+    <tr align="center" bgcolor=#655>
+        <td>P<br>button</td><td>V, W, X, Y, Z<br>button</td>
+    </tr>
+</table>
+
+UI Layout - Smartphone :  
 <img width="55%" alt="Image" src="https://github.com/user-attachments/assets/24c27b4b-f356-4646-9f86-1fb202f2d423" />
+
+<table border="1" width="50%">
+    <tr align="center" bgcolor=#655>
+        <td>[I/F id] C, D, E, F, G<BR>[type] button</td>
+    </tr>
+    <tr align="center" valign="center" bgcolor=#445>
+        <td><br><br>I<br>canvas<br><br><br></td>
+    </tr>
+    <tr align="center" bgcolor=#544>
+        <td>Q, R, S, T, U<br>button</td>
+    </tr>
+</table>
 
 🐾
