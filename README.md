@@ -25,9 +25,9 @@ UI Layout - 11inch Tablet :
 
 <table border="1" style="color: #fff;">
     <tr align="center" bgcolor=#404060>
-        <td>.　　A, B　　.<BR>button</td>
+        <td>A, B<BR>button</td>
         <td colspan="2">H<BR>text</td>
-        <td>.　C, D, E, F, G　.<BR>button</td>
+        <td>C, D, E, F, G<BR>button</td>
     </tr>
     <tr align="center" valign="center" bgcolor=#404050>
         <td colspan="4">
@@ -36,7 +36,7 @@ UI Layout - 11inch Tablet :
     </tr>
     <tr align="center">
         <td rowspan="2" bgcolor=#404040>J, K<br>widget<br>(toggle)</td>
-        <td bgcolor=#504040>O<br>button</td><td bgcolor=#504040>.　Q, R, S, T, U　.<br>button</td>
+        <td bgcolor=#504040>O<br>button</td><td bgcolor=#504040>Q, R, S, T, U<br>button</td>
         <td rowspan="2" bgcolor=#404040>L, M, N<br>widget<br>(toggle)</td>
     </tr>
     <tr align="center" bgcolor=#605050>
@@ -49,9 +49,9 @@ UI Layout - 8inch Tablet :
 
 <table border="1" style="color: #fff;">
     <tr align="center" bgcolor=#404060>
-        <td>.　　A, B　　.<BR>button</td>
-        <td>.　H　.<BR>text</td>
-        <td colspan="2">.　　C, D, E, F, G　　.<BR>button</td>
+        <td>A, B<BR>button</td>
+        <td>H<BR>text</td>
+        <td colspan="2">C, D, E, F, G<BR>button</td>
     </tr>
     <tr align="center" valign="center" bgcolor=#404050>
         <td colspan="4">
@@ -75,7 +75,7 @@ UI Layout - Smartphone :
         <td>C, D, E, F, G<BR>button</td>
     </tr>
     <tr align="center" valign="center" bgcolor=#404050>
-        <td><br><br><br><u>Interface ID:</u> I<br>.　　<u>Interface Type:</u> canvas　　.<br><br><br><br></td>
+        <td><br><br><br><u>Interface ID:</u> I<br>.　<u>Interface Type:</u> canvas　.<br><br><br><br></td>
     </tr>
     <tr align="center" bgcolor=#50404>
         <td>Q, R, S, T, U<br>button</td>
