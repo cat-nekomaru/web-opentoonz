@@ -16,14 +16,14 @@
 
 - Today's Achievements
   - docs: `README.md`を更新
-  - docs: `tlw2_format.md`を作成
+  - docs: `tlw2-format.md`を作成
 
 - Key Learnings
   - `README.md`にPNG画像（w:700）とTableタグのUIレイアウトを追加
   - ⬇︎ Amazon Fire HD 8タブレットのUIイメージ図
   - ⬇︎ 解像度：800 x 1200px
   - ⬇︎ I/F識別子：<kbd>A～K, O～U</kbd>のカービン版
-  - `tlw2_format.md`を作成
+  - `tlw2-format.md`を作成
   - ⬇︎ 専用のファイルフォーマットを作ることにした
   - ⬇︎ Grokにて文章の修正を行なった
   
