@@ -6,7 +6,6 @@
 🦉
 
 ## Memo | Recent Ideas & TODO
-- README.mdを人間が書いたものに差し替える。不自然なことが問題
 - 本家OpenToonzのQtフレームワークに近いUIを狙う。学習コストの低減
 - 「SSH認証」の知識になるものを探す
 - `Acode editor` for AndroidのGitHubの環境構築
@@ -17,19 +16,23 @@
 
 - Today's Achievements
   - docs: `README.md`を更新
-  - ＊
+  - docs: `tlw2_format.md`を作成
 
 - Key Learnings
   - `README.md`にPNG画像（w:700）とTableタグのUIレイアウトを追加
   - ⬇︎ Amazon Fire HD 8タブレットのUIイメージ図
   - ⬇︎ 解像度：800 x 1200px
   - ⬇︎ I/F識別子：<kbd>A～K, O～U</kbd>のカービン版
-  - ＊
-
+  - `tlw2_format.md`を作成
+  - ⬇︎ 専用のファイルフォーマットを作ることにした
+  - ⬇︎ Grokにて文章の修正を行なった
+  
 - Reflections
-  - ＊
+  - 作りやすいものと使いやすいものにズレがあることに戸惑っている。
+  - 専用ファイルを作ることでAIコーディングがコントロールできることを思いついた。実際にどうなるのかは分からないけれど、参考になるソフトウェアがなければAIは上手く動いてはくれないのは確かだ。
+  - JavaScript + Canvasの環境だとPNGフォーマットが最適解に思える。使わないと判断できないので、ダメならやり直す作戦を取るようにしたい。
 
-. . . **Score**: ⭐️/5  
+. . . **Score**: 4/5  
 . . . **Update**: 2026-5-22  
 
 
