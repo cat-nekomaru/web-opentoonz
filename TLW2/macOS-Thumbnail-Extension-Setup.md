@@ -1,9 +1,9 @@
 # macOS Thumbnail Extension 実装手順
 
-**作成日:** 2026-05-23  
+**作成日:** 2026-5-23  
 **環境:** macOS 26.5, Xcode 26.5  
 **目的:** `.tlw2`形式ファイルの`Preview Blocks`領域に埋め込んだサムネイル画像を、Finderアイコンに表示させる
-**展望：** `QuickLook Preview Extension`（macOS：Spaceキーでアニメーションを再生できる機能）に対応させるとかなり便利だろうね
+**展望：** 将来的には`QuickLook Preview Extension`にも対応し、Spaceキーを押した際にアニメーションを再生できるようにしたいと考えています。これにより、Finder上での確認作業が大幅に快適になるはずです
 
 <div align="center">
 <img width="350" alt="Image" src="https://github.com/user-attachments/assets/956407ad-cda1-432d-bae8-52a28e1d730b" />
@@ -122,8 +122,9 @@ killall Finder
 ```
 Finderで `.tlw2` ファイルを確認
 
+<div align="center">
 <img width="380" alt="Image" src="https://github.com/user-attachments/assets/83587cdb-d3bf-441c-b2af-eb4dbb7e1645" />
-
+</div>
 
 🐾
 ---
