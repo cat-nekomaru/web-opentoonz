@@ -1,3 +1,6 @@
+# top
+#
+
 # Mac OS specific files
 .DS_Store
 .DS_Store?
@@ -17,6 +20,43 @@ dist/
 *.bak
 *.tmp
 tmp/
+
+# ---- add : 2026-5-23 ----
+
+# Android Studio / Gradle / Kotlin
+.gradle/
+build/
+captures/
+.externalNativeBuild/
+.cxx/
+local.properties
+System-images/
+.android/
+*.apk
+*.aar
+*.keystore
+*.jks
+
+# Android Studio internal files
+.idea/caches/
+.idea/libraries/
+.idea/modules.xml
+.idea/workspace.xml
+.idea/nav/
+.idea/assetWizardSettings.xml
+*.iml
+
+# Code Generation / AI Tools
+.copilot/
+.grok/
+
+# Project OS / Editor Specific
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
 
 #
 # eof
