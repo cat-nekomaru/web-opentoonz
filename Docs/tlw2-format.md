@@ -27,14 +27,22 @@
 
 ## ファイル構造
 
-※[Header]から[PNG Data Blocks]までは、各セクションおよび各画像データの開始位置がすべて512バイト境界（アライメント）に配置されます。
+※ [Header] から [PNG Data Blocks] までは、すべてのセクション開始位置が512バイト境界にアライメントされます。
 
 ```text
-[Header]          1024バイト固定（ASCII/Unicodeテキスト）
-[Preview Blocks]  512バイトアライメント（可変長, バイナリ）
-[Index Table]     512バイトアライメント（可変長, ASCIIテキスト）
-[PNG Data Blocks] 512バイトアライメント（可変長）
-[Footer]          任意（アライメント対象外 / 使用例：シーン.xml, パレット.xmlなど）
+[Header]           1024バイト固定（ASCII/UTF-8）
+                   └ macOS: magic number + version + basic info
+
+[Preview Blocks]   512バイトアライメント（先頭に配置）
+                   └ 必須：1枚以上の合成画像（JPEG/PNG）
+                   └ 目的：macOS, Windows, モバイル用Appで共通利用
+
+[Index Table]      512バイトアライメント（UTF-8 JSON）
+                   └ preview情報、フレーム情報、metadataを詳細記述
+
+[PNG Data Blocks]  512バイトアライメント
+
+[Footer]           任意（XML/JSONなど）
 ```
 
 ---
