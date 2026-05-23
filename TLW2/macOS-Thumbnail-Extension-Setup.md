@@ -9,14 +9,15 @@ Header          # 1024バイト固定（ASCII/UTF-8）
 Preview Blocks  # 512バイトアライメント　← Thumbnail Extensionがここを主に読む
 Index Table     # 512バイトアライメント（UTF-8 JSON）
 PNG Data Blocks # 512バイトアライメント
-Footer          # 任意Headerの先頭例（1024バイト固定）
+Footer          
+
+# 任意Headerの先頭例（1024バイト固定）
 TZW2_FORMAT v0.2
 version=0.2
 width=500
 height=500
 previewCount=1
 indexOffset=1024
-
 ```
 
 1024バイトまで0x00でパディング。Preview Blocksには代表フレームの合成画像（PNG）を先頭に入れるのが推奨    
@@ -26,11 +27,13 @@ indexOffset=1024
 
 ### 手順1: プロジェクト作成Xcodeを起動
 
-- macOS App を新規作成（仮のAppでOK）  
-- プロジェクト作成後、
+macOS App を新規作成（仮のAppでOK）  
+プロジェクト作成後、
 - 左側のプロジェクト名を右クリック → Add Target
 - Thumbnail Extension を検索して追加
 - Extension名例: WebOpenToonzThumbnailExtension
+
+<img width="1032" height="868" alt="Image" src="https://github.com/user-attachments/assets/6972e8e1-a85d-4ef7-b619-949492a278d7" />
 
 ### 手順2: .tlw2 の UTI 登録（メインターゲット側）左側でメインターゲットを選択
 Info タブを開く  
@@ -40,6 +43,8 @@ Info タブを開く
 - Identifier: com.cat-nekomaru.tlw2
 - Conforms To: public.data
 - Extensions: tlw2
+
+<img width="1101" height="632" alt="Image" src="https://github.com/user-attachments/assets/31ff0a42-4e49-4fef-906a-d705c427e59a" />
 
 ### 手順3: Extension側の設定左側で WebOpenToonzThumbnailExtension を選択
 
@@ -51,10 +56,11 @@ Key: QLSupportedContentTypes
 Type: Array
 配列の中に com.cat-nekomaru.tlw2 を追加
 ```
+<img width="1172" height="539" alt="Image" src="https://github.com/user-attachments/assets/d6b55c86-b985-42bd-8931-f2a59a60fa48" />
 
 ### 手順4: ThumbnailProvider.swift の実装—ThumbnailProvider.swift を開く
 
-- 内容をすべて以下に置き換える：
+内容をすべて以下に置き換える：
 
 ```swift
 import QuickLookThumbnailing
@@ -91,17 +97,22 @@ class ThumbnailProvider: QLThumbnailProvider {
     }
 }
 ```
+<img width="1333" height="975" alt="Image" src="https://github.com/user-attachments/assets/d8e3c240-1f91-4898-89b0-731a969c47dc" />
 
 ## テスト方法
 
-- Xcodeで Run を実行（Extensionをインストール）  
-- ターミナルで以下を実行：
+Xcodeで Run を実行（Extensionをインストール）  
+ターミナルで以下を実行：
 
 ```sh
 qlmanage -r
 qlmanage -r cache
 killall Finder
 ```
-- Finderで `.tlw2` ファイルを確認
+Finderで `.tlw2` ファイルを確認
+
+<img width="606" height="568" alt="Image" src="https://github.com/user-attachments/assets/83587cdb-d3bf-441c-b2af-eb4dbb7e1645" />
+
+<img width="581" height="471" alt="Image" src="https://github.com/user-attachments/assets/956407ad-cda1-432d-bae8-52a28e1d730b" />
 
 🐾
