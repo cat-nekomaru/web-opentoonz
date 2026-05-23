@@ -1,13 +1,15 @@
-# macOS Thumbnail Extension 実装手順
+## macOS 26.5 - Thumbnail Extension 実装メモ
 
 **作成日:** 2026-5-23  
 **環境:** macOS 26.5, Xcode 26.5  
-**目的:** `.tlw2`形式ファイルの`Preview Blocks`領域に埋め込んだサムネイル画像を、Finderアイコンに表示させる
+**目的:** `.tlw2`形式ファイルの`Preview Blocks`領域に埋め込んだサムネイル画像を、Finderアイコンに表示させる  
 **展望：** 将来的には`QuickLook Preview Extension`にも対応し、Spaceキーを押した際にアニメーションを再生できるようにしたいと考えています。これにより、Finder上での確認作業が大幅に快適になるはずです
 
 <div align="center">
 <img width="350" alt="Image" src="https://github.com/user-attachments/assets/956407ad-cda1-432d-bae8-52a28e1d730b" />
 </div>
+
+---
 
 ## `.tlw2` ファイル構造（重要）
 
@@ -29,8 +31,9 @@ indexOffset=1024
 
 1024バイトまで0x00でパディング。Preview Blocksには代表フレームの合成画像（PNG）を先頭に入れるのが推奨    
 
+---
 
-# XcodeでThumbnail Extensionを作成する手順
+# Xcode 26.5 - Thumbnail Extensionを作成する
 
 ## 手順1: プロジェクト作成Xcodeを起動
 
@@ -68,9 +71,9 @@ Type: Array
 ```
 <img width="1172" height="539" alt="Image" src="https://github.com/user-attachments/assets/d6b55c86-b985-42bd-8931-f2a59a60fa48" />
 
-## 手順4: ThumbnailProvider.swift の実装
+## 手順4: ThumbnailProvider.swift
 
-ThumbnailProvider.swift を開く  
+ThumbnailProvider.swift を開いて、  
 内容をすべて以下に置き換える：
 
 ```swift
@@ -112,7 +115,7 @@ class ThumbnailProvider: QLThumbnailProvider {
 
 ## テスト方法
 
-Xcodeで Run を実行（Extensionをインストール）  
+Xcodeでビルドを実行 <kbd>⌘ + B</kbd>（Extensionをインストール）  
 ターミナルで以下を実行：
 
 ```sh
