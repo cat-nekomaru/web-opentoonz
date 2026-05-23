@@ -1,6 +1,6 @@
 # .TLW2 - Sequential Image File Format
 
-**OpenToonz-Web** に最適化した独自のセル画フォーマット（type-2）。
+**Web-OpenToonz** に最適化した独自のセル画フォーマット（type-2）。
 
 `.tlv`（OpenToonz標準）の設計が複雑かつ古いため、独自路線で設計することにした。  
 `.tlw`（ZIPベースの本命フォーマット）を作る前に、**高速検証・テスト用**として先に`.tlw2`の仕様を固めることになった。
