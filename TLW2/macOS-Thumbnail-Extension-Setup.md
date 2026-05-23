@@ -1,6 +1,12 @@
-## macOS Thumbnail Extension 実装手順（.tlw2対応）作成日: 2026-05-23
+## macOS Thumbnail Extension 実装手順（.tlw2対応）
 
-**目的:** `.tlw2`ファイルのFinderアイコンにPreview Blocksの画像を表示する
+**作成日:** 2026-05-23  
+**環境:** macOS 26.5, Xcode 26.5  
+**目的:** `.tlw2`形式ファイルの`Preview Blocks`に埋め込んだサムネイル画像を、Finderアイコンで表示させる
+
+<div align="center">
+<img width="350" alt="Image" src="https://github.com/user-attachments/assets/956407ad-cda1-432d-bae8-52a28e1d730b" />
+</div>
 
 ### `.tlw2` ファイル構造（重要）
 
@@ -35,7 +41,9 @@ macOS App を新規作成（仮のAppでOK）
 
 <img width="1032" height="868" alt="Image" src="https://github.com/user-attachments/assets/6972e8e1-a85d-4ef7-b619-949492a278d7" />
 
-### 手順2: .tlw2 の UTI 登録（メインターゲット側）左側でメインターゲットを選択
+### 手順2: `.tlw2` の UTI 登録
+
+左側でメインターゲットを選択  
 Info タブを開く  
 `Exported Type Identifiers` の <kbd>+</kbd> をクリック
 以下を入力：
@@ -46,8 +54,9 @@ Info タブを開く
 
 <img width="1101" height="632" alt="Image" src="https://github.com/user-attachments/assets/31ff0a42-4e49-4fef-906a-d705c427e59a" />
 
-### 手順3: Extension側の設定左側で WebOpenToonzThumbnailExtension を選択
+### 手順3: Extension側の設定
 
+- 左側で WebOpenToonzThumbnailExtension を選択
 - Info タブを開く  
 - NSExtension → NSExtensionAttributes を展開  
 - NSExtensionAttributes で <kbd>+</kbd> をクリック
@@ -58,8 +67,9 @@ Type: Array
 ```
 <img width="1172" height="539" alt="Image" src="https://github.com/user-attachments/assets/d6b55c86-b985-42bd-8931-f2a59a60fa48" />
 
-### 手順4: ThumbnailProvider.swift の実装—ThumbnailProvider.swift を開く
+### 手順4: ThumbnailProvider.swift の実装
 
+ThumbnailProvider.swift を開く  
 内容をすべて以下に置き換える：
 
 ```swift
@@ -111,8 +121,11 @@ killall Finder
 ```
 Finderで `.tlw2` ファイルを確認
 
-<img width="606" height="568" alt="Image" src="https://github.com/user-attachments/assets/83587cdb-d3bf-441c-b2af-eb4dbb7e1645" />
+<img width="450" alt="Image" src="https://github.com/user-attachments/assets/83587cdb-d3bf-441c-b2af-eb4dbb7e1645" />
 
-<img width="581" height="471" alt="Image" src="https://github.com/user-attachments/assets/956407ad-cda1-432d-bae8-52a28e1d730b" />
 
 🐾
+---
+
+**2026-05-23** | version: 0.1
+- 初版作成
