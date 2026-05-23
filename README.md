@@ -1,5 +1,15 @@
 # 🇺🇸Web-OpenToonz
-Web-based OpenToonz compatible drawing app (HTML5 Canvas) - Mobile First, Portrait Default
+
+An open-source, next-generation web/mobile toolkit optimized for traditional 2D animation workflows.
+
+## The .TLW2 Format: Designed for Speed & Robustness
+
+While the ultimate goal of this project is to develop `.tlw` (a ZIP-based complete production format), we created **`.tlw2`** as a lightweight, sequential image file format specifically designed for **high-speed validation, instant previews, and robust file I/O benchmarking**.
+
+### Why `.tlw2` is built differently:
+- **Zero-Calculation Previews**: By placing a 2500-byte capped preview block immediately after the 1024-byte fixed header, any viewer can stream and render the first frame instantly by reading just the first 4KB of the file.
+- **512-Byte Sector Alignment**: Every binary block is strictly aligned to 512-byte boundaries, mimicking hardware-level sector storage. This maximizes OS file I/O cache efficiency and simplifies internal pointer calculations.
+- **Fail-Safe / Self-Proving Structure**: Even if the `Index Table` is corrupted or lost due to a write failure, a simple binary scan for the PNG signature and the `IEND` (stop byte) marker allows 100% recovery of the embedded thumbnails.
 
 🗽
 # 🇯🇵Web-OpenToonz
