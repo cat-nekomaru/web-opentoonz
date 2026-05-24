@@ -154,11 +154,11 @@ Finderで `.tlw2` ファイルを確認すれば完了
 # pluginkit → 存在しているかをchk（web-opentoonzの場合）
 pluginkit -vmA | grep -i webopentoonz
 
-# pluginkit → 停止させる（nekomaruの場合）
-pluginkit -e ignore -i nekomaru.WebOpenToonzThumbnail.WebOpenToonzThumbnailExtension
+# pluginkit → 停止させる
+pluginkit -e ignore -i <YOUR_BUNDLE_ID>
 
-# フォルダごと削除する（nekoの場合）
-rm -rf "/Users/neko/Library/Developer/Xcode/DerivedData/WebOpenToonzThumbnail-*"
+# フォルダごと削除する
+rm -rf "/Users/<ホームディレクトリ>/Library/Developer/Xcode/DerivedData/<プロジェクト名>-*"
 ```
 
 <img width="680" height="290" alt="Image" src="https://github.com/user-attachments/assets/dfee5103-806a-4e0b-a383-b3e3ecd307ab" />  
