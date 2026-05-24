@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>WebGL Canvas Viewer</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #111;
+      display: flex;
+      flex-direction: column;
+      height: 100dvh;        /* dynamic viewport height（モバイル対応）*/
+      overflow: hidden;
+      font-family: monospace;
+    }
+
+    #info {
+      color: #8f8;
+      font-size: 11px;
+      padding: 4px 8px;
+      background: rgba(0,0,0,0.6);
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    #glcanvas {
+      /* オリジナル(2行カット) */
+      /* flex: 1;               /* 残り全高さを使う */
+      /* width: 100%;
+
+      /* 改善版（4行追加） */
+      /* 短い辺に合わせた正方形 */
+      width:  min(100vw, 100dvh);
+      height: min(100vw, 100dvh);
+      margin: auto;   /* 余白を中央寄せ */
+
+      display: block;
+      touch-action: none;    /* ブラウザのスクロール・ズームを無効化 */
+    }
+  </style>
+</head>
+<body>
+  <div id="info">読み込み中...</div>
+  <canvas id="glcanvas"></canvas>
+
+  <!-- type="module" で ES modules を使用（GitHub Pages でも動作） -->
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>

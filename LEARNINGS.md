@@ -12,10 +12,26 @@
 
 🕊️
 
+## 2026-5-24 | Day 7
+
+- Today's Achievements
+  - `index3.html`, `srcフォルダ`などを配置
+  - ⭐️書ききかけ
+
+- Key Learnings
+  - ⭐️GPUのテスト
+  - ＊
+
+- Reflections
+  - ＊
+
+. . . **Score**: 4/5  
+. . . **Update**: 2026-5-24  
+
 ## 2026-5-23 | Day 6
 
 - Today's Achievements
-  - macOSの`Thumbnail Extension`を作成
+  - macOS`Thumbnail Extension`を作成（Finderアイコン表示対応）
   - `TLW2/macOS-Thumbnail-Extension-Setup.md`を作成
   - フォルダ名を docs→TLW2 に変更
 
