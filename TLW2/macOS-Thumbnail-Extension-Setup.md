@@ -29,14 +29,15 @@ previewCount=1
 indexOffset=1024
 ```
 
-1024バイトまで0x00でパディング。Preview Blocksには代表フレームの合成画像（PNG）を先頭に入れるのが推奨    
+1024バイトまで0x00でパディング。Preview Blocksには代表フレームの合成画像（PNG）を先頭に入れることを推奨    
 
 ---
 
 # Xcode 26.5 - Thumbnail Extensionを作成する
 
-## 手順1: プロジェクト作成Xcodeを起動
+## 手順1: Xcodeのプロジェクト作成
 
+Xcodeを起動する  
 macOS App を新規作成（仮のAppでOK）  
 プロジェクト作成後、
 - 左側のプロジェクト名を右クリック → Add Target
@@ -45,11 +46,11 @@ macOS App を新規作成（仮のAppでOK）
 
 <img width="1032" height="868" alt="Image" src="https://github.com/user-attachments/assets/6972e8e1-a85d-4ef7-b619-949492a278d7" />
 
-## 手順2: `.tlw2` の UTI 登録
+## 手順2: `.tlw2`のUTIを登録
 
 左側でメインターゲットを選択  
 Info タブを開く  
-`Exported Type Identifiers` の <kbd>+</kbd> をクリック
+`Exported Type Identifiers` の <kbd>+</kbd> をクリック  
 以下を入力：
 - Description: TLW2 File Format
 - Identifier: com.cat-nekomaru.tlw2
@@ -123,7 +124,7 @@ qlmanage -r
 qlmanage -r cache
 killall Finder
 ```
-Finderで `.tlw2` ファイルを確認
+Finderで `.tlw2` ファイルを確認すれば完了
 
 <div align="center">
 <img width="380" alt="Image" src="https://github.com/user-attachments/assets/83587cdb-d3bf-441c-b2af-eb4dbb7e1645" />
