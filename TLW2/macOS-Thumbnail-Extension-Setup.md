@@ -40,13 +40,16 @@ indexOffset=1024
 Xcodeを起動する  
 macOS App を新規作成（仮のAppでOK）  
 プロジェクト作成後、
-- 左側のプロジェクト名を選択 ＞ Editメニュー ＞ <kbd>Add Target...</kbd>
+- 左側のプロジェクト名を選択 ＞ Editorメニュー ＞ <kbd>Add Target...</kbd>
 - Thumbnail Extension を検索して追加
 - Extension名例: WebOpenToonzThumbnailExtension
 
+<img width="1032" height="868" alt="Image" src="https://github.com/user-attachments/assets/6972e8e1-a85d-4ef7-b619-949492a278d7" />  
+
+（もしくは下部にある<kbd>+</kbd>をクリックする ⬇︎）  
+
 <img width="489" height="388" alt="Image" src="https://github.com/user-attachments/assets/3f721165-e400-4999-8d77-cafa8317c0f1" />
 
-<img width="1032" height="868" alt="Image" src="https://github.com/user-attachments/assets/6972e8e1-a85d-4ef7-b619-949492a278d7" />
 
 ## 手順2: `.tlw2`のUTIを登録
 
