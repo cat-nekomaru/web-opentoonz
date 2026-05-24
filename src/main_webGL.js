@@ -1,8 +1,8 @@
 // -----------------------------------------------
-// main.js — WebGL初期化・テクスチャ・描画ループ
+// main_webGL.js — WebGL初期化・テクスチャ・描画ループ
 // -----------------------------------------------
 
-import { VERT_SRC, FRAG_SRC } from './shader.js';
+import { VERT_SRC, FRAG_SRC } from './shader_webGL.js';
 import { setupInteraction } from './interaction.js';
 
 const canvas = document.getElementById('glcanvas');
