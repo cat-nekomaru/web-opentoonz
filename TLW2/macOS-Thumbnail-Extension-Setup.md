@@ -7,7 +7,8 @@
 
 <div align="center">
 <img width="350" alt="Image" src="https://github.com/user-attachments/assets/956407ad-cda1-432d-bae8-52a28e1d730b" />
-</div>
+</div>  
+<img width="340" height="184" alt="Image" src="https://github.com/user-attachments/assets/c259fff8-437e-49ee-b20e-8fd83d8f8d24" />
 
 ---
 
@@ -63,7 +64,7 @@ Info タブを開く
 - Conforms To: public.data
 - Extensions: tlw2
 
-<img width="1101" height="632" alt="Image" src="https://github.com/user-attachments/assets/31ff0a42-4e49-4fef-906a-d705c427e59a" />
+<img width="1101" height="632" alt="Image" src="https://github.com/user-attachments/assets/2c99a38e-313e-403d-bb68-f5b3cb364a03" />
 
 ## 手順3: Extension側の設定
 
@@ -136,8 +137,58 @@ Finderで `.tlw2` ファイルを確認すれば完了
 <img width="380" alt="Image" src="https://github.com/user-attachments/assets/83587cdb-d3bf-441c-b2af-eb4dbb7e1645" />
 </div>
 
+---
+
+# Thumbnail Extensionを消す～アイコンを登録する
+
+**作成日:** 2026-5-25  
+**環境:** macOS 26.5, Xcode 26.5  
+**目的:** Extensionは登録できたもののアイコンが登録されておらず白いまま。アイコンを登録してみたくなったので、一旦消してから再インストールしました  
+
+## 手順1: ターミナルでコマンドをたたく
+
+起動中のExtensionを停止させてからファイルを削除をするので、
+ターミナルで以下を実行：
+
+```sh
+# pluginkit → 存在しているかをchk（web-opentoonzの場合）
+pluginkit -vmA | grep -i webopentoonz
+
+# pluginkit → 停止させる（nekomaruの場合）
+pluginkit -e ignore -i nekomaru.WebOpenToonzThumbnail.WebOpenToonzThumbnailExtension
+
+# フォルダごと削除する（nekoの場合）
+rm -rf "/Users/neko/Library/Developer/Xcode/DerivedData/WebOpenToonzThumbnail-*"
+```
+
+<img width="680" height="290" alt="Image" src="https://github.com/user-attachments/assets/dfee5103-806a-4e0b-a383-b3e3ecd307ab" />
+
+最後に、FinderをリセットすればOK  
+
+```sh
+qlmanage -r
+qlmanage -r cache
+killall Finder
+```
+
+## 手順2: Xcodeにアイコンを登録してからビルド
+
+Xcodeを起動する  
+プロジェクトを読み込んだら、
+- 左側のプロジェクト名を選択 ＞ Assets.xcassets ＞ AppIcon
+- 1024x1024pxの画像を配置する
+
+<img width="1100" height="707" alt="Image" src="https://github.com/user-attachments/assets/1ab5f5d5-3b9d-4842-987a-a8ef543ae091" />
+
+Xcodeでビルドを実行 <kbd>⌘ + B</kbd>すれば、自動でインストールされます（10秒くらい待つ）
+これで完了です。
+
 🐾
 ---
+
+**2026-05-25** | version: 0.2
+- Extensionの削除方法を追加
+- アイコンの登録方法を追加
 
 **2026-05-23** | version: 0.1
 - 初版作成
