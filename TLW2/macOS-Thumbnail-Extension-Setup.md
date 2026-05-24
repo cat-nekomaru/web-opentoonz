@@ -6,9 +6,9 @@
 **展望：** 将来的には`QuickLook Preview Extension`にも対応し、Spaceキーを押した際にアニメーションを再生できるようにしたいと考えています。これにより、Finder上での確認作業が大幅に快適になるはずです
 
 <div align="center">
-<img width="350" alt="Image" src="https://github.com/user-attachments/assets/956407ad-cda1-432d-bae8-52a28e1d730b" />
+<img width="350" alt="Image" src="https://github.com/user-attachments/assets/956407ad-cda1-432d-bae8-52a28e1d730b" />　　
 </div>  
-<img width="340" height="184" alt="Image" src="https://github.com/user-attachments/assets/c259fff8-437e-49ee-b20e-8fd83d8f8d24" />
+
 
 ---
 
@@ -175,13 +175,19 @@ killall Finder
 
 Xcodeを起動する  
 プロジェクトを読み込んだら、
-- 左側のプロジェクト名 ＞ Assets.xcassets ＞ AppIcon を選択
-- 右側のエリアに1024x1024pxの画像を配置する
+- 左側のプロジェクト名 ＞ Assets ＞ AppIcon を選択
+- 右側に1024x1024pxの画像を配置する
 
 <img width="1100" height="707" alt="Image" src="https://github.com/user-attachments/assets/1ab5f5d5-3b9d-4842-987a-a8ef543ae091" />  
 
-Xcodeでビルドを実行 <kbd>⌘ + B</kbd>すれば、自動でインストールされます（10秒くらい待つ）  
-これで完了です。  
+Xcodeでビルドを実行 <kbd>⌘ + B</kbd>すれば、　　
+自動でインストールされます（10秒くらい待つ）  
+
+<div align="center">
+<img width="340" height="184" alt="Image" src="https://github.com/user-attachments/assets/c259fff8-437e-49ee-b20e-8fd83d8f8d24" />
+</div>  
+
+これで完了です  
 
 🐾
 ---
