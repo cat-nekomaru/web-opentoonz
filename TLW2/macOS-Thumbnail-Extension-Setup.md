@@ -180,7 +180,7 @@ Xcodeを起動する
 
 <img width="1100" height="707" alt="Image" src="https://github.com/user-attachments/assets/1ab5f5d5-3b9d-4842-987a-a8ef543ae091" />  
 
-Xcodeでビルドを実行 <kbd>⌘ + B</kbd>すれば、　　
+Xcodeでビルドを実行 <kbd>⌘ + B</kbd>すれば、  
 自動でインストールされます（10秒くらい待つ）  
 
 <div align="center">
