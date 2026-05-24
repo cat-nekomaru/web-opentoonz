@@ -46,7 +46,8 @@ macOS App を新規作成（仮のAppでOK）
 
 <img width="1032" height="868" alt="Image" src="https://github.com/user-attachments/assets/6972e8e1-a85d-4ef7-b619-949492a278d7" />  
 
-（もしくは下部にある<kbd>+</kbd>をクリックする ⬇︎）  
+（⬆︎ 下部にある<kbd>+</kbd>をクリックでもOK）  
+（⬇︎ Editorから開くやり方はこれ）  
 
 <img width="489" height="388" alt="Image" src="https://github.com/user-attachments/assets/3f721165-e400-4999-8d77-cafa8317c0f1" />
 
