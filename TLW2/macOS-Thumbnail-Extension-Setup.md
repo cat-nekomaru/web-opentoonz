@@ -147,8 +147,8 @@ Finderで `.tlw2` ファイルを確認すれば完了
 
 ## 手順1: ターミナルでコマンドをたたく
 
-起動中のExtensionを停止させてからファイルを削除をするので、
-ターミナルで以下を実行：
+起動中のExtensionを停止させてからファイルを削除をするので、  
+ターミナルで以下を実行：  
 
 ```sh
 # pluginkit → 存在しているかをchk（web-opentoonzの場合）
@@ -161,7 +161,7 @@ pluginkit -e ignore -i nekomaru.WebOpenToonzThumbnail.WebOpenToonzThumbnailExten
 rm -rf "/Users/neko/Library/Developer/Xcode/DerivedData/WebOpenToonzThumbnail-*"
 ```
 
-<img width="680" height="290" alt="Image" src="https://github.com/user-attachments/assets/dfee5103-806a-4e0b-a383-b3e3ecd307ab" />
+<img width="680" height="290" alt="Image" src="https://github.com/user-attachments/assets/dfee5103-806a-4e0b-a383-b3e3ecd307ab" />  
 
 最後に、FinderをリセットすればOK  
 
@@ -175,13 +175,13 @@ killall Finder
 
 Xcodeを起動する  
 プロジェクトを読み込んだら、
-- 左側のプロジェクト名を選択 ＞ Assets.xcassets ＞ AppIcon
-- 1024x1024pxの画像を配置する
+- 左側のプロジェクト名 ＞ Assets.xcassets ＞ AppIcon を選択
+- 右側のエリアに1024x1024pxの画像を配置する
 
-<img width="1100" height="707" alt="Image" src="https://github.com/user-attachments/assets/1ab5f5d5-3b9d-4842-987a-a8ef543ae091" />
+<img width="1100" height="707" alt="Image" src="https://github.com/user-attachments/assets/1ab5f5d5-3b9d-4842-987a-a8ef543ae091" />  
 
-Xcodeでビルドを実行 <kbd>⌘ + B</kbd>すれば、自動でインストールされます（10秒くらい待つ）
-これで完了です。
+Xcodeでビルドを実行 <kbd>⌘ + B</kbd>すれば、自動でインストールされます（10秒くらい待つ）  
+これで完了です。  
 
 🐾
 ---
