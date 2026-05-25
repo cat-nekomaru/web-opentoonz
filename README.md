@@ -27,7 +27,8 @@ While the ultimate goal of this project is to develop `.tlw` (a ZIP-based comple
 Demo:  
 1. https://cat-nekomaru.github.io/web-opentoonz/
 2. https://cat-nekomaru.github.io/web-opentoonz/index2.html
-3. https://cat-nekomaru.github.io/web-opentoonz/index3.html ⭐️NEW
+3. https://cat-nekomaru.github.io/web-opentoonz/index3.html
+4. https://cat-nekomaru.github.io/web-opentoonz/index3_02.html ⭐️NEW
 
 UI Layout - 11inch Tablet :  
 <img width="90%" alt="Image" src="https://github.com/user-attachments/assets/b2aa4752-241a-4233-ba8f-fd7d2118fac5" />
