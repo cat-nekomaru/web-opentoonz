@@ -3,7 +3,7 @@
 wip rn. thx.
 
 <div align="center">
-<img width="550" alt="Image" src="https://github.com/user-attachments/assets/7b5370f4-6932-4521-8f07-2010d1f3e524" />
+<img width="550" alt="Image" src="https://github.com/user-attachments/assets/dee84705-6918-41e1-9d9b-de23e6ab9fcf" />
 </div>  
 
 🐾
