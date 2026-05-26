@@ -12,7 +12,7 @@
 
 🕊️
 
-## 2026-5-＊ | Day 9
+## 2026-5-26 | Day 9
 
 - Today's Achievements
   - feat: `index5.html` 3Dオブジェクトの検証
