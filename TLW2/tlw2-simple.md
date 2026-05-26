@@ -3,9 +3,8 @@
 wip rn. thx.
 
 <div align="center">
-<img width="450" alt="Image" src="https://github.com/user-attachments/assets/9921959d-1158-496c-baac-d2af0a281a68" />
+<img width="550" alt="Image" src="https://github.com/user-attachments/assets/7b5370f4-6932-4521-8f07-2010d1f3e524" />
 </div>  
-
 
 🐾
 ---
