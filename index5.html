@@ -230,14 +230,30 @@ function buildFaceGeom(fi, faceVtx) {
   const C3 = N.slice(); // 面法線方向 = 球面上の中心
 
   const pos=[], uv=[], norm=[], fid=[];
+  
+  // ★重要：調整用の角度オフセット
+  const angleOffset = -Math.PI / (2/3);
+
+  // ★重要：UVのスケール（はみ出し修正用）
+  // 元の 0.42 だとはみ出しているなら、数値を小さくします。
+  // 例えば 0.38 や 0.35 にして試してみてください。
+  const uvScale = 0.5 + 0.03;   // ⭐️ 
+
   for (let t = 0; t < 5; t++) {
     const p0 = pts[t], p1 = pts[(t+1)%5];
-    // UV: セル内 [0,1]×[0,1], 五角形半径0.42
-    const lu0 = 0.5 + (p0.u/maxR)*0.42, lv0 = 0.5 - (p0.v/maxR)*0.42;
-    const lu1 = 0.5 + (p1.u/maxR)*0.42, lv1 = 0.5 - (p1.v/maxR)*0.42;
+    
+    // 角度を計算
+    const a0 = Math.atan2(p0.v, p0.u) + angleOffset;
+    const a1 = Math.atan2(p1.v, p1.u) + angleOffset;
+
+    // UV: セル内 [0,1]×[0,1]
+    // 基準点を中心 (0.5, 0.5) に固定し、uvScale でサイズ、angleOffsetで回転
+    const lu0 = 0.5 + Math.cos(a0) * uvScale, lv0 = 0.5 - Math.sin(a0) * uvScale;
+    const lu1 = 0.5 + Math.cos(a1) * uvScale, lv1 = 0.5 - Math.sin(a1) * uvScale;
 
     // 三角形: 中心, p0, p1
     pos.push( ...C3,          ...VERTS[p0.idx], ...VERTS[p1.idx] );
+    // 中心点 (fi, .5, .5) も angleOffset の影響を受けるべきではないのでそのまま
     uv.push(  ...atlasUV(fi,.5,.5), ...atlasUV(fi,lu0,lv0), ...atlasUV(fi,lu1,lv1) );
     norm.push(...N,...N,...N);
     fid.push(fi, fi, fi);
@@ -295,14 +311,20 @@ gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
 gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
 
 const img = new Image();
-img.onload = () => {
-  gl.bindTexture(gl.TEXTURE_2D, tex);
+img.onload = () => {    // ⭐️修正：入れ替え
+gl.bindTexture(gl.TEXTURE_2D, tex);
   gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, img);
-  gl.generateMipmap(gl.TEXTURE_2D);
-  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR_MIPMAP_LINEAR);
+  
+  // ★重要: エラーの原因だった gl.generateMipmap(gl.TEXTURE_2D); を削除します
+  
+  // ★2の累乗以外の画像でも動くように、縮小フィルターを LINEAR に変更
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
   gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+  
+  // 念のため繰り返し設定も制限に合わせて固定
   gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
   gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+  
   log('✔ テクスチャ読込完了: ' + img.width + '×' + img.height);
 };
 img.onerror = () => {
