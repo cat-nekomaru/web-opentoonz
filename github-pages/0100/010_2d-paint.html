@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>ねこ描き - Web OpenToonz Demo</title>
+  <style>
+    body { margin:0; padding:0; background:#111; font-family:sans-serif; overflow:hidden; }
+    #header { background:#1a1a1a; color:#fff; text-align:center; padding:10px; font-size:18px; }
+    #canvas { background:#222; display:block; margin:0 auto; touch-action:none; }
+    #toolbar { 
+      position:fixed; bottom:0; left:0; right:0; height:180px; 
+      background:#1a1a1a; border-top:2px solid #333; 
+      display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:10px; padding:10px;
+    }
+    button { padding:12px 20px; font-size:16px; background:#333; color:white; border:none; border-radius:8px; }
+  </style>
+</head>
+<body>
+  <div id="header">ねこ描き Web Demo（縦持ち最適）</div>
+  <canvas id="canvas"></canvas>
+
+  <div id="toolbar">
+    <button onclick="clearCanvas()">クリア</button>
+    <button onclick="changeColor('#ff0000')">赤</button>
+    <button onclick="changeColor('#00ff00')">緑</button>
+    <button onclick="changeColor('#0000ff')">青</button>
+    <button onclick="changeColor('#ffffff')">白</button>
+    <button onclick="setBrushSize(5)">細</button>
+    <button onclick="setBrushSize(20)">太</button>
+  </div>
+
+  <script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    let painting = false;
+    let color = '#ffffff';
+    let brushSize = 8;
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight - 240; // ヘッダー+ツールバー分
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    function startPosition(e) {
+      painting = true;
+      draw(e);
+    }
+    function endPosition() { painting = false; ctx.beginPath(); }
+    function draw(e) {
+      if (!painting) return;
+      const rect = canvas.getBoundingClientRect();
+      let x, y;
+      if (e.touches) {
+        x = e.touches[0].clientX - rect.left;
+        y = e.touches[0].clientY - rect.top;
+      } else {
+        x = e.clientX - rect.left;
+        y = e.clientY - rect.top;
+      }
+      ctx.lineWidth = brushSize;
+      ctx.lineCap = 'round';
+      ctx.strokeStyle = color;
+      ctx.lineTo(x, y);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(x, y);
+    }
+
+    canvas.addEventListener('mousedown', startPosition);
+    canvas.addEventListener('mouseup', endPosition);
+    canvas.addEventListener('mousemove', draw);
+    canvas.addEventListener('touchstart', startPosition);
+    canvas.addEventListener('touchend', endPosition);
+    canvas.addEventListener('touchmove', draw);
+
+    window.changeColor = (c) => { color = c; };
+    window.setBrushSize = (s) => { brushSize = s; };
+    window.clearCanvas = () => { ctx.clearRect(0, 0, canvas.width, canvas.height); };
+  </script>
+</body>
+</html>

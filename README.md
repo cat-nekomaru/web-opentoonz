@@ -11,6 +11,9 @@ While the ultimate goal of this project is to develop `.tlw` (a ZIP-based comple
 - **512-Byte Sector Alignment**: Every binary block is strictly aligned to 512-byte boundaries, mimicking hardware-level sector storage. This maximizes OS file I/O cache efficiency and simplifies internal pointer calculations.
 - **Fail-Safe / Self-Proving Structure**: Even if the `Index Table` is corrupted or lost due to a write failure, a simple binary scan for the PNG signature and the `IEND` (stop byte) marker allows 100% recovery of the embedded thumbnails.
 
+Let's see also:
+https://github.com/cat-nekomaru/web-opentoonz/blob/main/TLW2/tlw2-simple.md
+
 🗽
 # 🇯🇵Web-OpenToonz
 モバイルファースト・縦持ち最適なお絵描きアプリのプロトタイプ。  
@@ -24,75 +27,14 @@ While the ultimate goal of this project is to develop `.tlw` (a ZIP-based comple
 - 2台目のスマホをモニターとして活用（将来的にWebSocket）
 - HTML5 Canvas + JavaScript（軽量・低スペック対応）
 
-Demo:  
-1. https://cat-nekomaru.github.io/web-opentoonz/
-2. https://cat-nekomaru.github.io/web-opentoonz/index2.html
-3. https://cat-nekomaru.github.io/web-opentoonz/index3.html
-4. https://cat-nekomaru.github.io/web-opentoonz/index3_02.html
-5. https://cat-nekomaru.github.io/web-opentoonz/index5_02.html ⭐️NEW
+.  
 
-UI Layout - 11inch Tablet :  
-<img width="90%" alt="Image" src="https://github.com/user-attachments/assets/b2aa4752-241a-4233-ba8f-fd7d2118fac5" />
+Demo Pages:  
+1. 2D 6x4K canvas - https://cat-nekomaru.github.io/web-opentoonz/github-pages/0100/032_4x4-divideLR.html  
 
-<img width="90%" alt="Image" src="https://github.com/user-attachments/assets/3f2e5e60-201a-4982-9564-acac6170fbe4" />
+2. 3D object - https://cat-nekomaru.github.io/web-opentoonz/github-pages/0100/052_12ff-2nd.html ⭐️NEW
 
-<table border="1" style="color: #fff;">
-    <tr align="center" bgcolor=#404060>
-        <td>A, B<BR>button</td>
-        <td colspan="2">H<BR>text</td>
-        <td>C, D, E, F, G<BR>button</td>
-    </tr>
-    <tr align="center" valign="center" bgcolor=#404050>
-        <td colspan="4">
-            <br><br><br><u>Interface ID:</u> I<br><u>Interface Type:</u> canvas<br><br><br><br>
-        </td>
-    </tr>
-    <tr align="center">
-        <td rowspan="2" bgcolor=#404040>J, K<br>widget<br>(toggle)</td>
-        <td bgcolor=#504040>O<br>button</td><td bgcolor=#504040>Q, R, S, T, U<br>button</td>
-        <td rowspan="2" bgcolor=#404040>L, M, N<br>widget<br>(toggle)</td>
-    </tr>
-    <tr align="center" bgcolor=#605050>
-        <td>P<br>button</td><td>V, W, X, Y, Z<br>button</td>
-    </tr>
-</table>
-
-UI Layout - 8inch Tablet :  
-<img width="75%" alt="Image" src="https://github.com/user-attachments/assets/eca5415e-02a5-4db3-a535-f10b7c32723f" />
-
-<table border="1" style="color: #fff;">
-    <tr align="center" bgcolor=#404060>
-        <td>A, B<BR>button</td>
-        <td>H<BR>text</td>
-        <td colspan="2">C, D, E, F, G<BR>button</td>
-    </tr>
-    <tr align="center" valign="center" bgcolor=#404050>
-        <td colspan="4">
-            <br><br><br><u>Interface ID:</u> I<br><u>Interface Type:</u> canvas<br><br><br><br>
-        </td>
-    </tr>
-    <tr align="center">
-        <td rowspan="2" bgcolor=#404040>J, K<br>widget<br>(toggle)</td>
-        <td bgcolor=#504040>O<br>button</td><td bgcolor=#504040>Q, R, S, T, U<br>button</td>
-    </tr>
-    <tr align="center" bgcolor=#605050>
-        <td>P<br>button</td><td>V, W, X, Y, Z<br>button</td>
-    </tr>
-</table>
-
-UI Layout - Smartphone :  
-<img width="55%" alt="Image" src="https://github.com/user-attachments/assets/24c27b4b-f356-4646-9f86-1fb202f2d423" />
-
-<table border="1" style="color: #fff;">
-    <tr align="center" bgcolor=#404070>
-        <td>C, D, E, F, G<BR>button</td>
-    </tr>
-    <tr align="center" valign="center" bgcolor=#404050>
-        <td><br><br><br><u>Interface ID:</u> I<br>.　<u>Interface Type:</u> canvas　.<br><br><br><br></td>
-    </tr>
-    <tr align="center" bgcolor=#50404>
-        <td>Q, R, S, T, U<br>button</td>
-    </tr>
-</table>
+.  
 
 🐾
+---

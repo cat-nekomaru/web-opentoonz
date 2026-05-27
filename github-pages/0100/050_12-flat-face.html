@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>正十二面体 WebGL</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { background:#080c14; display:flex; flex-direction:column;
+           align-items:center; justify-content:center; min-height:100vh;
+           font-family:'Courier New',monospace; color:#8090b0; }
+    h1 { font-size:.85rem; letter-spacing:.4em; text-transform:uppercase;
+         color:#4a7fff; margin-bottom:10px; }
+    canvas { display:block; border:1px solid #1a2540;
+             box-shadow:0 0 60px rgba(40,80,200,.2); cursor:grab; }
+    canvas:active { cursor:grabbing; }
+    #controls { margin-top:10px; display:flex; gap:8px; flex-wrap:wrap; justify-content:center; }
+    button { background:#111828; color:#6080c0; border:1px solid #263050;
+             padding:5px 14px; font-family:inherit; font-size:.75rem;
+             letter-spacing:.1em; cursor:pointer; }
+    button.on { background:#1a3a7a; color:#a0c8ff; border-color:#4a7fff; }
+    #log { margin-top:8px; font-size:.68rem; color:#506070;
+           max-width:700px; text-align:center; }
+  </style>
+</head>
+<body>
+<h1>Dodecahedron &middot; WebGL</h1>
+<canvas id="c" width="700" height="700"></canvas>
+<div id="controls">
+  <button id="bTex"  class="on">テクスチャ</button>
+  <button id="bFlat"         >フラット</button>
+  <button id="bWire"         >ワイヤー</button>
+  <button id="bBoth"         >テクスチャ+ワイヤー</button>
+</div>
+<div id="log">起動中...</div>
+
+<script>
+// ============================================================
+//  正十二面体 WebGL  — テクスチャ / ワイヤーフレーム
+//  texture_001_4800x3600.png  (4列×3行, 各セル1200×1200)
+// ============================================================
+const canvas = document.getElementById('c');
+const log    = s => { document.getElementById('log').textContent = s; console.log(s); };
+
+const gl = canvas.getContext('webgl');
+if (!gl) { log('WebGL 未対応'); throw 0; }
+
+// ─── モード ──────────────────────────────────────────────
+let mode = 'tex'; // tex | flat | wire | both
+const btns = { tex:'bTex', flat:'bFlat', wire:'bWire', both:'bBoth' };
+Object.entries(btns).forEach(([m,id]) => {
+  document.getElementById(id).onclick = () => {
+    mode = m;
+    Object.values(btns).forEach(i => document.getElementById(i).classList.remove('on'));
+    document.getElementById(id).classList.add('on');
+  };
+});
+
+// ─── シェーダー ───────────────────────────────────────────
+function mkProg(vs, fs) {
+  function sh(t, s) {
+    const x = gl.createShader(t);
+    gl.shaderSource(x, s); gl.compileShader(x);
+    if (!gl.getShaderParameter(x, gl.COMPILE_STATUS))
+      throw new Error('Shader: ' + gl.getShaderInfoLog(x));
+    return x;
+  }
+  const p = gl.createProgram();
+  gl.attachShader(p, sh(gl.VERTEX_SHADER, vs));
+  gl.attachShader(p, sh(gl.FRAGMENT_SHADER, fs));
+  gl.linkProgram(p);
+  if (!gl.getProgramParameter(p, gl.LINK_STATUS))
+    throw new Error('Link: ' + gl.getProgramInfoLog(p));
+  return p;
+}
+
+// 面描画用
+const progFace = mkProg(`
+  attribute vec3 aPos;
+  attribute vec2 aUV;
+  attribute vec3 aNorm;
+  attribute float aFaceId;
+  uniform mat4 uMVP;
+  uniform mat4 uNM;
+  varying vec2  vUV;
+  varying vec3  vNorm;
+  varying float vFaceId;
+  void main() {
+    gl_Position = uMVP * vec4(aPos, 1.0);
+    vUV     = aUV;
+    vNorm   = normalize((uNM * vec4(aNorm, 0.0)).xyz);
+    vFaceId = aFaceId;
+  }
+`, `
+  precision mediump float;
+  uniform sampler2D uTex;
+  uniform vec3  uLight;
+  uniform int   uFlat;
+  varying vec2  vUV;
+  varying vec3  vNorm;
+  varying float vFaceId;
+  vec3 hue(float t) {
+    return clamp(abs(fract(t+vec3(0.,1./3.,2./3.))*6.-3.)-1., 0., 1.);
+  }
+  void main() {
+    float diff = max(dot(vNorm, normalize(uLight)), 0.0);
+    float lit  = 0.35 + 0.65 * diff;
+    vec4 col;
+    if (uFlat == 1) {
+      col = vec4(hue(vFaceId / 12.0) * lit, 1.0);
+    } else {
+      col = texture2D(uTex, vUV);
+      col.rgb *= lit;
+    }
+    gl_FragColor = col;
+  }
+`);
+
+// ワイヤー用
+const progWire = mkProg(`
+  attribute vec3 aPos;
+  uniform mat4 uMVP;
+  void main() { gl_Position = uMVP * vec4(aPos, 1.0); }
+`, `
+  precision mediump float;
+  void main() { gl_FragColor = vec4(0.3, 0.7, 1.0, 1.0); }
+`);
+
+// ─── 正十二面体ジオメトリ ─────────────────────────────────
+// 黄金比
+const PHI = (1.0 + Math.sqrt(5.0)) / 2.0;
+
+// 20頂点 (単位球に正規化)
+function makeVerts() {
+  const raw = [];
+  const p = PHI, ip = 1.0 / PHI;
+  // 8頂点: (±1, ±1, ±1)
+  for (const a of [-1,1]) for (const b of [-1,1]) for (const c of [-1,1])
+    raw.push([a, b, c]);
+  // 4頂点: (0, ±1/φ, ±φ)
+  for (const b of [-1,1]) for (const c of [-1,1]) raw.push([0, b*ip, c*p]);
+  // 4頂点: (±1/φ, ±φ, 0)
+  for (const a of [-1,1]) for (const b of [-1,1]) raw.push([a*ip, b*p, 0]);
+  // 4頂点: (±φ, 0, ±1/φ)
+  for (const a of [-1,1]) for (const c of [-1,1]) raw.push([a*p, 0, c*ip]);
+  return raw.map(v => { const l = Math.hypot(...v); return v.map(x => x/l); });
+}
+
+// 隣接リスト → 最短辺で繋がる頂点
+function makeAdj(V) {
+  let minD = Infinity;
+  for (let i = 0; i < V.length; i++)
+    for (let j = i+1; j < V.length; j++) {
+      const d = Math.hypot(...V[i].map((x,k)=>x-V[j][k]));
+      if (d < minD - 1e-9) minD = d;
+    }
+  const eps = minD * 0.05;
+  const adj = Array.from({length: V.length}, () => []);
+  for (let i = 0; i < V.length; i++)
+    for (let j = i+1; j < V.length; j++) {
+      const d = Math.hypot(...V[i].map((x,k)=>x-V[j][k]));
+      if (Math.abs(d - minD) < eps) { adj[i].push(j); adj[j].push(i); }
+    }
+  return adj;
+}
+
+// 五角形(長さ5サイクル)を全部探す
+function makeFaces(adj) {
+  const seen = new Set(), faces = [];
+  function dfs(start, prev, cur, path) {
+    if (path.length === 5) {
+      if (adj[cur].includes(start)) {
+        const key = [...path].sort((a,b)=>a-b).join(',');
+        if (!seen.has(key)) { seen.add(key); faces.push([...path]); }
+      }
+      return;
+    }
+    for (const nxt of adj[cur]) {
+      if (nxt === prev) continue;
+      if (path.length < 4 && path.includes(nxt)) continue;
+      dfs(start, cur, nxt, [...path, nxt]);
+    }
+  }
+  for (let i = 0; i < adj.length; i++)
+    for (const j of adj[i])
+      if (j > i) dfs(i, i, j, [i, j]);
+  return faces.slice(0, 12);
+}
+
+const VERTS = makeVerts();
+const ADJ   = makeAdj(VERTS);
+const FACES = makeFaces(ADJ);
+log(`頂点:${VERTS.length}  面:${FACES.length}  — ジオメトリ OK`);
+
+// ─── 三角形データ生成 ─────────────────────────────────────
+// テクスチャアトラス: 4列×3行, 面 fi のセルは col=fi%4, row=fi/4|0
+function atlasUV(fi, lu, lv) {
+  return [(fi%4 + lu)/4, (Math.floor(fi/4) + lv)/3];
+}
+
+function buildFaceGeom(fi, faceVtx) {
+  const verts = faceVtx.map(i => VERTS[i]);
+
+  // 面中心 & 法線
+  let cx=0,cy=0,cz=0;
+  verts.forEach(v=>{cx+=v[0];cy+=v[1];cz+=v[2];});
+  cx/=5; cy/=5; cz/=5;
+  const cl = Math.hypot(cx,cy,cz);
+  const N = [cx/cl, cy/cl, cz/cl];  // 単位法線
+
+  // 接平面基底
+  const v0 = verts[0];
+  const d  = v0[0]*N[0]+v0[1]*N[1]+v0[2]*N[2];
+  let T = v0.map((x,i)=>x - d*N[i]);
+  const tl = Math.hypot(...T); T = T.map(x=>x/tl);
+  const B = [N[1]*T[2]-N[2]*T[1], N[2]*T[0]-N[0]*T[2], N[0]*T[1]-N[1]*T[0]];
+
+  // 各頂点を2D射影して角度順ソート
+  const pts = verts.map((v,i) => {
+    const dx=v[0]-cx, dy=v[1]-cy, dz=v[2]-cz;
+    return {
+      idx: faceVtx[i],
+      u: dx*T[0]+dy*T[1]+dz*T[2],
+      v: dx*B[0]+dy*B[1]+dz*B[2]
+    };
+  });
+  pts.sort((a,b) => Math.atan2(a.v,a.u) - Math.atan2(b.v,b.u));
+  const maxR = Math.max(...pts.map(p => Math.hypot(p.u,p.v)));
+
+  // 中心点 (球面上に投影)
+  const C3 = N.slice(); // 面法線方向 = 球面上の中心
+
+  const pos=[], uv=[], norm=[], fid=[];
+  
+  // ★重要：調整用の角度オフセット
+  const angleOffset = -Math.PI / (2/3);
+
+  // ★重要：UVのスケール（はみ出し修正用）
+  // 元の 0.42 だとはみ出しているなら、数値を小さくします。
+  // 例えば 0.38 や 0.35 にして試してみてください。
+  const uvScale = 0.5 + 0.03;   // ⭐️ 
+
+  for (let t = 0; t < 5; t++) {
+    const p0 = pts[t], p1 = pts[(t+1)%5];
+    
+    // 角度を計算
+    const a0 = Math.atan2(p0.v, p0.u) + angleOffset;
+    const a1 = Math.atan2(p1.v, p1.u) + angleOffset;
+
+    // UV: セル内 [0,1]×[0,1]
+    // 基準点を中心 (0.5, 0.5) に固定し、uvScale でサイズ、angleOffsetで回転
+    const lu0 = 0.5 + Math.cos(a0) * uvScale, lv0 = 0.5 - Math.sin(a0) * uvScale;
+    const lu1 = 0.5 + Math.cos(a1) * uvScale, lv1 = 0.5 - Math.sin(a1) * uvScale;
+
+    // 三角形: 中心, p0, p1
+    pos.push( ...C3,          ...VERTS[p0.idx], ...VERTS[p1.idx] );
+    // 中心点 (fi, .5, .5) も angleOffset の影響を受けるべきではないのでそのまま
+    uv.push(  ...atlasUV(fi,.5,.5), ...atlasUV(fi,lu0,lv0), ...atlasUV(fi,lu1,lv1) );
+    norm.push(...N,...N,...N);
+    fid.push(fi, fi, fi);
+  }
+  return {pos, uv, norm, fid};
+}
+
+const allPos=[], allUV=[], allNorm=[], allFid=[];
+FACES.forEach((f,fi)=>{
+  const g = buildFaceGeom(fi,f);
+  allPos.push(...g.pos); allUV.push(...g.uv);
+  allNorm.push(...g.norm); allFid.push(...g.fid);
+});
+const VTXN = allPos.length / 3;
+
+// ─── ワイヤー辺データ ─────────────────────────────────────
+function buildWire() {
+  const seen = new Set(), wpos = [];
+  FACES.forEach(f => {
+    for (let i=0;i<5;i++){
+      const a=f[i], b=f[(i+1)%5];
+      const key = Math.min(a,b)+','+Math.max(a,b);
+      if (!seen.has(key)) {
+        seen.add(key);
+        wpos.push(...VERTS[a], ...VERTS[b]);
+      }
+    }
+  });
+  return wpos;
+}
+const wirePos = buildWire();
+
+// ─── GPU バッファ ─────────────────────────────────────────
+function mkBuf(arr) {
+  const b = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, b);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(arr), gl.STATIC_DRAW);
+  return b;
+}
+const bufPos  = mkBuf(allPos);
+const bufUV   = mkBuf(allUV);
+const bufNorm = mkBuf(allNorm);
+const bufFid  = mkBuf(allFid);
+const bufWire = mkBuf(wirePos);
+
+// ─── テクスチャ ───────────────────────────────────────────
+const tex = gl.createTexture();
+gl.bindTexture(gl.TEXTURE_2D, tex);
+// 仮テクスチャ (2×2 チェッカー)
+gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 2, 2, 0, gl.RGBA, gl.UNSIGNED_BYTE,
+  new Uint8Array([200,200,220,255, 80,80,120,255,
+                   80, 80,120,255,200,200,220,255]));
+gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
+gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+
+const img = new Image();
+img.onload = () => {    // ⭐️修正：入れ替え
+gl.bindTexture(gl.TEXTURE_2D, tex);
+  gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, img);
+  
+  // ★重要: エラーの原因だった gl.generateMipmap(gl.TEXTURE_2D); を削除します
+  
+  // ★2の累乗以外の画像でも動くように、縮小フィルターを LINEAR に変更
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+  
+  // 念のため繰り返し設定も制限に合わせて固定
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+  
+  log('✔ テクスチャ読込完了: ' + img.width + '×' + img.height);
+};
+img.onerror = () => {
+  log('⚠ texture_001_4800x3600.png 未検出 — フラットモードに切替');
+  mode = 'flat';
+  document.getElementById('bFlat').classList.add('on');
+  document.getElementById('bTex').classList.remove('on');
+};
+img.src = 'texture_001_4800x3600.png';
+
+// ─── gl-matrix 相当の行列計算 (依存ゼロ) ─────────────────
+// ★ここが前回のバグ原因: multiply の row/col オーダーを修正
+// WebGL は column-major なので配列 m[col*4+row] でアクセス
+
+function mat4() { const m = new Float32Array(16); m[0]=m[5]=m[10]=m[15]=1; return m; }
+
+// a * b  (column-major 同士)
+function mul(a, b) {
+  const o = new Float32Array(16);
+  for (let col = 0; col < 4; col++)
+    for (let row = 0; row < 4; row++) {
+      let s = 0;
+      for (let k = 0; k < 4; k++) s += a[k*4+row] * b[col*4+k];
+      o[col*4+row] = s;
+    }
+  return o;
+}
+
+function perspective(fovY, aspect, near, far) {
+  const f = 1.0 / Math.tan(fovY / 2);
+  const m = new Float32Array(16);
+  m[0]  = f / aspect;
+  m[5]  = f;
+  m[10] = (far + near) / (near - far);
+  m[11] = -1;
+  m[14] = 2 * far * near / (near - far);
+  return m;
+}
+
+function rotateX(rad) {
+  const m = mat4(), c = Math.cos(rad), s = Math.sin(rad);
+  m[5]=c; m[9]=-s; m[6]=s; m[10]=c;
+  return m;
+}
+function rotateY(rad) {
+  const m = mat4(), c = Math.cos(rad), s = Math.sin(rad);
+  m[0]=c; m[8]=s; m[2]=-s; m[10]=c;
+  return m;
+}
+function translateZ(z) {
+  const m = mat4(); m[14] = z; return m;
+}
+
+// 法線行列 = MV の左上3×3 の逆転置
+// (スケールなし回転のみなら転置 = 逆行列)
+function normalMat(mv) {
+  const m = mat4();
+  // column-major で (0,0)〜(2,2) を転置コピー
+  m[0]=mv[0]; m[4]=mv[1]; m[8] =mv[2];
+  m[1]=mv[4]; m[5]=mv[5]; m[9] =mv[6];
+  m[2]=mv[8]; m[6]=mv[9]; m[10]=mv[10];
+  return m;
+}
+
+// ─── 頂点属性バインド ─────────────────────────────────────
+function bindAttr(buf, loc, size) {
+  if (loc < 0) return;
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.enableVertexAttribArray(loc);
+  gl.vertexAttribPointer(loc, size, gl.FLOAT, false, 0, 0);
+}
+function unbindAttrs(locs) {
+  locs.forEach(l => { if (l >= 0) gl.disableVertexAttribArray(l); });
+}
+
+// ─── Uniform / Attrib ロケーション ────────────────────────
+const FP = {
+  aPos:    gl.getAttribLocation(progFace,  'aPos'),
+  aUV:     gl.getAttribLocation(progFace,  'aUV'),
+  aNorm:   gl.getAttribLocation(progFace,  'aNorm'),
+  aFaceId: gl.getAttribLocation(progFace,  'aFaceId'),
+  uMVP:    gl.getUniformLocation(progFace, 'uMVP'),
+  uNM:     gl.getUniformLocation(progFace, 'uNM'),
+  uTex:    gl.getUniformLocation(progFace, 'uTex'),
+  uLight:  gl.getUniformLocation(progFace, 'uLight'),
+  uFlat:   gl.getUniformLocation(progFace, 'uFlat'),
+};
+const WP = {
+  aPos:  gl.getAttribLocation(progWire,  'aPos'),
+  uMVP:  gl.getUniformLocation(progWire, 'uMVP'),
+};
+
+// ─── マウス/タッチ ─────────────────────────────────────────
+let rx=0.4, ry=0.0, zoom=3.8;
+let drag=false, mx=0, my=0;
+canvas.addEventListener('mousedown', e=>{drag=true; mx=e.clientX; my=e.clientY;});
+window.addEventListener('mouseup',   ()=>{drag=false;});
+window.addEventListener('mousemove', e=>{
+  if(!drag) return;
+  ry += (e.clientX-mx)*0.007; rx += (e.clientY-my)*0.007;
+  mx=e.clientX; my=e.clientY;
+});
+canvas.addEventListener('wheel', e=>{
+  zoom = Math.max(1.5, Math.min(10, zoom + e.deltaY*0.005));
+  e.preventDefault();
+},{passive:false});
+let tx=0, ty=0;
+canvas.addEventListener('touchstart', e=>{tx=e.touches[0].clientX;ty=e.touches[0].clientY;});
+canvas.addEventListener('touchmove',  e=>{
+  ry+=(e.touches[0].clientX-tx)*0.01; rx+=(e.touches[0].clientY-ty)*0.01;
+  tx=e.touches[0].clientX; ty=e.touches[0].clientY; e.preventDefault();
+},{passive:false});
+
+// ─── 描画 ─────────────────────────────────────────────────
+gl.enable(gl.DEPTH_TEST);
+gl.enable(gl.CULL_FACE);
+gl.cullFace(gl.BACK);
+
+let autoRY = 0;
+
+function frame() {
+  requestAnimationFrame(frame);
+  autoRY += 0.005;
+
+  gl.clearColor(0.03, 0.04, 0.08, 1.0);
+  gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+
+  // MVP 行列
+  const proj  = perspective(Math.PI / 4, canvas.width / canvas.height, 0.1, 100.0);
+  const model = mul(rotateX(rx), rotateY(ry + autoRY));
+  const view  = translateZ(-zoom);
+  const mv    = mul(view, model);
+  const mvp   = mul(proj, mv);
+  const nm    = normalMat(mv);
+
+  // ─ 面描画 ─
+  if (mode !== 'wire') {
+    gl.useProgram(progFace);
+    bindAttr(bufPos,  FP.aPos,    3);
+    bindAttr(bufUV,   FP.aUV,     2);
+    bindAttr(bufNorm, FP.aNorm,   3);
+    bindAttr(bufFid,  FP.aFaceId, 1);
+    gl.uniformMatrix4fv(FP.uMVP,  false, mvp);
+    gl.uniformMatrix4fv(FP.uNM,   false, nm);
+    gl.uniform3fv(FP.uLight, [1.5, 2.0, 2.5]);
+    gl.uniform1i(FP.uFlat,   mode === 'flat' ? 1 : 0);
+    gl.activeTexture(gl.TEXTURE0);
+    gl.bindTexture(gl.TEXTURE_2D, tex);
+    gl.uniform1i(FP.uTex, 0);
+    gl.drawArrays(gl.TRIANGLES, 0, VTXN);
+    unbindAttrs([FP.aPos, FP.aUV, FP.aNorm, FP.aFaceId]);
+  }
+
+  // ─ ワイヤー ─
+  if (mode === 'wire' || mode === 'both') {
+    gl.useProgram(progWire);
+    bindAttr(bufWire, WP.aPos, 3);
+    gl.uniformMatrix4fv(WP.uMVP, false, mvp);
+    gl.lineWidth(1.5);
+    gl.drawArrays(gl.LINES, 0, wirePos.length / 3);
+    unbindAttrs([WP.aPos]);
+  }
+}
+frame();
+</script>
+</body>
+</html>
