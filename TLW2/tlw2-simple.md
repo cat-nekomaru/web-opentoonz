@@ -18,6 +18,9 @@ struct TLW2_Header {
     uint64_t checksum;         // 8B
     uint64_t creation_time;    // 8B
     char     comment[64];      // Comment, UTF-8
+
+                               // *** free 896byte ***
+    uint8_t  reserved[1024 - 128];
 };
 ```
 
