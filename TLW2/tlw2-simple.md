@@ -4,6 +4,7 @@
 
 <div align="center">
 <img src="./img/tlw2-simple-01.png" width="500" alt="TLW2-diagram">
+<img src="./img/tlw2-simple-02.svg" width="500" alt="TLW2-diagram">
 </div>  
 
 ⚡️  
