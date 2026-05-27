@@ -29,7 +29,7 @@ struct TLW2_Header {
 ```
 struct TLW2_Footer {
                                // *** fixed 128byte ***
-    char     magic[16];        // TLW2_DEV_202605, TLW2_STD_202701
+    char     magic[16];        // TLW2_DEV_202605\0, TLW2_REL_202701\0
     uint32_t format_version;   // 4B
     uint32_t flags;            // 4B
     uint64_t total_size;       // 8B
