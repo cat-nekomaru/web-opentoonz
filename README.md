@@ -34,11 +34,11 @@ https://github.com/cat-nekomaru/web-opentoonz/blob/main/TLW2/tlw2-simple.md
 ***Demo Pages Link:***  
 1. [2D canvas, 6x4K image, UI check](https://cat-nekomaru.github.io/web-opentoonz/github-pages/0100/032_6x4-divideLR.html)   
 
-2. [webGL, 3D model, texture mapping](https://cat-nekomaru.github.io/web-opentoonz/github-pages/0100/052_12ff-2nd.html)  
+2. [webGL, 3D model, texture mapping](https://cat-nekomaru.github.io/web-opentoonz/github-pages/0100/050_12-flat-face.html)  
 
 .  
 
-***開発日誌：*** https://github.com/cat-nekomaru/web-opentoonz/blob/main/LEARNINGS.md
+***開発日誌：*** [LEARNINGS.md 🐈⚡️](https://github.com/cat-nekomaru/web-opentoonz/blob/main/LEARNINGS.md)
 
 
 🐾
