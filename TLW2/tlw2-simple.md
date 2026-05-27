@@ -6,7 +6,7 @@
 <img src="./img/tlw2-simple-01.png" width="500" alt="TLW2-diagram">
 </div>  
 
-.  
+⚡️  
 
 ```cpp
 struct TLW2_Header {
@@ -58,7 +58,7 @@ Below is an example of the first 128 bytes (core area) of the `TLW2_Header` stru
 0020: 00 14 00 00 00 00 00 00                          ; uint64_t json_offset   (5120 -> 0x1400)
 0028: 00 14 00 00 00 00 00 00                          ; uint64_t json_size     (5120 -> 0x1400)
 0030: 00 00 00 00 00 00 00 00                          ; uint64_t checksum      (0, unimplemented)
-0038: 00 0A 7C A4 9C 2A B3 18                          ; int64_t  creation_time (APFS-compat nanoseconds)
+0038: 00 0A 7C A4 9C 2A B3 18                          ;  int64_t creation_time (APFS-compat nanoseconds)
 0040: 57 49 50 20 74 6C 77 32 - 20 66 69 6C 65 00 00 00 ; char    comment[64]   ("WIP tlw2 file"...)
 0050: 00 00 00 00 00 00 00 00 - 00 00 00 00 00 00 00 00 ; comment padding
 0060: 00 00 00 00 00 00 00 00 - 00 00 00 00 00 00 00 00 ; comment padding
