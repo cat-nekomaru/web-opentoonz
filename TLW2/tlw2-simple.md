@@ -12,7 +12,7 @@
 struct TLW2_Header {
                                // #### fixed 128byte ####
                                //
-    char     magic[16];        // TLW2_JMP_FOOTER\0, TLW2_JMP_INDEX\0\0
+    char     magic[16];        // TLW2_JMP_FOOTER\0, TLW2_JMP_INDEX_\0
     uint32_t format_version;   // 4B
     uint32_t flags;            // 4B
     uint64_t total_size;       // 8B
@@ -49,10 +49,10 @@ struct TLW2_Footer {
 
 ## 📒 Reference: 128-byte Header Hex Dump Example
 
-Below is an example of the first 128 bytes (core area) of the `TLW2_Header` struct, pre-packed in Little-Endian format. This demonstrates the `TLW2_JMP_INDEX` mode where the parser can instantly skip header analysis and jump directly to the JSON metadata.
+Below is an example of the first 128 bytes (core area) of the `TLW2_Header` struct, pre-packed in Little-Endian format. This demonstrates the `TLW2_JMP_INDEX_` mode where the parser can instantly skip header analysis and jump directly to the JSON metadata.
 
 ```hex
-0000: 54 4C 57 32 5F 4A 4D 50 - 5F 49 4E 44 45 58 00 00 ; char    magic[16]     ("TLW2_JMP_INDEX\0\0")
+0000: 54 4C 57 32 5F 4A 4D 50 - 5F 49 4E 44 45 58 32 00 ; char    magic[16]     ("TLW2_JMP_INDEX_\0")
 0010: 01 00 00 00 00 00 00 00                          ; uint32_t format_version (1), flags (0)
 0018: 04 28 00 00 00 00 00 00                          ; uint64_t total_size    (10244 bytes -> 0x2804)
 0020: 00 14 00 00 00 00 00 00                          ; uint64_t json_offset   (5120 -> 0x1400)
