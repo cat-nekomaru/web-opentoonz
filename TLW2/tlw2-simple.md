@@ -9,17 +9,16 @@
 ⚡️  
 
 ```cpp
-struct TLW2_Header {
-                               // #### fixed 128byte ####
+struct TLW2_Header {           // #### fixed 128byte ####
                                //
-    char     magic[16];        // TLW2_JMP_FOOTER\0, TLW2_JMP_INDEX_\0
+    char     magic[16];        // TLW2_JMP_FOOTER_, TLW2_JMP_INDEX__
     uint32_t format_version;   // 4B
     uint32_t flags;            // 4B
     uint64_t total_size;       // 8B
-    uint64_t json_offset;      // 8B
-    uint64_t json_size;        // 8B
+    uint64_t json_offset;      // 0x1400
+    uint64_t json_size;        // 0x1400
     uint64_t checksum;         // xxHash64, target: index-table-JSON only
-    int64_t  creation_time;    // APFS compatible, nanoseconds since 1970 UTC
+    int64_t  creation_time;    // ApfsTime, nanoseconds since 1970 UTC
     char     comment[64];      // comment, UTF-8
 
                                // #### reserved 896byte ####
@@ -30,17 +29,16 @@ struct TLW2_Header {
 .  
 
 ```cpp
-struct TLW2_Footer {
-                               // #### fixed 128byte ####
+struct TLW2_Footer {           // #### fixed 128byte ####
                                //
-    char     magic[16];        // TLW2_DEV_202605\0, TLW2_REL_202701\0
+    char     magic[16];        // TLW2_DEV_2026___, TLW2_MAIN_2027__
     uint32_t format_version;   // 4B
     uint32_t flags;            // 4B
     uint64_t total_size;       // 8B
-    uint64_t json_offset;      // 8B
-    uint64_t json_size;        // 8B
+    uint64_t json_offset;      // 0x1400
+    uint64_t json_size;        // 0x1400
     uint64_t checksum;         // xxHash64, target: index-table-JSON only
-    int64_t  creation_time;    // APFS compatible, nanoseconds since 1970 UTC
+    int64_t  creation_time;    // ApfsTime, nanoseconds since 1970 UTC
     char     comment[64];      // comment, UTF-8
 };
 ```
@@ -49,10 +47,10 @@ struct TLW2_Footer {
 
 ## 📒 Reference: 128-byte Header Hex Dump Example
 
-Below is an example of the first 128 bytes (core area) of the `TLW2_Header` struct, pre-packed in Little-Endian format. This demonstrates the `TLW2_JMP_INDEX_` mode where the parser can instantly skip header analysis and jump directly to the JSON metadata.
+Below is an example of the first 128 bytes (core area) of the `TLW2_Header` struct, pre-packed in Little-Endian format. This demonstrates the `TLW2_JMP_INDEX__` mode where the parser can instantly skip header analysis and jump directly to the JSON metadata.
 
 ```hex
-0000: 54 4C 57 32 5F 4A 4D 50 - 5F 49 4E 44 45 58 32 00 ; char    magic[16]     ("TLW2_JMP_INDEX_\0")
+0000: 54 4C 57 32 5F 4A 4D 50 - 5F 49 4E 44 45 58 32 32 ; char    magic[16]     ("TLW2_JMP_INDEX__")
 0010: 01 00 00 00 00 00 00 00                          ; uint32_t format_version (1), flags (0)
 0018: 04 28 00 00 00 00 00 00                          ; uint64_t total_size    (10244 bytes -> 0x2804)
 0020: 00 14 00 00 00 00 00 00                          ; uint64_t json_offset   (5120 -> 0x1400)
