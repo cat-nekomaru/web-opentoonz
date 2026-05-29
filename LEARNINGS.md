@@ -12,6 +12,37 @@
 
 🕊️
 
+## 2026-5-29 | Day 12
+
+- Today's Achievements
+  - XcodeでGitHubを使えるようになる
+  - SwiftUIで簡単なコードで練習する
+  - mac mini M2の外部起動をやめる。内部SSDだけに戻す
+  - Xcodeの設定変更 → VScodeっぽく使いたい
+
+- Key Learnings
+  - ①,② Xcodeのセットアップ → GUIの練習
+  - Grokを使ってGitHubのセットアップ ← コーディングは苦手なので雑用を担当
+  - そのままGrokを使ってSwiftUIのテストコード。すんなり動くものが完成した
+  - Geminiに改良をリクエスト。ステップbyステップの作業が効率よく進んだ
+  - Grokは注文に対応していなかったことが発覚。Geminiが直してくれた（正直者）
+  - これまでの長い下準備に比べると、コーディングに時間はかからなかった
+  - LINK: [SNSに投稿](https://x.com/YojiNishimura/status/2060319899000754533)
+  - ③ 外部SSDのFanが気になるので、内部から起動させることにした
+  - 時系列としては①よりも先行、mac miniが無音なことに今更ながら驚く
+  - ④ <kbd>option + click</kbd>で左右にコード画面を並べる
+  - Settings ＞ Navigation ＞ With Option ＞ `Uses Separate Editor Pane`を選択
+  - Settings ＞ Editing ＞ `Wrap Lines to editor width`をOFF
+  - これでしばらく頑張るます！😼
+
+- Reflections
+  - 低スペックのmacだからと心配していたものの、実際の作業では何の問題もなかった。そもそも、macOSよりもAndroidタブレットのほうがレスポンスが優れているのは不思議で仕方ない
+  - VScodeに慣れてしまうとXcodeは使いにくい気がするけど、それでも今日一日でレベルアップできた。それにしてもめんどくさい作業だ。こんなのは人間がやることじゃないね。🐈..
+
+. . . **Score**: 4/5  
+. . . **Update**: 2026-5-29  
+
+
 ## 2026-5-28 | Day 11
 
 - Today's Achievements
