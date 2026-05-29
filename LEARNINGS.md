@@ -28,8 +28,9 @@
   - Grokは注文に対応していなかったことが発覚。Geminiが直してくれた（正直者）
   - これまでの長い下準備に比べると、コーディングに時間はかからなかった
   - LINK: [SNSに投稿](https://x.com/YojiNishimura/status/2060319899000754533)
-  - ③ 外部SSDのFanが気になるので、内部から起動させることにした
+  - ③ 外部SSDのFanが気になるので、内蔵SSDから起動させることにした
   - 時系列としては①よりも先行、mac miniが無音なことに今更ながら驚く
+  - ディスク容量は何も問題なかった。小規模のソフトウェア開発にしか使わないので
   - ④ <kbd>option + click</kbd>で左右にコード画面を並べる
   - Settings ＞ Navigation ＞ With Option ＞ `Uses Separate Editor Pane`を選択
   - Settings ＞ Editing ＞ `Wrap Lines to editor width`をOFF
