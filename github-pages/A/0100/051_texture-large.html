@@ -26,10 +26,10 @@
 <h1>Dodecahedron &middot; WebGL</h1>
 <canvas id="c" width="700" height="700"></canvas>
 <div id="controls">
-  <button id="bTex"  class="on">テクスチャ</button>
-  <button id="bFlat"         >フラット</button>
-  <button id="bWire"         >ワイヤー</button>
-  <button id="bBoth"         >テクスチャ+ワイヤー</button>
+  <button id="bTex"  class="on">▶︎ Texture</button>
+  <button id="bFlat"         >▶︎ Flat</button>
+  <button id="bWire"         >▶︎ Wire </button>
+  <button id="bBoth"         >▶︎ Texture + Wire</button>
 </div>
 <div id="log">起動中...</div>
 
@@ -328,12 +328,12 @@ gl.bindTexture(gl.TEXTURE_2D, tex);
   log('✔ テクスチャ読込完了: ' + img.width + '×' + img.height);
 };
 img.onerror = () => {
-  log('⚠ texture_001_4800x3600.png 未検出 — フラットモードに切替');
+  log('⚠ texture_001_4800x3600.png 未検出 — フラットモードに切替'); //　⭐️
   mode = 'flat';
   document.getElementById('bFlat').classList.add('on');
   document.getElementById('bTex').classList.remove('on');
 };
-img.src = 'canvas_003_4x4K.png'; // ⭐️
+img.src = 'texture_001_4800x3600.png'; // ⭐️
 
 // ─── gl-matrix 相当の行列計算 (依存ゼロ) ─────────────────
 // ★ここが前回のバグ原因: multiply の row/col オーダーを修正
