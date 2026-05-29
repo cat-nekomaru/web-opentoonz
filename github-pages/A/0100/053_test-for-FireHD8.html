@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebGL 正十二面体</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #1a1a2e;
+      display: flex; flex-direction: column; align-items: center;
+      justify-content: center; min-height: 100vh;
+      font-family: sans-serif; color: #eee; gap: 16px;
+    }
+    h1 { font-size: 18px; font-weight: 500; opacity: 0.8; }
+    canvas { border-radius: 12px; border: 1px solid rgba(255,255,255,0.15); }
+    .controls { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; justify-content: center; }
+    label { font-size: 13px; opacity: 0.7; }
+    input[type=range] { width: 120px; }
+    button {
+      padding: 6px 18px; border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.3);
+      background: transparent; color: #eee; font-size: 13px; cursor: pointer;
+    }
+    button:hover { background: rgba(255,255,255,0.1); }
+    #status { font-size: 12px; opacity: 0.5; }
+  </style>
+</head>
+<body>
+  <h1>WebGL — 正十二面体 テクスチャ</h1>
+  <canvas id="c" width="520" height="520"></canvas>
+  <div class="controls">
+    <label>回転速度
+      <input type="range" id="speed" min="0" max="3" step="0.1" value="1">
+      <span id="sv">1.0</span>
+    </label>
+    <button id="btn">一時停止</button>
+  </div>
+  <p id="status">テクスチャを読み込み中...</p>
+
+<script>
+const canvas = document.getElementById('c');
+const gl = canvas.getContext('webgl');
+const statusEl = document.getElementById('status');
+
+// ============================================================
+// 行列ライブラリ（WebGL列優先: m[col*4+row]）
+// ============================================================
+const M = {
+  identity() {
+    return new Float32Array([1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0,0,1]);
+  },
+  // a*b (列優先同士の積)
+  mul(a, b) {
+    const r = new Float32Array(16);
+    for (let col=0; col<4; col++)
+      for (let row=0; row<4; row++)
+        for (let k=0; k<4; k++)
+          r[col*4+row] += a[k*4+row] * b[col*4+k];
+    return r;
+  },
+  perspective(fovY, aspect, near, far) {
+    const f = 1.0 / Math.tan(fovY / 2);
+    const nf = 1 / (near - far);
+    return new Float32Array([
+      f/aspect, 0, 0, 0,
+      0, f, 0, 0,
+      0, 0, (far+near)*nf, -1,
+      0, 0, 2*far*near*nf, 0
+    ]);
+  },
+  translate(x, y, z) {
+    return new Float32Array([
+      1,0,0,0,
+      0,1,0,0,
+      0,0,1,0,
+      x,y,z,1
+    ]);
+  },
+  rotX(a) {
+    const c=Math.cos(a), s=Math.sin(a);
+    return new Float32Array([
+      1,0,0,0,
+      0,c,s,0,
+      0,-s,c,0,
+      0,0,0,1
+    ]);
+  },
+  rotY(a) {
+    const c=Math.cos(a), s=Math.sin(a);
+    return new Float32Array([
+      c,0,-s,0,
+      0,1,0,0,
+      s,0,c,0,
+      0,0,0,1
+    ]);
+  },
+};
+
+// ============================================================
+// 正十二面体の頂点20点（球面上に正規化）
+// ============================================================
+const phi = (1 + Math.sqrt(5)) / 2;
+const rawV = [
+   1, 1, 1,    1, 1,-1,    1,-1, 1,    1,-1,-1,   // 0-3
+  -1, 1, 1,   -1, 1,-1,   -1,-1, 1,   -1,-1,-1,   // 4-7
+   0, 1/phi, phi,   0, 1/phi,-phi,                  // 8-9
+   0,-1/phi, phi,   0,-1/phi,-phi,                  // 10-11
+   1/phi, phi, 0,   1/phi,-phi, 0,                  // 12-13
+  -1/phi, phi, 0,  -1/phi,-phi, 0,                  // 14-15
+   phi, 0, 1/phi,   phi, 0,-1/phi,                  // 16-17
+  -phi, 0, 1/phi,  -phi, 0,-1/phi,                  // 18-19
+];
+const V = [];
+for (let i=0; i<rawV.length; i+=3) {
+  const l = Math.sqrt(rawV[i]**2+rawV[i+1]**2+rawV[i+2]**2);
+  V.push(rawV[i]/l, rawV[i+1]/l, rawV[i+2]/l);
+}
+
+// ============================================================
+// 12面の定義（Pythonで検証済み、全辺長が一致）
+// ============================================================
+const FACES = [
+  [ 0, 8,10, 2,16],
+  [ 0,12,14, 4, 8],
+  [ 0,16,17, 1,12],
+  [ 1, 9, 5,14,12],
+  [ 1,17, 3,11, 9],
+  [ 2,10, 6,15,13],
+  [ 2,13, 3,17,16],
+  [ 3,13,15, 7,11],
+  [ 4,14, 5,19,18],
+  [ 4,18, 6,10, 8],
+  [ 5, 9,11, 7,19],
+  [ 6,18,19, 7,15],
+];
+
+// タイル設定
+const TEX_W=4800, TEX_H=3600, TILE_S=1200;
+const TILE_MAP = [
+  [   0,   0],[1200,   0],[2400,   0],[3600,   0],
+  [   0,1200],[1200,1200],[2400,1200],[3600,1200],
+  [   0,2400],[1200,2400],[2400,2400],[3600,2400],
+];
+
+// 五角形のUV（調整用のパラメータ付き）
+function pentUV(i) {
+  // 1. 回転の調整 (画像に合わせて五角形を回す場合、ここの数値を変更します)
+  // 例: 反転や回転がズレている場合、- Math.PI/2 の部分を変更
+  const angleOffset = - Math.PI / (2/3); 
+  const a = (i / 5) * Math.PI * 2 + angleOffset;
+
+  // 2. サイズの調整（1.0 でタイルの端にぴったり。隙間ができるなら 1.1 や 1.2 などに大きくする）
+  // 逆に画像よりポリゴンがはみ出しているなら 0.9 などに小さくする
+  const scale = 1.0; 
+
+  // 中心(0.5, 0.5)から、各頂点へ広げる計算
+  const u = 0.5 + (Math.cos(a) * 0.5) * scale;
+  const v = 0.5 - (Math.sin(a) * 0.5) * scale; // WebGLのY軸反転を考慮
+
+  return [u, v];
+}
+
+// ============================================================
+// 頂点データ展開（五角形→3三角形）
+// ============================================================
+const posArr=[], uvArr=[], normArr=[];
+
+FACES.forEach((face, fi) => {
+  const [tx,ty] = TILE_MAP[fi];
+
+  // 面法線 = 5頂点の平均方向
+  let nx=0,ny=0,nz=0;
+  face.forEach(vi => { nx+=V[vi*3]; ny+=V[vi*3+1]; nz+=V[vi*3+2]; });
+  const nl=Math.sqrt(nx*nx+ny*ny+nz*nz);
+  nx/=nl; ny/=nl; nz/=nl;
+
+  // 扇形分割: (0,1,2),(0,2,3),(0,3,4)
+  [[0,1,2],[0,2,3],[0,3,4]].forEach(tri => {
+    tri.forEach(li => {
+      const vi = face[li];
+      posArr.push(V[vi*3], V[vi*3+1], V[vi*3+2]);
+      normArr.push(nx, ny, nz);
+      const [u,v] = pentUV(li);
+      uvArr.push((tx+u*TILE_S)/TEX_W, (ty+v*TILE_S)/TEX_H);
+    });
+  });
+});
+
+// ============================================================
+// シェーダー
+// ============================================================
+const vsSource = `
+  attribute vec3 a_pos;
+  attribute vec2 a_uv;
+  attribute vec3 a_norm;
+  uniform mat4 u_mvp;
+  uniform mat4 u_model;
+  varying vec2 v_uv;
+  varying float v_light;
+  void main() {
+    gl_Position = u_mvp * vec4(a_pos, 1.0);
+    v_uv = a_uv;
+    vec3 wn = normalize(mat3(u_model[0].xyz, u_model[1].xyz, u_model[2].xyz) * a_norm);
+    vec3 ld = normalize(vec3(1.0, 1.5, 2.0));
+    v_light = clamp(dot(wn, ld), 0.25, 1.0);
+  }
+`;
+const fsSource = `
+  precision mediump float;
+  uniform sampler2D u_tex;
+  varying vec2 v_uv;
+  varying float v_light;
+  void main() {
+    vec4 c = texture2D(u_tex, v_uv);
+    gl_FragColor = vec4(c.rgb * v_light, c.a);
+  }
+`;
+
+function makeShader(type, src) {
+  const s = gl.createShader(type);
+  gl.shaderSource(s, src);
+  gl.compileShader(s);
+  if (!gl.getShaderParameter(s, gl.COMPILE_STATUS))
+    console.error('shader:', gl.getShaderInfoLog(s));
+  return s;
+}
+const prog = gl.createProgram();
+gl.attachShader(prog, makeShader(gl.VERTEX_SHADER, vsSource));
+gl.attachShader(prog, makeShader(gl.FRAGMENT_SHADER, fsSource));
+gl.linkProgram(prog);
+if (!gl.getProgramParameter(prog, gl.LINK_STATUS))
+  console.error('link:', gl.getProgramInfoLog(prog));
+gl.useProgram(prog);
+
+function makeVBO(data, name, size) {
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(data), gl.STATIC_DRAW);
+  const loc = gl.getAttribLocation(prog, name);
+  if (loc < 0) { console.warn('attrib not found:', name); return; }
+  gl.enableVertexAttribArray(loc);
+  gl.vertexAttribPointer(loc, size, gl.FLOAT, false, 0, 0);
+}
+makeVBO(posArr,  'a_pos',  3);
+makeVBO(uvArr,   'a_uv',   2);
+makeVBO(normArr, 'a_norm', 3);
+
+const uMVP   = gl.getUniformLocation(prog, 'u_mvp');
+const uModel = gl.getUniformLocation(prog, 'u_model');
+
+// ============================================================
+// テクスチャ
+// ============================================================
+const tex = gl.createTexture();
+gl.bindTexture(gl.TEXTURE_2D, tex);
+gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,1,1,0,gl.RGBA,gl.UNSIGNED_BYTE,new Uint8Array([80,80,100,255]));
+const img = new Image();
+img.crossOrigin = 'anonymous';
+img.onload = () => {
+  gl.bindTexture(gl.TEXTURE_2D, tex);
+  gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,img);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+  statusEl.textContent = 'テクスチャ読み込み完了 ✓';
+};
+img.onerror = () => { statusEl.textContent = 'テクスチャ読み込み失敗'; };
+img.src = 'canvas_003_4x4K.png'; // ⭐️
+
+// ============================================================
+// レンダリングループ
+// ============================================================
+gl.enable(gl.DEPTH_TEST);
+gl.enable(gl.CULL_FACE);
+gl.cullFace(gl.BACK);
+
+let angleY=0, paused=false, speed=1.0, lastT=null;
+
+document.getElementById('speed').addEventListener('input', e => {
+  speed = parseFloat(e.target.value);
+  document.getElementById('sv').textContent = speed.toFixed(1);
+});
+document.getElementById('btn').addEventListener('click', () => {
+  paused = !paused;
+  document.getElementById('btn').textContent = paused ? '再生' : '一時停止';
+});
+
+function render(ts) {
+  if (!lastT) lastT = ts;
+  const dt = (ts-lastT)/1000; lastT = ts;
+  if (!paused) angleY += dt * speed;
+
+  const angleX = 0.4 + Math.sin(angleY*0.3)*0.25;
+
+  gl.viewport(0, 0, 520, 520);
+  gl.clearColor(0.1, 0.1, 0.18, 1.0);
+  gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+
+  const proj  = M.perspective(Math.PI/4, 1.0, 0.1, 100.0);
+  const view  = M.translate(0, 0, -3.0);
+  const model = M.mul(M.rotX(angleX), M.rotY(angleY));
+  const mvp   = M.mul(proj, M.mul(view, model));
+
+  gl.uniformMatrix4fv(uMVP,   false, mvp);
+  gl.uniformMatrix4fv(uModel, false, model);
+  gl.drawArrays(gl.TRIANGLES, 0, posArr.length/3);
+
+  requestAnimationFrame(render);
+}
+requestAnimationFrame(render);
+</script>
+</body>
+</html>
