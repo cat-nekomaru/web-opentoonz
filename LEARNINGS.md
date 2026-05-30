@@ -8,24 +8,40 @@
 ## Memo | Recent Ideas & TODO
 - 本家OpenToonzのQtフレームワークに近いUIを狙う。学習コストの低減
 - 「SSH認証」の知識になるものを探す
-- SVGの活用を進めたい。UI部品に画像で対応するのは面倒
+- 板タブレットの筆圧検知について調べる。JavaScriptから使える？
 
 🕊️
 
-## 2026-5-30 | Day 13s
+## 2026-5-30 | Day 13
 
 - Today's Achievements
-  - 正十二面体に使う4000x3000pxのテクスチャを用意
-  - 通信用タイム 31bit + flags
-  - numbers JSON
+  - [4000x3000px](https://github.com/cat-nekomaru/web-opentoonz/blob/main/github-pages/A/0100/texture_002_4x3K.png)のテクスチャを作成
+  - 独自タイムスタンプの仕様を検討 `31b10k_TS`・`29b2k_TS`
+  - GUI部品に使うためSVGをテストする。かっこいい
+  - .　　　　　　　<svg width="90" viewBox="0 0 300 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="300" height="100" rx="15" fill="#b90"/>
+    <rect x=5 y=5 width="290" height="90" rx="12" fill="#dc2"/>
+  <text x="153" y="67" text-anchor="middle" fill="#333" font-size="41" font-weight="bold" font-family="monospace">JavaScript😼</text>
+</svg>
 
 - Key Learnings
-  - ＊
+  - ① [webGLテスト](https://cat-nekomaru.github.io/web-opentoonz/github-pages/A/0100/050_12-flat-face.html)が`Amazon Fire HD8`では表示NG
+  - ⬇︎ テクスチャのサイズを縮小することで対応 → OK
+  - ⬇︎ 2D（2枚）と3D（12ポリゴン）では挙動が違うのかもしれない
+  - ⬇︎ テクスチャのペイント機能があれば便利。VTuberとかね
+  - ② 32bit幅のタイムスタンプ、`31b10k_TS`の設計
+  - ⬇︎ 0.1ms精度／2.5日（31bit）カウント／フラグ（1bit）の構成
+  - ⬇︎ フラグにて `Init -> Online -> Abort` の状態推移が可能
+  - ⬇︎ 0.5ms／3日（29b）／4ch（2b）／フラグ（1b）`29b2k_TS`
+  - ⬇︎ クロックのソースはApfsTimeを0.1msアライメントしたもの
+  - ⬇︎ 同期システムの構築～テストに便利なので楽しみだ
+  - ③ インラインSVGをテスト。かなり使いやすい
+  - ⬇︎ アイコンはUnicode内のもので代用できそうだ
 
 - Reflections
-  - ＊
+  - ドキュメントファーストのほうがAIコーディングには便利。これはつまり、人間で構成された大規模開発と同じってことだ。AIがやらかすミスは人間と変わらない——つまりだとすれば、人間は悪意によって罪をなすのではないのかもしれない。と、土曜の静かな夜。🐈..
 
-. . . **Score**: ⭐️/5  
+. . . **Score**: 3/5  
 . . . **Update**: 2026-5-30  
 
 ## 2026-5-29 | Day 12
