@@ -17,12 +17,7 @@
 - Today's Achievements
   - [4000x3000px](https://github.com/cat-nekomaru/web-opentoonz/blob/main/github-pages/A/0100/texture_002_4x3K.png)のテクスチャを作成
   - 独自タイムスタンプの仕様を検討 `31b10k_TS`・`29b2k_TS`
-  - GUI部品に使うためSVGをテストする（⬇︎ GitHub Pagesでは表示NG）
-<div align=center><svg width="90" viewBox="0 0 300 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="300" height="100" rx="15" fill="#b90"/>
-    <rect x=5 y=5 width="290" height="90" rx="12" fill="#dc2"/>
-  <text x="153" y="67" text-anchor="middle" fill="#333" font-size="41" font-weight="bold" font-family="monospace">JavaScript😼</text>
-</svg></div>
+  - GUI部品に使うためSVGをテスト [SVG：button sample](https://cat-nekomaru.github.io/web-opentoonz/GUI/svg/001-icon-sample.html)  
 
 - Key Learnings
   - ① [webGLテスト](https://cat-nekomaru.github.io/web-opentoonz/github-pages/A/0100/050_12-flat-face.html)が`Amazon Fire HD8`では表示NG
