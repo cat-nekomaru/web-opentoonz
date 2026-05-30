@@ -9,9 +9,24 @@
 - 本家OpenToonzのQtフレームワークに近いUIを狙う。学習コストの低減
 - 「SSH認証」の知識になるものを探す
 - SVGの活用を進めたい。UI部品に画像で対応するのは面倒
-- 正十二面体に使う4000x3000pxのテクスチャを用意する `Fire HD8 タブレット用`⭐️
 
 🕊️
+
+## 2026-5-30 | Day 13s
+
+- Today's Achievements
+  - 正十二面体に使う4000x3000pxのテクスチャを用意
+  - 通信用タイム 31bit + flags
+  - numbers JSON
+
+- Key Learnings
+  - ＊
+
+- Reflections
+  - ＊
+
+. . . **Score**: ⭐️/5  
+. . . **Update**: 2026-5-30  
 
 ## 2026-5-29 | Day 12
 
@@ -34,7 +49,8 @@
   - ディスク容量は何も問題なかった。小規模のソフトウェア開発にしか使わないので
   - ④ <kbd>option + click</kbd>で左右にコード画面を並べる
   - Settings ＞ Navigation ＞ With Option ＞ `Uses Separate Editor Pane`を選択
-  - Settings ＞ Editing ＞ `Wrap Lines to editor width`をOFF
+  - Settings ＞ Editing ＞ Display ＞ `Wrap Lines to editor width`をOFF
+  - `Minimap`をOFF <kbd>⌘ + Ctrl + Shift + M</kbd>
   - これでしばらく頑張るます！😼
 
 - Reflections
@@ -42,7 +58,7 @@
   - VScodeに慣れてしまうとXcodeは使いにくい気がするけど、それでも今日一日でレベルアップできた。それにしてもめんどくさい作業だ。こんなのは人間がやることじゃないね。🐈..
 
 . . . **Score**: 4/5  
-. . . **Update**: 2026-5-29  
+. . . **Update**: 2026-5-30  
 
 
 ## 2026-5-28 | Day 11
