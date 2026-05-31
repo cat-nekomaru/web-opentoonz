@@ -7,10 +7,12 @@
 
 ## Memo | Recent Ideas & TODO
 - 本家OpenToonzのQtフレームワークに近いUIを狙う。学習コストの低減
-- 「SSH認証」の知識になるものを探す
-- 板タブレットの筆圧検知について調べる。JavaScriptから使える？
+- 「SSH認証」の仕組み ← 検証：macOS to Android or QEMU/RaspPi
+- 板タブレットの筆圧検知について ← 検証：iPad + pen + JavaScript
 
 🕊️
+
+＊＊＊
 
 ## 2026-5-30 | Day 13
 

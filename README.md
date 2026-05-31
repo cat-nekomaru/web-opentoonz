@@ -36,6 +36,8 @@ https://github.com/cat-nekomaru/web-opentoonz/blob/main/TLW2/tlw2-simple.md
 
 2. [webGL, 3D model, texture mapping](https://cat-nekomaru.github.io/web-opentoonz/github-pages/A/0100/050_12-flat-face.html)  
 
+3. [webGPU, compare w/webGL](https://cat-nekomaru.github.io/web-opentoonz/github-pages/A/0100/052_12ff-webGL.html)  
+
 .  
 
 ***開発日誌：*** [LEARNINGS.md 🐈⚡️](https://github.com/cat-nekomaru/web-opentoonz/blob/main/LEARNINGS.md)
