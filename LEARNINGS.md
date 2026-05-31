@@ -12,7 +12,23 @@
 
 🕊️
 
-＊＊＊
+## 2026-5-31 | Day 14
+
+- Today's Achievements
+  - 1ms/40bit/
+  - LAN内・Web Socket通信・Node.js
+  - iPhoneのカメラの仕様chk
+  - webGPUのテスト OK
+  - SF Symbols macOS
+
+- Key Learnings
+  - ＊
+
+- Reflections
+  - ＊
+
+. . . **Score**: 4/5  
+. . . **Update**: 2026-5-⭐️  
 
 ## 2026-5-30 | Day 13
 
