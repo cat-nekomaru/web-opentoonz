@@ -7,7 +7,7 @@
 
 ## Memo | Recent Ideas & TODO
 - 本家OpenToonzのQtフレームワークに近いUIを狙う。学習コストの低減
-- 「SSH認証」の仕組み ← 検証：macOS to Android or QEMU/RaspPi
+- 「SSH認証」の仕組み ← 検証：macOS〜Android or UTM + Alpine Linux
 - 板タブレットの筆圧検知について ← 検証：iPad + pen + JavaScript
 
 🕊️
