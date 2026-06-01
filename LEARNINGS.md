@@ -20,13 +20,18 @@
 - Key Learnings
   - ① 32bit幅で10khzは困難 → 64bit（符号つき）に変更
   - ⬇︎ Android環境でApfsTimeを作る仕組みというアイデア
-  - ⬇︎ しかしJavaScriptからはnano APIは呼びだせない
+  - ⬇︎ しかしJavaScriptからだと、ナノ秒APIは呼びだせない
   - ⬇︎ ネイティブアプリならOK
   - ② アイデア：AndroidでApfsTimeを合成
   - ⬇︎ JavaScriptのタイマーに頼らない方法
   - ⬇︎ Java/Kotlinで時間APIを組み合わせる
   - ⬇︎ 高精度タイマーとしてはこれでOK
   - ⬇︎ 構造体にオフセット値を持たせて複数同期にも対応とか
+  - ③ 構成：WebSocketを駆使する
+  - ⬇︎ JavaScriptと自作Appのやりとりは直接はNG
+  - ⬇︎ なのでWebSocketを経由させ、デバイス内部で通信させる
+  - ⬇︎ システム全体で使われるのは、Localhostと外部PCの2ポート
+  - ⬇︎ WebView、WebSocket、システムコールAPI。専門用語を覚えた
 
 - Reflections
   - よく考えてみるとiPadとmacOSの組み合わせが一番ラクかもしれない。ペン入力にはフル対応しているし、タイムスタンプもナノ秒APIがそのまま使える。でもそれが面白いか？という観点ではどうだろう。正直、Android→macOSのほうが難しいので、これを最初にやったほうがスジがいい気はする
