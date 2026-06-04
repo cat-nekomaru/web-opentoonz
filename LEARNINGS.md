@@ -36,7 +36,7 @@
   - ③キーボードショートカット
   - ⬇︎ <kbd>Ctrl + D</kbd>は初期値がデバッグ起動。Deleteに入れ替え
   - ⬇︎ <kbd>Ctrl +  H</kbd>をBackspaceに追加
-  - ⬇︎ <kbd>⌘ + Shift + Z</kbd>をUndoに設定した
+  - ⬇︎ <kbd>⌘ + Shift + Z</kbd>をRedoに設定した
   - ⬇︎ とりあえずこの3つだけで様子見
   - ⬇︎ 設定画面は使いやすかった。😺（VScodeはゴチャゴチャしていて苦手）
 
