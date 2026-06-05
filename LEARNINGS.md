@@ -15,7 +15,6 @@
 ## 2026-6-5 | Day 18
 
 - Today's Achievements
-  - ①〜④の地味な作業：
   - IDEのショートカット
   - webSocketの扱い方
   - Android検証機について
