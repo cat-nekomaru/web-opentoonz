@@ -26,7 +26,7 @@ https://github.com/cat-nekomaru/web-opentoonz/blob/main/TLW2/tlw2-simple.md
 - OpenToonzのセルに対応（`.tlv`フォーマット）
 - タブレット縦位置（ポートレート）に最適化
 - 下部に固定されたツールバー
-- 2台目のスマホをモニターとして活用（将来的にWebSocket）
+- 2台目のスマホをモニターとして活用（WebSocket接続）
 - HTML5 Canvas + JavaScript（軽量・低スペック対応）
 
 .  

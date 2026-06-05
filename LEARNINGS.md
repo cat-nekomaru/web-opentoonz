@@ -12,6 +12,42 @@
 
 🕊️
 
+## 2026-6-5 | Day 18
+
+- Today's Achievements
+  - ①〜④の地味な作業：
+  - IDEのショートカット
+  - webSocketの扱い方
+  - Android検証機について
+  - `.tlv`の移植をどうする？
+
+- Key Learnings
+  - ① キーボードショートカット（Kotlin IDE）
+  - ⬇︎ <kbd>⌘ + Ctrl + Opt + TAB</kbd> これを`Hide all tool window`に設定
+  - ⬇︎ <kbd>⌘ + Ctrl + Opt + H</kbd> これを`Hide active tool window`に設定
+  - ⬇︎ Xcodeでも <kbd>⌘ + Ctrl + Opt</kbd> を使うようにしたい
+  - ② ローカル通信
+  - ⬇︎「HTTP, WebSocket, ポート番号」の理解不足で混乱している
+  - ⬇︎ 難しいのはプロトコルではなくて、データフォーマットの設計では？
+  - ⬇︎ DHCP環境なのでIPアドレスの指定がめんどくさい
+  - ③ Android端末
+  - ⬇︎ 定義：このプロジェクトはAndroidでの線画作業を重視するもの
+  - ⬇︎ H/W：極端な幅があるため0.1ms精度による数値化は有効
+  - ⬇︎ NTP：同期は一日に一度、単純な上書きでの更新、省電力設計
+  - ⬇︎ 検証：古いAmazonのタブレット（2017年モデル, APIレベル22）
+  - ⬇︎ `Hello world` → すんなりOK。でもAIなしだと不可能に近い？
+  - ④ `.tlv`の対応
+  - ⬇︎ C++のオリジナルからKotlinに移植できるのがベスト
+  - ⬇︎ いつ取り組むかが問題。AIに課金すれば2日で出来るのかもしれない
+  - ⬇︎ 我らが無課金勢としては、Geminiに頼んでやってもらいたい所
+  - ⬇︎ どちらにせよIDEの基本操作をマスターしてからでないとキケン！
+
+- Reflections
+  - 今日は下調べばかりをこなした。少し元気がないので無理はしない方向で。🐈..
+
+. . . **Score**: 3/5  
+. . . **Update**: 2026-6-5  
+
 ## 2026-6-4 | Day 17
 
 - Today's Achievements
@@ -33,10 +69,10 @@
   - ⬇︎ Xcode：スクリプトを作って手動での呼び出しが必要（使いにくい）
   - ⬇︎ 動的なログ解析ツールを自前で実装 → IDE上のデバッグは使わない
   - ⬇︎ エミュレーターとPCで通信するには？ → `10.0.2.2`
-  - ③キーボードショートカット
-  - ⬇︎ <kbd>Ctrl + D</kbd>は初期値がデバッグ起動。Deleteに入れ替え
-  - ⬇︎ <kbd>Ctrl +  H</kbd>をBackspaceに追加
-  - ⬇︎ <kbd>⌘ + Shift + Z</kbd>をRedoに設定した
+  - ③キーボードショートカット（Kotlin IDE）
+  - ⬇︎ <kbd>Ctrl + D</kbd> Debugを削除 → Edit Actions > Deleteに設定
+  - ⬇︎ <kbd>Ctrl +  H</kbd> Edit Actions > Backspaceに追加
+  - ⬇︎ <kbd>⌘ + Shift + Z</kbd> Edit > Redoに設定
   - ⬇︎ とりあえずこの3つだけで様子見
   - ⬇︎ 設定画面は使いやすかった。😺（VScodeはゴチャゴチャしていて苦手）
 
@@ -46,14 +82,17 @@
   - 一番慣れるのに時間がかかるのはAndroid Studioだと思う。ASCII文字以外の挙動が不安定なのも気になる。それにしても覚えることが多すぎて手に負えないや 🐈..
 
 . . . **Score**: 2/5  
-. . . **Update**: 2026-6-4  
+. . . **Update**: 2026-6-5  
 
 
 ## 2026-6-2 | Day 16
 
 - Today's Achievements
   - `JavaScript → webSocket → Kotlin`の動作検証
-
+    - セットアップ
+    - 実装
+    - 完成物
+    
 - Key Learnings
   - ① Android Studio（IDE）のセットアップ
   - ⬇︎ 複数バージョンのビルドを切り替える → OK
