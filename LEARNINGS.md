@@ -16,8 +16,8 @@
 
 - Today's Achievements
   - IDEのショートカット
-  - webSocketの扱い方
-  - Android検証機について
+  - webSocketの知識
+  - Android検証機
   - `.tlv`の移植をどうする？
 
 - Key Learnings
