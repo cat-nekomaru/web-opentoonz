@@ -12,6 +12,40 @@
 
 🕊️
 
+## 2026-6-6 | Day 19
+
+- Today's Achievements
+  - プロジェクトの全体像
+  - `API Lv22`のテストコード
+  - プロジェクトをPush `/kotlin/2026/Kotlin-01-api22/`
+
+- Key Learnings
+  - ① このプロジェクト全体を考える
+  - ⬇︎ 長期的：Androidタブレットで`.tlv`のR/Wと線画作業
+  - ⬇︎ 中期的：ソースコードの移植 `C++ → Kotlin`
+  - ⬇︎ 短期的：WebSocket、線画の処理、ファイルR/W（開発ツール、テスト）
+  - ⬇︎ つまり現在は、IDEの使い方を覚えている準備状態
+  - ② 古いAndroid端末でプログラム書き
+  - ⬇︎ 機種：Fire HD10 第7世代（32GB, 2GB, 1920×1200）
+  - ⬇︎ 実装：音を出す、RAM使用量、ナノ秒取得
+  - ⬇︎ 特徴：通信なし、Kotlinアプリ
+  - ⬇︎ IDE：デバッガは使用できず。Wifiでのリモート起動もNG
+  - ⬇︎ Sample Code：JavaScript, webGL, webGPU → すんなり起動。OK
+  - ⬇︎ WebSocket：Silkブラウザ経由であればすんなり動きそう
+  - ③ GitHubにプロジェクトをPush
+  - [`MainActivity.kt`](https://github.com/cat-nekomaru/web-opentoonz/tree/main/kotlin/2026/Kotlin-01-api22/app/src/main/java/com/neko/api22_tester), [`AndroidManifest.xml`](https://github.com/cat-nekomaru/web-opentoonz/blob/main/kotlin/2026/Kotlin-01-api22/app/src/main/AndroidManifest.xml), [`build.gradle.kts`](https://github.com/cat-nekomaru/web-opentoonz/blob/main/kotlin/2026/Kotlin-01-api22/app/build.gradle.kts)
+  - ⬇︎ Kotlin IDEの基本操作を覚えたので、練習がてらPush
+  - ⬇︎ ディレクトリ、ファイル、プロジェクト名などの判断がむつかしい
+  - ⬇︎ 細かいことはAI頼りなのでよく分からない。ともかくビルドと起動はOK
+
+- Reflections
+  - さすがに古くて捨てるしかなかったAndroid端末を再利用する。そして、このような用途には全く問題ないことが判明。アルゴリズムやデータの設計には低スペックは無関係だし、作っていたJavaScriptのプログラムにも誤動作などはなくて快適そのもの。画面入力だけで言えばかなり高精度なので、メモリ使用量さえ低くければ十分実用になるような気がする
+  - 何事も同じで、慣れるまでが一番大変なんだよ。慣れてしまえば簡単になる（使う部分は数箇所だけと理解するので）。もしこの世からAI NLPが無くなれば、全てを覚えておく必要が出てきてしまう。そんなことは不可能だから。🐈..
+
+. . . **Score**: 2/5  
+. . . **Update**: 2026-6-19  
+
+
 ## 2026-6-5 | Day 18
 
 - Today's Achievements
