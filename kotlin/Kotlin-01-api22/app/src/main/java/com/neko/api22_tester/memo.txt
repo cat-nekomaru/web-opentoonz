@@ -1,0 +1,11 @@
+
+▶︎ AIプロンプトの例
+
+macOSアプリ（Swift）と、古いAndroid端末（APIレベル22 / Android 5.1）の間で、ローカルWi-Fiを介したWebSocket通信を行います。
+以下の「制約事項」を厳守した通信コードを生成してください。
+
+【制約事項】
+1. 受信側のAndroidがAPI 22と非常に古いため、SSL/TLSの互換性エラーを避けるため、通信は暗号化なしの「ws://」プロトコル（非暗号化）を使用してください。
+2. ポート番号は固定（例: 8080）とし、Mac側をWebSocket【サーバー】、Android側を【クライアント】として実装します。
+3. Swift側から送るデータは、Android 5.1の標準機能だけで簡単にパースできるよう、ネスト（階層）のないシンプルなJSONテキスト（文字列）にしてください。
+4. Swift（macOS）側は、外部ライブラリ（CocoaPodsやSwift Package Manager）を一切使わず、Apple標準の「NWListener」または「URLSessionWebSocketTask」のみを使って実装してください。
