@@ -1,5 +1,9 @@
 
-▶︎ AIプロンプトの例
+// 2026.6.6
+//
+// ▶︎ AIプロンプトの例
+//
+//
 
 macOSアプリ（Swift）と、古いAndroid端末（APIレベル22 / Android 5.1）の間で、ローカルWi-Fiを介したWebSocket通信を行います。
 以下の「制約事項」を厳守した通信コードを生成してください。
@@ -9,3 +13,19 @@ macOSアプリ（Swift）と、古いAndroid端末（APIレベル22 / Android 5.
 2. ポート番号は固定（例: 8080）とし、Mac側をWebSocket【サーバー】、Android側を【クライアント】として実装します。
 3. Swift側から送るデータは、Android 5.1の標準機能だけで簡単にパースできるよう、ネスト（階層）のないシンプルなJSONテキスト（文字列）にしてください。
 4. Swift（macOS）側は、外部ライブラリ（CocoaPodsやSwift Package Manager）を一切使わず、Apple標準の「NWListener」または「URLSessionWebSocketTask」のみを使って実装してください。
+
+ーーー
+
+Android 5.1（API 22）の端末内で、「ブラウザ（JavaScript）」から「ネイティブアプリ（Kotlin）」へWebSocket（localhost）を通じてデータを転送し、端末の機能（音を鳴らす、システム情報取得など）を呼び出すシステムを作ります。
+
+以下の【制約事項】を満たす、JavaScriptの送信コードと、Kotlin（Android）側の受信サーバーコードを作成してください。
+
+【制約事項】
+1. JavaScriptから同じ端末内のKotlinへ接続するため、接続先は「ws://127.0.0.1:9090」としてください。
+2. JS側は古いブラウザ互換のため、標準の「new WebSocket()」を使い、最新の構文（?. や ??）を使わずに記述してください。
+3. Kotlin側は、API 22で確実に動作させるため、重量級のライブラリ（Ktorなど）は避け、軽量な「org.java-websocket:Java-WebSocket:1.5.3」などのJavaベースのライブラリを使用したWebSocketサーバー（WebSocketServerクラスの継承）として実装してください。
+4. Kotlin側でメッセージを受信したら、以下の処理に振り分けるロジック（when分岐）を組んでください。
+   - "beep" を受信: ToneGenerator を使って音を鳴らす
+   - "memory" を受信: 以前作成した /proc/self/statm からメモリを取得し、JS側にレスポンス（String）を返信する
+
+ーーー

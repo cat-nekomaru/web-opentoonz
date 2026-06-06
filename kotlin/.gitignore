@@ -1,0 +1,59 @@
+# ===== Gradle & Build =====
+.gradle/
+.gradle
+build/
+/build
+*/build/
+*.apk
+*.aab
+*.ap_
+*.dex
+
+# ===== Local configuration =====
+local.properties
+/local.properties
+*.keystore
+*.jks
+
+# ===== Android Studio / IntelliJ =====
+*.iml
+.idea/
+.idea/caches
+.idea/libraries
+.idea/modules.xml
+.idea/workspace.xml
+.idea/navEditor.xml
+.idea/assetWizardSettings.xml
+*.ipr
+*.iws
+out/
+
+# ===== Kotlin =====
+.kotlin/
+.kotlinc/
+
+# ===== OS & Editor =====
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# ===== Logs & Temporary =====
+*.log
+captures/
+.externalNativeBuild/
+.cxx
+
+# ===== Firebase / Google Services (必要ならコメントアウト) =====
+# google-services.json
+
+# ===== その他不要 =====
+**/debug/
+**/release/
+**/test/
+
+
+
+
+
+
