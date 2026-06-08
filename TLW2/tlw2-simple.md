@@ -65,5 +65,15 @@ Below is an example of the first 128 bytes (core area) of the `TLW2_Header` stru
 
 .  
 
+# so simple: `.tlw2` System Node Flow
+
+.  
+
+<div align="center">
+<img src="./img/tlw2-simple-02.png" width="500" alt="TLW2 Node Flow">
+</div>  
+
+.  
+
 🐾
 ---

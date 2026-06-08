@@ -26,12 +26,12 @@
   - ⬇︎ 短期的：WebSocket、線画の処理、ファイルR/W（開発ツール、テスト）
   - ⬇︎ つまり現在は、IDEの使い方を覚えている準備状態
   - ② 古いAndroid端末でプログラム書き
-  - ⬇︎ 機種：Fire HD10 第7世代（32GB, 2GB, 1920×1200）
+  - ⬇︎ 機種：Fire HD10 第7世代（32GB, 2GB, 1200×1920, API Lv 22）
   - ⬇︎ 実装：音を出す、RAM使用量、ナノ秒取得
   - ⬇︎ 特徴：通信なし、Kotlinアプリ
   - ⬇︎ IDE：デバッガは使用できず。Wifiでのリモート起動もNG
-  - ⬇︎ Sample Code：JavaScript, webGL, webGPU → すんなり起動。OK
-  - ⬇︎ WebSocket：Silkブラウザ経由であればすんなり動きそう
+  - ⬇︎ Sample Code：JavaScript, webGL, webGPU → 問題なく動作OK
+  - ⬇︎ WebSocket：Silkブラウザ経由であればすんなり動きそう。未確認
   - ③ GitHubにプロジェクトをPush
   - [`MainActivity.kt`](https://github.com/cat-nekomaru/web-opentoonz/tree/main/kotlin/2026/Kotlin-01-api22/app/src/main/java/com/neko/api22_tester), [`AndroidManifest.xml`](https://github.com/cat-nekomaru/web-opentoonz/blob/main/kotlin/2026/Kotlin-01-api22/app/src/main/AndroidManifest.xml), [`build.gradle.kts`](https://github.com/cat-nekomaru/web-opentoonz/blob/main/kotlin/2026/Kotlin-01-api22/app/build.gradle.kts)
   - ⬇︎ Kotlin IDEの基本操作を覚えたので、練習がてらPush
