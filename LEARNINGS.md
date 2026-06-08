@@ -32,28 +32,29 @@
     - `ws://192.168.xxx.xxx/chat?room=sales`
     - URLの末尾に？を付けて、接続時に追加の情報をサーバーへ渡す
   - Compose Multiplatform
-    - Kotlinの標準的なGUIフレームワーク
-    - Jetpack Composeの進化版
-    - iOS, Windows, Linuxデスクトップに導入できる品質がある
-    - `API Lv22`では使えない
+    - Kotlinの標準的なUIフレームワーク。宣言型UI
+    - Jetpack Composeの進化版。マルチプラットフォームに拡張したもの
+    - iOS, Windows, Linux, macOS向けが実戦投入されている
+    - `API Lv21`以上なら使用できる（カタログスペック）
   - Android View（XML）
     1. `API Lv22`でも使えるフレームワーク【最も確実】
     2. `Android Jetpack Compose` ←最新のIDEでは面倒【条件付きで可能】
-  - Ping／Pongフレーム
+  - Ping ⇄ Pongフレーム
     - Ktorが自動で処理している監視の仕組み
-    - データの先頭2バイトのbit4～7がオペコード値
+    - データの先頭1バイトのbit4～7がオペコード値
     1. 0x1 (0001)：テキストフレーム（"😼", "0x00FF"）
-    2. 0x2 (0010)：バイナリフレーム（画像, ファイル）
+    2. 0x2 (0010)：バイナリフレーム（1f:7f:80:00, 画像データ）
     3. 0x9 (1001)：Pingフレーム（Send）
     4. 0xA (1010)：Pongフレーム（Return）
   - Ktor（ケーター）
     - Kotlinで使われているWebフレームワーク
-    - 2018年に正式版`Ktor 1.0`がリリースされる
-    - Kotlin ＋ tor（ドイツ語やオランダ語で『門・ゲート』の意）
-    - WebSocketサーバー：build.gradle.ktsにプラグインを追記
+    - 2018年に正式版`Ktor 1.0`がリリースされる。最新版は`3.0.x`
+    - Kotlin ＋ tor（サーバー系ソフトウェアに多い接尾辞`-tor`）
+    - WebSocketサーバー：`build.gradle.kts`にプラグインを追記
+    - 通信ライブラリ：HTTPクライアント`OkHttp`も有名
   - Android Studio（IDE）
     1. UIのプレビュー：Layout Editor
-    2. エミュレーター：Android Virtual Device / AVD
+    2. エミュレーター：Android Virtual Device（AVD）
   - `API Lv22`のプロジェクトで選択するテンプレート
     1. Empty Views Activity
     2. Empty Activity（Views/XML）
