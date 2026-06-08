@@ -12,6 +12,59 @@
 
 🕊️
 
+## 2026-6-9 | Day 20
+
+- Today's Achievements
+  - システムノードの図面 `/TLW2/tlw2-simple.md`
+  - WebSocket入門
+
+- Key Learnings
+  - ① [シンプルな図面](https://github.com/cat-nekomaru/web-opentoonz/blob/main/TLW2/tlw2-simple.md)を作成。なかなかいい感じ。😼
+    - 味のあるイラストには言葉以上のパワーがあるのだ
+  - ② WebSocketの仕組みをちゃんと理解したい。以下、用語集です
+  - エコーサーバー
+    - 一般的なテストコード
+    - 送られてきた
+  - ルーティング
+    - `ws://192.168.xxx.xxx/dev/bin/` ←このPathの仕組み
+    - 比喩として、関数呼び出しをURLに置き換えたもの
+  - クエリパラメータ
+    - `ws://192.168.xxx.xxx/chat?room=sales`
+    - URLの末尾に？を付けて、接続時に追加の情報をサーバーへ渡す
+  - Compose Multiplatform
+    - Kotlinの標準的なGUIフレームワーク
+    - Jetpack Composeの進化版
+    - iOS, Windows, Linuxデスクトップに導入できる品質がある
+    - `API Lv22`では使えない
+  - Android View（XML）
+    1. `API Lv22`でも使えるフレームワーク【最も確実】
+    2. `Android Jetpack Compose` ←最新のIDEでは面倒【条件付きで可能】
+  - Ping／Pongフレーム
+    - Ktorが自動で処理している監視の仕組み
+    - データの先頭2バイトのbit4～7がOpcode値
+    1. 0x1 (0001)：テキストフレーム（"😼", "0x00FF"）
+    2. 0x2 (0010)：バイナリフレーム（画像, ファイル）
+    3. 0x9 (1001)：Pingフレーム（Tx側）
+    4. 0xA (1010)：Pongフレーム（Rx側）
+  - Ktor（ケーター）
+    - Kotlinで使われているWebフレームワーク
+    - 2018年に正式版`Ktor 1.0`がリリースされる
+    - Kotlin ＋ tor（ドイツ語やオランダ語で『門・ゲート』の意）
+    - WebSocketサーバー：build.gradle.ktsにプラグインを追記
+  - Android Studio（IDE）
+    1. UIのプレビュー：Layout Editor
+    2. エミュレーター：Android Virtual Device / AVD
+  - `API Lv22`のプロジェクトで選択するテンプレート
+    1. Empty Views Activity
+    2. Empty Activity（Views/XML）
+  - 参考：[2014年のAndroid開発者がJetpack Composeを学ぶ](https://design-tech.xtone.co.jp/entry/2026/03/05/101057)
+
+- Reflections
+  - 書くのは大変だけど、覚えるのには役立つんじゃないだろうか。そこそこ動くコードよりも、こうした知識のほうが潰しが効く（含意：AIとやりとりするのに用語が分からないとかなり面倒）
+
+. . . **Score**: 3/5  
+. . . **Update**: 2026-6-9  
+
 ## 2026-6-6 | Day 19
 
 - Today's Achievements
