@@ -29,7 +29,7 @@
 
 - Key Learnings
   - ① 上記のとおり、
-    - [（実装レベル）Floor 1](https://github.com/cat-nekomaru/web-opentoonz/blob/main/TLW2/img/tlw2-simple-03.png)というシンプルな図を作成
+    - [（実装レベル）Floor 1](https://github.com/cat-nekomaru/web-opentoonz/blob/main/TLW2/img/tlw2-simple-03.png), [Mother1〜6](https://github.com/cat-nekomaru/web-opentoonz/blob/main/TLW2/img/tlw2-simple-04.png) というシンプルな図を作成
     - 最近のAIは図を正確に理解してくれるので使いやすい
     - 僕の推定では、理解力は`Grok > Google AI > ChatGPT >> Claude`
     - このように、作図のスキルは必須じゃないけど、あるに越したことはないと判明
