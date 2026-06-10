@@ -20,7 +20,10 @@
 
 .  
 
-<div align=center><img width=450 src=TLW2/img/tlw2-simple-03.png></div>
+<div align=center>
+<img width=450 src=TLW2/img/tlw2-simple-03.png><BR><BR>
+<img width=450 src=TLW2/img/tlw2-simple-04.png>
+</div>
 
 .  
 
@@ -33,10 +36,11 @@
   - ② 命名規則について
     - 図にしたものがFloor（フロア）で、コンパイルを意味するBuildとも好相性
     - 点線で3分割されているのがRoom（ルーム）。つまり今回は2DKみたいな感じ
-    - ルーム内のタスクはBox（ボックス）。これがプログラムコードの実体になる
-    - これの利点：Floor/Room/Boxというちょうどいい単語を選んだこと
+    - ルーム内のタスクはMother（マザー）。これがプログラムコードの実体になる
+    - これの利点：Floor/Room/Motherというナイス（？）単語を選んだこと
     - 実際の評価：数週間ほど使ってみないと判断できず
-    - 参考URL：[Google AIとの雑談](https://share.google/aimode/OojexTxv0axwpNZXU)
+    - 参考URL：[Google AIとの雑談 その1](https://share.google/aimode/OojexTxv0axwpNZXU)
+    - 参考URL：[Google AIとの雑談 その2](https://share.google/aimode/peRDbRFEc6jQGipmy)
 
 - Reflections
   - これでようやく準備が整った気がする。動くテストコードがいくつあっても、長期的には混乱が増えるだけのような予感があって心配だった。今後10ヶ月で完成するとは思えないので、自分が困らないように準備しておくことが最優先
