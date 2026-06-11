@@ -6,7 +6,7 @@
 
 .  
 
-<table border=0><tr><td>
+<table><tr><td>
 
 <table border=1>
     <tr align=center bgcolor=#445>
