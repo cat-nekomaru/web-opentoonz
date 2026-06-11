@@ -10,9 +10,9 @@
 
 <table border=1>
     <tr align=center bgcolor=#445>
-        <td width=90>
+        <td width=120>
         test ID
-        </td><td width=170>
+        </td><td width=200>
         status
         </td>
     </tr><tr align=center>
@@ -76,9 +76,9 @@
 
 <table border=1>
     <tr align=center bgcolor=#445>
-        <td width=75>
+        <td width=100>
         device ID
-        </td><td width=170>
+        </td><td width=180>
         model
         </td>
     </tr><tr align=center>
