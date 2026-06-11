@@ -9,7 +9,7 @@
 <table><tr><td>
 
 <table border=1>
-    <tr align=center bgcolor=#445>
+    <tr align=center>
         <td width=120>
         test ID
         </td><td width=200>
@@ -51,31 +51,13 @@
         </td><td>
         x
         </td>
-    </tr><tr align=center>
-        <td>
-        mother 7
-        </td><td>
-        x
-        </td>
-    </tr><tr align=center>
-        <td>
-        mother 8
-        </td><td>
-        x
-        </td>
-    </tr><tr align=center>
-        <td>
-        mother 9
-        </td><td>
-        x
-        </td>
     </tr>
 </table>
 
 </td><td valign=top>
 
 <table border=1>
-    <tr align=center bgcolor=#445>
+    <tr align=center>
         <td width=100>
         device ID
         </td><td width=180>
