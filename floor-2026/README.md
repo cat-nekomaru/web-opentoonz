@@ -10,9 +10,9 @@
 
 <table border=1>
     <tr align=center>
-        <td width=100>
+        <td width=12%>
         test ID
-        </td><td width=200>
+        </td><td width=22%>
         status
         </td><td width=65%>
         description

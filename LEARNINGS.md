@@ -18,7 +18,9 @@
   - `floor 1`の[README.md](https://github.com/cat-nekomaru/web-opentoonz/tree/main/floor-2026/f001)を作成
 
 - Key Learnings
-  - ＊書きかけ＊
+  - ① `f001/README.md`を作成
+    - Tableタグ：進行状況と詳細をリスト表示。分かりやすい
+    - 図面と進行状況のリストがあることで状況が明確になった
 
 - Reflections
   - 最近は体調を崩してしまいペースダウン中。どのみち難しい作業に取り掛かっているので効率はあまり良くならないけれど。こういう場面では、簡単な作業に分解する／必ず終わらせられる規模を見つけることが有効
