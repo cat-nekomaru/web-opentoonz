@@ -1,4 +1,6 @@
-# floor 2026
+# floor　|　2026
+
+.  
 
 ここは城への入り口です（進む／[戻る](https://github.com/cat-nekomaru/web-opentoonz/)）
 
