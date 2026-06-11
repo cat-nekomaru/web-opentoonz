@@ -91,8 +91,8 @@
 ## 全体図
 
 <div align=center>
-<img width=450 src=img/f001-room.png><BR>
-<img width=450 src=img/f001-mother.png>
+<img width=450 src=img/f001-room-0-1-1.png><BR>
+<img width=450 src=img/f001-mother-0-1-3.png>
 </div>
 
 .  

@@ -31,21 +31,21 @@
 ## 2026-6-10 | Day 21
 
 - Today's Achievements
-  - 実装ターゲットの図面 `/floor-2026/f001/img/f001-room.png（v0.1.1）`
+  - 実装ターゲットの図面 `/floor-2026/f001/img/f001-room-0-1-1.png`
   - 実装レベルの設定（命名規則）
 
 .  
 
 <div align=center>
-<img width=450 src=floor-2026/f001/img/f001-room.png><BR>
-<img width=450 src=floor-2026/f001/img/f001-mother.png>
+<img width=450 src=floor-2026/f001/img/f001-room-0-1-1.png><BR>
+<img width=450 src=floor-2026/f001/img/f001-mother-0-1-3.png>
 </div>
 
 .  
 
 - Key Learnings
   - ① 上記のとおり、
-    - [（実装レベル）Floor 1](floor-2026/f001/img/f001-room.png), [Mother1〜6](floor-2026/f001/img/f001-mother.png) というシンプルな図を作成
+    - [（実装レベル）Floor 1](floor-2026/f001/img/f001-room-0-1-1.png), [Mother1〜6](floor-2026/f001/img/f001-mother-0-1-3.png) というシンプルな図を作成
     - 最近のAIは図を正確に理解してくれるので使いやすい
     - 僕の推定では、理解力は`Grok > Google AI > ChatGPT >> Claude`
     - このように、作図のスキルは必須じゃないけど、あるに越したことはないと判明
