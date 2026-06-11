@@ -12,6 +12,21 @@
 
 🕊️
 
+## 2026-6-12 | Day 22
+
+- Today's Achievements
+  - `Floor 1`の[README.md](https://github.com/cat-nekomaru/web-opentoonz/tree/main/floor-2026/f001)を作成
+
+- Key Learnings
+  - ＊
+
+- Reflections
+  - ＊書きかけ＊
+
+. . . **Score**: 2/5  
+. . . **Update**: 2026-6-12  
+
+
 ## 2026-6-10 | Day 21
 
 - Today's Achievements
