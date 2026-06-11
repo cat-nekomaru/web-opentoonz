@@ -1,6 +1,6 @@
 # floor 2026
 
-ここは城への入り口です（進む／[戻る](../)）
+ここは城への入り口です（進む／[戻る](https://github.com/cat-nekomaru/web-opentoonz/)）
 
 🚪
 
@@ -44,7 +44,7 @@
 
 .  
 
-## 全体図
+# overview
 
 <div align=center>
 <img width=450 src=../TLW2/img/tlw2-simple-02.png>
