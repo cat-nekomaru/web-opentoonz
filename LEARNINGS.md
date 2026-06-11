@@ -15,13 +15,14 @@
 ## 2026-6-12 | Day 22
 
 - Today's Achievements
-  - `Floor 1`の[README.md](https://github.com/cat-nekomaru/web-opentoonz/tree/main/floor-2026/f001)を作成
+  - `floor 1`の[README.md](https://github.com/cat-nekomaru/web-opentoonz/tree/main/floor-2026/f001)を作成
 
 - Key Learnings
-  - ＊
+  - ＊書きかけ＊
 
 - Reflections
-  - ＊書きかけ＊
+  - 最近は体調を崩してしまいペースダウン中。どのみち難しい作業に取り掛かっているので効率はあまり良くならないけれど。こういう場面では、簡単な作業に分解する／必ず終わらせられる規模を見つけることが有効
+  - `floor 1`は最初なのでむつかしい。作業自体は簡単なハズだけど。まぁでも、こうやって図を作って良かったかな。少なくともAI NLPからの反応は上々で、固有名詞があることでコミュニケーションはかなり改善している（孤独なネコはAIが友達）。こいつがなければ上手く進められる気がしないよ。マジで。🐈..
 
 . . . **Score**: 2/5  
 . . . **Update**: 2026-6-12  

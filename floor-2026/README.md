@@ -1,0 +1,56 @@
+# floor 2026
+
+ここは城への入り口です（進む／戻る）
+
+🚪
+
+.  
+
+<table border=1>
+    <tr align=center>
+        <td width=100>
+        test ID
+        </td><td width=200>
+        status
+        </td><td width=65%>
+        description
+        </td>
+    </tr><tr align=center>
+        <td>
+        floor 1
+        </td><td>
+        entry, 2026-6-12
+        </td><td align=left>
+        WebSocket、システムコール、タイムスタンプ
+        </td>
+    </tr><tr align=center>
+        <td>
+        ---
+        </td><td>
+        .
+        </td><td align=left>
+        .
+        </td>
+    </tr><tr align=center>
+        <td>
+        ---
+        </td><td>
+        .
+        </td><td align=left>
+        .
+        </td>
+    </tr>
+</table>
+
+.  
+
+## 全体図
+
+<div align=center>
+<img width=450 src=img/f001-room.png><BR>
+<img width=450 src=img/f001-mother.png>
+</div>
+
+.  
+
+🏰

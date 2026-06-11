@@ -19,37 +19,37 @@
         <td>
         mother 1
         </td><td>
-        x
+        .
         </td>
     </tr><tr align=center>
         <td>
         mother 2
         </td><td>
-        x
+        .
         </td>
     </tr><tr align=center>
         <td>
         mother 3
         </td><td>
-        x
+        .
         </td>
     </tr><tr align=center>
         <td>
         mother 4
         </td><td>
-        x
+        .
         </td>
     </tr><tr align=center>
         <td>
         mother 5
         </td><td>
-        x
+        .
         </td>
     </tr><tr align=center>
         <td>
         mother 6
         </td><td>
-        x
+        .
         </td>
     </tr>
 </table>
@@ -59,7 +59,7 @@
 <table border=1>
     <tr align=center>
         <td width=100>
-        device ID
+        section ID
         </td><td width=180>
         model
         </td>
@@ -85,6 +85,8 @@
 </table>
 
 </td></tr></table>
+
+.  
 
 ## 全体図
 
