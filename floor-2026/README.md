@@ -47,8 +47,7 @@
 ## 全体図
 
 <div align=center>
-<img width=450 src=img/f001-room.png><BR>
-<img width=450 src=img/f001-mother.png>
+<img width=450 src=../TLW2/img/tlw2-simple-02.png>
 </div>
 
 .  
