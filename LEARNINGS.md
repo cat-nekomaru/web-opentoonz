@@ -12,13 +12,28 @@
 
 🕊️
 
+## 2026-6-13 | Day 23
+
+- Today's Achievements
+  - [f001/README.md](floor-2026/f001) を更新
+
+- Key Learnings
+  - ＊書きかけ
+
+- Reflections
+  - ＊
+
+. . . **Score**: 2/5  
+. . . **Update**: 2026-6-13  
+
+
 ## 2026-6-12 | Day 22
 
 - Today's Achievements
   - `floor 1`の[README.md](https://github.com/cat-nekomaru/web-opentoonz/tree/main/floor-2026/f001)を作成
 
 - Key Learnings
-  - ① `/floor-2026/f001/README.md`を作成
+  - ① `floor-2026/f001/README.md`を作成
     - Tableタグ：進行状況と詳細をリスト表示。分かりやすい
     - 全てが手動での対応だけど、やらないほうが大変になるだろうね
 
@@ -34,7 +49,7 @@
 ## 2026-6-10 | Day 21
 
 - Today's Achievements
-  - 実装ターゲットの図面 `/floor-2026/f001/img/f001-room-0-1-1.png`
+  - 実装ターゲットの図面 `floor-2026/f001/img/f001-room-0-1-1.png`
   - 実装レベルの設定（命名規則）
 
 .  

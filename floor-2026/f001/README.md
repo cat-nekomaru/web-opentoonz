@@ -10,15 +10,15 @@
 
 | room ID | OS | language |
 |:---:|:---:|:---:|
-| room 1 | Android - API Lv28 | Kotlin |
-| room 2 | Android -  API Lv22 | Kotlin, JavaScript |
-| room 3 | macOS - 26.x | Swift |
+| 1 | Android - API Lv28 | Kotlin |
+| 2 | Android -  API Lv22 | Kotlin, JavaScript |
+| 3 | macOS - 26.x | Swift |
 
 .  
 
 | day | link | mother ID | summary |
 |:---:|:---:|:---:|:---:|
-| Day 22 | [d022](./d022/) | 1,2,3 | ＊書きかけ＊ |
+| Day 23 | [d023](./d023/) | 1 | ＊書きかけ＊ |
 | --- | . | . | . |
 | --- | . | . | . |
 | --- | . | . | . |

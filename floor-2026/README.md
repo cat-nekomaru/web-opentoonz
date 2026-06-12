@@ -10,7 +10,7 @@
 
 | test ID | status | description |
 |:---:|:---:|:---:|
-| [floor 1](f001) | entry, 2026-6-12 | WebSocket、システムコール、タイムスタンプ |
+| [floor 1](f001) | entry, 2026-6-12 | webSocket, system call, time stamp, beep |
 | --- | . |.|
 | --- | . |.|
 | --- | . |.|
