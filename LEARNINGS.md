@@ -18,7 +18,7 @@
   - `floor 1`の[README.md](https://github.com/cat-nekomaru/web-opentoonz/tree/main/floor-2026/f001)を作成
 
 - Key Learnings
-  - ① `/floor-2006/f001/README.md`を作成
+  - ① `/floor-2026/f001/README.md`を作成
     - Tableタグ：進行状況と詳細をリスト表示。分かりやすい
     - 全てが手動での対応だけど、やらないほうが大変になるだろうね
 

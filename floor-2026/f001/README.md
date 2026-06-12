@@ -8,89 +8,30 @@
 
 .  
 
-<table><tr><td>
+<table><tr><td valign=top>
 
-<table border=1>
-    <tr align=center>
-        <td width=120>
-        test ID
-        </td><td width=200>
-        status
-        </td>
-    </tr><tr align=center>
-        <td>
-        mother 1
-        </td><td>
-        .
-        </td>
-    </tr><tr align=center>
-        <td>
-        mother 2
-        </td><td>
-        .
-        </td>
-    </tr><tr align=center>
-        <td>
-        mother 3
-        </td><td>
-        .
-        </td>
-    </tr><tr align=center>
-        <td>
-        mother 4
-        </td><td>
-        .
-        </td>
-    </tr><tr align=center>
-        <td>
-        mother 5
-        </td><td>
-        .
-        </td>
-    </tr><tr align=center>
-        <td>
-        mother 6
-        </td><td>
-        .
-        </td>
-    </tr>
-</table>
+| test ID | status |
+|---|:---:|
+| mother 1 | . |
+| mother 2 | . |
+| mother 3 | . |
+| mother 4 | . |
+| mother 5 | . |
+| mother 6 | . |
 
 </td><td valign=top>
 
-<table border=1>
-    <tr align=center>
-        <td width=100>
-        section ID
-        </td><td width=180>
-        model
-        </td>
-    </tr><tr align=center>
-        <td>
-        room 1
-        </td><td>
-        Android, API Lv28
-        </td>
-    </tr><tr align=center>
-        <td>
-        room 2
-        </td><td>
-        Android, API Lv22
-        </td>
-    </tr><tr align=center>
-        <td>
-        room 3
-        </td><td>
-        macOS, Swift 6
-        </td>
-    </tr>
-</table>
+| section ID | model |
+|---|:---:|
+| room 1 | Android, API Lv28 |
+| room 2 | Android, API Lv22 |
+| room 3 | macOS, Swift 6 |
 
 </td></tr></table>
 
 .  
 
-## 全体図
+# overview
 
 <div align=center>
 <img width=450 src=img/f001-room-1-0-0.png><BR>
