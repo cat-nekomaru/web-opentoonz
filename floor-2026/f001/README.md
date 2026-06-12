@@ -11,7 +11,7 @@
 <table><tr><td valign=top>
 
 | test ID | status |
-|---|:---:|
+|:---:|:---:|
 | mother 1 | . |
 | mother 2 | . |
 | mother 3 | . |
@@ -22,7 +22,7 @@
 </td><td valign=top>
 
 | section ID | model |
-|---|:---:|
+|:---:|:---:|
 | room 1 | Android, API Lv28 |
 | room 2 | Android, API Lv22 |
 | room 3 | macOS, Swift 6 |
