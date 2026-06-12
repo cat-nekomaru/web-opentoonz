@@ -9,8 +9,8 @@
 
 | room ID | OS | language |
 |:---:|:---:|:---:|
-| 1 | Android - API Lv28 | Kotlin |
-| 2 | Android -  API Lv22 | Kotlin, JavaScript |
+| 1 | Android - API Lv28 | Kotlin, JavaScript |
+| 2 | Android -  API Lv22 | Kotlin |
 | 3 | macOS - 26.x | Swift |
 
 .  
