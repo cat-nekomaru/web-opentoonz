@@ -9,15 +9,15 @@
 
 |    | room | OS, version | language |
 |:---|:---:|:---:|:---:|
-|`.tlw2` Tools| 1 | Android - API Lv28 | Kotlin, JavaScript |
-|`.tlw2` Flipbook| 2 | Android -  API Lv22 | Kotlin |
-|`.tlw2` Studio| 3 | macOS - 26.x | Swift |
+|`.tlw2` Tools| r001 | Android - API Lv28 | Kotlin, JavaScript |
+|`.tlw2` Flipbook| r002 | Android -  API Lv22 | Kotlin |
+|`.tlw2` Studio| r003 | macOS - 26.x | Swift |
 
 .  
 
 | | folder | mother | room | summary |
 |:---:|:---:|:---:|:---:|:---|
-| Day 23 | [d023](./d023/) | m001 | r001 | Timerで時刻を表示。IPアドレスは固定<BR>ClaudeにてOK、Google AIではNG |
+| Day 23 | [d023](./d023/) | m001 | r001 | Timerで時刻を送信。ClaudeにてOK |
 | --- | . | . | . | . |
 | --- | . | . | . | . |
 
