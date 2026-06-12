@@ -8,26 +8,21 @@
 
 .  
 
-<table><tr><td valign=top>
+| room ID | OS | language |
+|:---:|:---:|:---:|
+| room 1 | Android - API Lv28 | Kotlin |
+| room 2 | Android -  API Lv22 | Kotlin, JavaScript |
+| room 3 | macOS - 26.x | Swift |
 
-| test ID | status |
-|:---:|:---:|
-| mother 1 | . |
-| mother 2 | . |
-| mother 3 | . |
-| mother 4 | . |
-| mother 5 | . |
-| mother 6 | . |
+.  
 
-</td><td valign=top>
-
-| section ID | model |
-|:---:|:---:|
-| room 1 | Android, API Lv28 |
-| room 2 | Android, API Lv22 |
-| room 3 | macOS, Swift 6 |
-
-</td></tr></table>
+| day | link | mother ID | summary |
+|:---:|:---:|:---:|:---:|
+| Day 22 | [d022](./d022/) | 1,2,3 | ＊書きかけ＊ |
+| --- | . | . | . |
+| --- | . | . | . |
+| --- | . | . | . |
+| --- | . | . | . |
 
 .  
 
