@@ -1,0 +1,132 @@
+package com.neko.m001_hello_webviewapi22
+
+// ============================================================
+//  実装B: Timer + TimerTask
+//  - 専用バックグラウンドスレッドで動作する
+//  - WebView 操作は UIスレッド必須 → runOnUiThread() が必要
+//  - scheduleAtFixedRate() で周期ズレを自動補正する
+//    （Handler版より長時間での累積誤差が少ない）
+// ============================================================
+
+import android.os.Bundle
+import android.webkit.WebSettings
+import android.webkit.WebView
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
+import java.util.Timer
+import java.util.TimerTask
+
+// [TimerImpl flavor]
+class MainActivity : AppCompatActivity() {
+
+    companion object {
+        private const val TIMER_INTERVAL_MS = 33L   // 約33ms周期（≒30fps）
+        private const val IMPL_LABEL = "Timer + TimerTask"
+    }
+
+    private lateinit var webView: WebView
+    private var timer: Timer? = null
+    private val timeFormat = SimpleDateFormat("HH:mm:ss.SSS", Locale.US)
+
+    // --------------------------------------------------------
+    // ライフサイクル
+    // --------------------------------------------------------
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        // ラベル表示
+        findViewById<TextView>(R.id.tvImplLabel).text = "[impl: $IMPL_LABEL]"
+
+        // WebView 初期化
+        webView = findViewById(R.id.webView)
+        setupWebView()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        startTimer()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        stopTimer()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        stopTimer()
+    }
+
+    // --------------------------------------------------------
+    // タイマー開始 / 停止
+    // scheduleAtFixedRate: 前回の予定時刻を基準に次回を計算するため
+    //   処理遅延が蓄積しにくい（postDelayed との主な違い）
+    // --------------------------------------------------------
+    private fun startTimer() {
+        timer = Timer().also { t ->
+            t.scheduleAtFixedRate(object : TimerTask() {
+                override fun run() {
+                    // バックグラウンドスレッドから UI 操作 → UIスレッドへ切り替え
+                    runOnUiThread {
+                        updateWebView()
+                    }
+                }
+            }, 0L, TIMER_INTERVAL_MS)
+        }
+    }
+
+    private fun stopTimer() {
+        timer?.cancel()
+        timer = null
+    }
+
+    // --------------------------------------------------------
+    // WebView セットアップ
+    // --------------------------------------------------------
+    private fun setupWebView() {
+        val settings: WebSettings = webView.settings
+        @Suppress("SetJavaScriptEnabled")
+        settings.javaScriptEnabled = true
+
+        webView.loadDataWithBaseURL(
+            null,
+            buildInitialHtml(),
+            "text/html",
+            "UTF-8",
+            null
+        )
+    }
+
+    // --------------------------------------------------------
+    // Kotlin → WebView 時刻送信
+    // --------------------------------------------------------
+    private fun updateWebView() {
+        val timeStr = timeFormat.format(Date())
+        webView.evaluateJavascript("showTime('$timeStr');", null)
+    }
+
+    // --------------------------------------------------------
+    // 初期HTML（最小限）
+    // --------------------------------------------------------
+    private fun buildInitialHtml(): String = """
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        </head>
+        <body>
+            <p id="time">--:--:--.---</p>
+            <script>
+                function showTime(t) {
+                    document.getElementById('time').textContent = t;
+                }
+            </script>
+        </body>
+        </html>
+    """.trimIndent()
+}

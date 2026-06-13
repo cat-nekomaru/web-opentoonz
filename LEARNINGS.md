@@ -12,11 +12,26 @@
 
 🕊️
 
+## 2026-6-14 | Day 24
+
+- Today's Achievements
+  - `Day 24` [d024 folder](floor-2026/f001/d024)を作成
+
+- Key Learnings
+  - ＊書きかけ
+
+- Reflections
+  - ＊⭐️
+
+. . . **Score**: 4/5  
+. . . **Update**: 2026-6-14  
+
+
 ## 2026-6-13 | Day 23
 
 - Today's Achievements
-  - `floor 1`の[README.md](floor-2026/f001)を更新
-  - `Day 23`の[d023フォルダ](floor-2026/f001/d023) を作成
+  - `floor 1` [README.md](floor-2026/f001)を更新
+  - `Day 23` [d023 folder](floor-2026/f001/d023)を作成
 
 - Key Learnings
   - ① `f001/README.md`を更新
