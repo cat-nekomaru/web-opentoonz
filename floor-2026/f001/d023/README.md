@@ -54,7 +54,7 @@ Android (Kotlin)
   - あとで行う：JavaScriptをAndroidデバイスに配信する
 - Android Studio（IDE）をインストール
 - IDEに新規プロジェクトを作成
-  - New Projcet > Empty Viws Activity > Nextボタンを押す
+  - New Project > Empty Viws Activity > Nextボタンを押す
     - Name：m001-ws-TimeSender
     - Save Location:任意
     - Minimum SDK: API 28
