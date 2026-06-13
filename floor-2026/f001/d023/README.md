@@ -58,8 +58,8 @@ Android (Kotlin)
     - Name：m001-ws-TimeSender
     - Save Location:任意
     - Minimum SDK: API 28
-  - ⭐️下にスクショを貼り付けています
   - FinishボタンでIDE画面が開く（セットアップ完了まで数秒かかります）
+  - ⭐️下にスクショを貼り付けています
 - 4つのコードの書き換えと、2つのコードを追加
   - Kotlinプロジェクトのルート `./r001-api28-kt/`
   - 全部用意できたらビルドできるか確認！
@@ -86,12 +86,13 @@ Android (Kotlin)
 - JavaScriptを送り込んで実行
   - JSプロジェクトのルート `./r001-javascript/`
   - この中にある`index.html`をDLする
-  - 上記コード内にあるIPアドレスを修正（Android端末のもの）
-  - VSCodeで開いてから、Live ServerをONにする
-  - PCのアドレス（例 192.168.179.50:5050）をAndroidのブラウザからアクセス、
+  - VSCodeで開いてから、
+    - コード内にあるIPアドレスを修正（Android端末の値にする）
+    - Live ServerをONにする
+  - PCのアドレスをAndroidのブラウザからアクセス（例 192.168.179.50:5050）
   - index.htmlを見つけて開く！
   - ⭐️詳しい手順はAIに教えてもらう
-  - 以上、正常動作を確認できれは完了です。🐈..
+- 以上、正常動作を確認できれは完了です。🐈..
 - 参考URL：[Google AIとの雑談](https://share.google/aimode/YQX612Mh0FBWnQvlc)
 
 .  
