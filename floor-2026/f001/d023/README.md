@@ -9,8 +9,9 @@
 
 ## 今回の内容
 
-- Kt: 1000ms Timerを使用して時刻を取得する
-- JS: それをテキストで受信して表示。コード量がとても少なくて驚いた
+- `Kotlin` 1000ms Timerを使用して時刻を取得
+- `JavaScript` それをテキストで受信して表示。コード量がとても少なくて驚いた
+- `wsライブラリ` org.java-websocket
 - GUI側を極力簡素にしておけば、かなり使いやすいツールになる気がする
 - それにしてもAIがなければ不可能に思える。必要な知識量が膨大すぎる
 
@@ -48,19 +49,19 @@ Android (Kotlin)
 
 ## (Info) Android app development starting kit
 
-- Visual Studio Code（VSCode）をインストール
+- ① Visual Studio Code（VSCode）をインストール
   - Live Serverエクステンションを追加
   - ⭐️詳しい手順はAIに教えてもらう
   - あとで行う：JavaScriptをAndroidデバイスに配信する
-- Android Studio（IDE）をインストール
-- IDEに新規プロジェクトを作成
+- ② Android Studio（IDE）をインストール
+- ③ IDEに新規プロジェクトを作成
   - New Project > Empty Viws Activity > Nextボタンを押す
     - Name：m001-ws-TimeSender
-    - Save Location:任意
-    - Minimum SDK: API 28
+    - Save Location：任意
+    - Minimum SDK：API 28
   - FinishボタンでIDE画面が開く（セットアップ完了まで数秒かかります）
   - ⭐️下にスクショを貼り付けています
-- 4つのコードの書き換えと、2つのコードを追加
+- ④ 4つのコードの書き換えと、2つのコードを追加
   - Kotlinプロジェクトのルート `./r001-api28-kt/`
   - 全部用意できたらビルドできるか確認！
   - ⭐️詳しい手順はAIに教えてもらう（可能であればGitHubを活用して取得）
@@ -74,16 +75,16 @@ Android (Kotlin)
   - `TimeWebSocketServer` 増設したコード😼
   - `build.gradle.kts` 設定ファイル、有名なもの😺
   - `他のものALL` 誰にも理解できないAndroidのダークサイド🙀
-- Android端末とIDEを接続
+- ⑤ Android端末とIDEを接続
   - USBケーブルでPCと接続する
   - Android端末を開発者モードにする
   - IDEでRunを実行、KotlinアプリがAndroidで起動するか確認！
   - ⭐️詳しい手順はAIに教えてもらう
-- Android端末とPCを同じネットワークにする
+- ⑥ Android端末とPCを同じネットワークにする
   - 端末をPCと同じWi-Fiに接続。もしくは端末のテザリングにPCを接続する
   - あとで使う：Android端末のIPアドレスを確認する
   - ⭐️詳しい手順はAIに教えてもらう
-- JavaScriptを送り込んで実行
+- ⑦ JavaScriptを送り込んで実行
   - JSプロジェクトのルート `./r001-javascript/`
   - PCからこの中にある`index.html`をDLする（もしくは新規作成 → コピペ）
   - VSCodeで開いてから、
