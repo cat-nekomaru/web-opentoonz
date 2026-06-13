@@ -85,9 +85,9 @@ Android (Kotlin)
   - ⭐️詳しい手順はAIに教えてもらう
 - JavaScriptを送り込んで実行
   - JSプロジェクトのルート `./r001-javascript/`
-  - この中にある`index.html`をDLする
+  - PCからこの中にある`index.html`をDLする（もしくは新規作成 → コピペ）
   - VSCodeで開いてから、
-    - コード内にあるIPアドレスを修正（Android端末の値にする）
+    - コード内にあるIPアドレスを修正（Android端末の値に変更）
     - Live ServerをONにする
   - PCのアドレスをAndroidのブラウザからアクセス（例 192.168.179.50:5050）
   - index.htmlを見つけて開く！
