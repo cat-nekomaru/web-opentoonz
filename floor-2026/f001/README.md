@@ -17,11 +17,11 @@
 
 | | | folder | mother | room | summary |
 |:---:|:---:|:---:|:---:|:---:|:---|
-|1| Day 23 | [d023](./d023/) | m001 | r001 | JS+Kt API 28, WebSocket, Timer 1" |
-|2| Day 24 | [d024](./d024/) | m001 | r002 | Kotlin API 22, WebView, Timer 33ms |
-|3| --- | . | . | . |  |
-|4| --- | . | . | . |  |
-|5| --- | . | . | . |  |
+| 1 | Day 23 | [d023](./d023/) | m001 | r001 | JS+Kt API 28, WebSocket, Timer 1" |
+| 2 | Day 24 | [d024](./d024/) | m001 | r002 | Kotlin API 22, WebView, Timer 33ms |
+| 3 | --- | . | . | . |  |
+| 4 | --- | . | . | . |  |
+| 5 | --- | . | . | . |  |
 
 .  
 
