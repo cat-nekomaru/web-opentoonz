@@ -89,6 +89,7 @@ Android (Kotlin)
   - index.htmlを見つけて開く！
   - ⭐️詳しい手順はAIに教えてもらう
   - 以上、正常動作を確認できれは完了です。🐈..
+- 参考URL：[Google AIとの雑談](https://share.google/aimode/YQX612Mh0FBWnQvlc)
 
 .  
 
