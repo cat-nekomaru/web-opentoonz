@@ -197,9 +197,9 @@ WebViewは完全に**受信専用**。自分でタイマーを持たず、Kotlin
   - New Project > Empty Viws Activity > Nextボタンを押す
     - Name：m001_hello_WebViewApi22
     - Save Location：任意
-    - Minimum SDK：API 23（これ以上下げられない。コード側で修正しました）
+    - Minimum SDK：API 23（これ以下にはできないのでコード側で指定する）
   - FinishボタンでIDE画面が開く
-  - ⭐️下にスクショを貼り付けています（未確認：Package nameの修正が必要かも？）
+  - ⭐️下にスクショを貼り付けています
 - ④ 3つのコードの書き換えと、1つのコードを追加
   - Kotlinプロジェクトのルート `./r002-api22-kt/`
     1. build.gradle.kts (app)
@@ -210,7 +210,7 @@ WebViewは完全に**受信専用**。自分でタイマーを持たず、Kotlin
   - `MainActivity.kt` これがメインのコード😸
   - `その他のもの` よく分かりませんが必要です😾
   - 準備できたらビルドできるか確認してください！
-  - ⭐️詳しい手順はAI頼りです（再び：Package nameの修正が必要かも）
+  - ⭐️詳しい手順はAIに聞けばOK（未確認：Package nameの修正が必要かも？）
 - ⑤ Android端末とIDEを接続
   - USBケーブルでPCと接続する
   - Android端末を開発者モードにする
