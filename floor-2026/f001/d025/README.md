@@ -187,7 +187,7 @@ XCTAssertEqual(vm.timeString, "13:45:30.789")
 
 4. `Tests/` フォルダの `.swift` を **テストターゲット** に追加
 
-5. `⌘ + U` で全テスト実行
+5. <kbd>⌘ + U</kbd> で全テスト実行
 
 ---
 
