@@ -10,7 +10,7 @@
 ## 今回の内容
 
 <div align=center>
-<video src="img/d024-s01.mp4" controls width="300"></video></div>
+<video src="https://github.com/user-attachments/assets/343254b8-61b4-44d6-acf7-302e7d0f1b84" controls width="300"></video></div>
 
 
 - ⭐️書きかけ
