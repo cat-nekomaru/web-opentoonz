@@ -189,6 +189,16 @@ XCTAssertEqual(vm.timeString, "13:45:30.789")
 
 5. <kbd>⌘ + U</kbd> で全テスト実行
 
+.  
+
+<div align=center>
+
+**追記⚡️ zipファイルを [用意しました](https://github.com/cat-nekomaru/web-opentoonz/tree/main/floor-2026/f001/d025/download)**
+
+</div>
+
+.  
+
 ---
 
 ## 注意事項
@@ -207,11 +217,13 @@ XCTAssertEqual(vm.timeString, "13:45:30.789")
 ---
 .  
 
-⭐️書きかけ
 
 <div align=center>
-<img width=450 src=img/d025-s01.png>
-</div>
+<img width=570 src=img/d025-s01.png><BR>
+<img width=450 src=img/d025-s02.png><BR>
+<img width=450 src=img/d025-s03.png><BR>
+<img width=450 src=img/d025-s04.png><BR>
+</div>⭐️書きかけ
 
 .  
 
