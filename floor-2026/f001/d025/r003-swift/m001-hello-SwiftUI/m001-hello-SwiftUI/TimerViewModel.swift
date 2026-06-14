@@ -49,13 +49,21 @@ final class TimerViewModel: ObservableObject {
     /// Date → "hh:mm:ss.sss" 変換（static にしてテストしやすくする）
     static func format(date: Date) -> String {
         let cal = Calendar.current
-        let h   = cal.component(.hour,   from: date)
+        let h   = cal.component(.hour, from: date)
         let m   = cal.component(.minute, from: date)
         let s   = cal.component(.second, from: date)
 
-        // Calendar.component(.nanosecond) は浮動小数点誤差で不正確なため
-        // timeIntervalSince1970 の小数部から ms を直接計算する
-        let ms  = Int(date.timeIntervalSince1970 * 1_000) % 1_000
+        let ns = cal.component(.nanosecond, from: date)
+
+        // print("DEBUG ns =", ns) // 1st
+        // print("DEBUG:", h, m, s, "ns=", ns ) // 2nd
+        print("FORMAT TEST DEBUG:", h, m, s, "ns=", ns) // 3rd⭐️
+
+        // let ms = ns / 1_000_000
+        
+        let ms =
+            Int(round(date.timeIntervalSince1970 * 1000))
+            % 1000
 
         return String(format: "%02d:%02d:%02d.%03d", h, m, s, ms)
     }

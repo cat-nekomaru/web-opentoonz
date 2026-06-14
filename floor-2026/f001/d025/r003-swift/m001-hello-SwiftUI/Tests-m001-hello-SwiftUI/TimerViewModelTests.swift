@@ -26,13 +26,34 @@ private struct TimeParts {
 /// hh:mm:ss.sss の時刻を持つ Date を作る
 /// DateComponents.nanosecond は浮動小数点誤差があるため使わない。
 /// 代わりに「今日の 00:00:00 UTC+9」を基点にして秒＋ms をエポック秒で加算する。
-private func makeDate(h: Int, m: Int, s: Int, ms: Int) -> Date {
+// private func makeDate(h: Int, m: Int, s: Int, ms: Int) -> Date {
     // UTC での今日 0時0分0秒 を Calendar で取得し、そこに offset を加える
-    var comps  = DateComponents()
-    comps.hour = h; comps.minute = m; comps.second = s
+//    var comps  = DateComponents()
+//    comps.hour = h; comps.minute = m; comps.second = s
     // 秒まで Calendar で作り、ms は TimeInterval で加算 → 浮動小数点誤差が ms 未満に収まる
-    let base   = Calendar.current.date(from: comps)!
-    return base.addingTimeInterval(Double(ms) / 1_000.0)
+//    let base   = Calendar.current.date(from: comps)!
+//    return base.addingTimeInterval(Double(ms) / 1_000.0)
+//}
+
+private func makeDate_2(h: Int, m: Int, s: Int, ms: Int) -> Date {
+    var comps = DateComponents()
+
+    comps.hour = h
+    comps.minute = m
+    comps.second = s
+    comps.nanosecond = ms * 1_000_000
+
+    return Calendar.current.date(from: comps)!
+}
+
+private func makeDate(h: Int, m: Int, s: Int, ms: Int) -> Date {
+    let totalMilliseconds =
+        (((h * 60 + m) * 60 + s) * 1000) + ms
+
+    return Date(
+        timeIntervalSince1970:
+            Double(totalMilliseconds) / 1000.0
+    )
 }
 
 // MARK: - Tests
@@ -58,7 +79,7 @@ final class TimerViewModelTests: XCTestCase {
     }
 
     /// 時・分・秒・ミリ秒が正しく埋め込まれること
-    func test_format_correctValues() {
+    func test_format_correctValues_org() {
         let date   = makeDate(h: 9, m: 8, s: 7, ms: 6)
         let result = TimerViewModel.format(date: date)
         let parts  = TimeParts(result)!
@@ -69,6 +90,22 @@ final class TimerViewModelTests: XCTestCase {
         XCTAssertEqual(parts.sss, 6, "millisecond")
     }
 
+    func test_format_correctValues() {
+        print("★★★★ test_format_correctValues START ★★★★")
+
+        let date   = makeDate(h: 9, m: 8, s: 7, ms: 6)
+        let result = TimerViewModel.format(date: date)
+
+        print("RESULT =", result)
+
+        let parts = TimeParts(result)!
+
+        XCTAssertEqual(parts.hh, 9)
+        XCTAssertEqual(parts.mm, 8)
+        XCTAssertEqual(parts.ss, 7)
+        XCTAssertEqual(parts.sss, 6)
+    }
+    
     /// 境界値: 0時0分0秒0ms
     func test_format_midnight() {
         let result = TimerViewModel.format(date: makeDate(h: 0, m: 0, s: 0, ms: 0))
