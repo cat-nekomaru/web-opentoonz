@@ -1,21 +1,15 @@
-//
-//  ContentView.swift
-//  m001-hello-SwiftUI
-//
-//  Created by Cat Nekomaru on 2026/06/15.
-//
-
 import SwiftUI
 
 struct ContentView: View {
+
+    @StateObject private var vm = TimerViewModel()
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+        Text(vm.timeString)
+            .font(.system(size: 48, weight: .medium, design: .monospaced))
+            .padding(32)
+            .onAppear  { vm.start() }
+            .onDisappear { vm.stop() }
     }
 }
 
