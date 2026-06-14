@@ -7,12 +7,7 @@
 
 . 
 
-## 今回の内容
-
-- ⭐️書きかけ
-- x
-- x
-- x
+## 動作の様子
 
 .  
 
@@ -21,7 +16,174 @@
 
 .  
 
-## (Info) Android app development starting kit
+# (Proj) m001_hello_WebViewApi22
+
+***※以下は全て作成者：Claude AIによる説明です***
+
+.  
+
+Kotlin（API 22）+ WebView の通信テストプロジェクト。  
+Kotlin側の33msタイマーが現在時刻（`hh:mm:ss.sss`）をWebViewに送信し、WebViewはそれを表示する。
+
+---
+
+## 概要
+
+```
+┌─────────────────────────────┐
+│         Kotlin 側           │
+│                             │
+│  タイマー（33ms周期）        │
+│      ↓                      │
+│  時刻取得 hh:mm:ss.sss      │
+│      ↓                      │
+│  evaluateJavascript()  ────────────→  WebView
+└─────────────────────────────┘              │
+                                             ↓
+                                    JS: showTime(t)
+                                             ↓
+                                    画面に時刻を表示
+```
+
+- **Kotlin側**：時刻の取得・送信のみ担当
+- **WebView側**：受け取った文字列を表示するだけ
+- **通信手段**：`evaluateJavascript()`（API 19以上で使用可能）
+
+---
+
+## 2つの実装比較
+
+このプロジェクトはタイマーの実装方法が異なる2バージョンを収録している。  
+`./type-A-handler.txt`, `./type-B-timer.txt`
+
+---
+
+### 実装A：Handler + Runnable
+
+```kotlin
+private val timerRunnable = object : Runnable {
+    override fun run() {
+        updateWebView()
+        handler.postDelayed(this, 33L)  // 自分自身を33ms後に再投入
+    }
+}
+```
+
+```
+[UIスレッド]
+     │
+     ├─ handler.post(timerRunnable)  ← onResume() で開始
+     │
+     ↓
+ timerRunnable.run()
+     │
+     ├─ updateWebView()              ← 時刻をWebViewに送信
+     │
+     └─ handler.postDelayed(this, 33ms)  ← 自己再投入でループ
+          │
+          ↓（33ms後）
+     timerRunnable.run()  ← 繰り返し
+```
+
+**特徴**
+
+| 項目 | 内容 |
+|------|------|
+| 実行スレッド | UIスレッド |
+| `runOnUiThread()` | 不要 |
+| 周期の精度 | `updateWebView()` の処理時間分だけ遅延が蓄積する |
+| 停止方法 | `handler.removeCallbacks(timerRunnable)` |
+| 向いている用途 | 軽量なUI更新・短時間の動作 |
+
+---
+
+### 実装B：Timer + TimerTask
+
+```kotlin
+timer = Timer().also { t ->
+    t.scheduleAtFixedRate(object : TimerTask() {
+        override fun run() {
+            runOnUiThread {             // UIスレッドに切り替えてから送信
+                updateWebView()
+            }
+        }
+    }, 0L, 33L)
+}
+```
+
+```
+[バックグラウンドスレッド]
+     │
+     ├─ Timer.scheduleAtFixedRate(task, 0, 33ms)  ← onResume() で開始
+     │
+     ↓（33ms経過ごとに）
+ TimerTask.run()
+     │
+     └─ runOnUiThread { updateWebView() }
+               │
+               ↓ UIスレッドに切り替え
+          evaluateJavascript()  ← WebViewへ送信
+```
+
+**特徴**
+
+| 項目 | 内容 |
+|------|------|
+| 実行スレッド | バックグラウンドスレッド |
+| `runOnUiThread()` | 必須（WebView操作はUIスレッドのみ可） |
+| 周期の精度 | `scheduleAtFixedRate` が前回予定時刻を基準に補正するため累積誤差が少ない |
+| 停止方法 | `timer.cancel()` |
+| 向いている用途 | 長時間・高精度な周期処理 |
+
+---
+
+### 2つの決定的な違い
+
+```
+【Handler版】
+  時刻A送信 → 33ms待機 → 時刻B送信 → 33ms待機 → ...
+             ↑処理時間が含まれないので長時間でズレが蓄積
+
+【Timer版】
+  時刻A送信     時刻B送信     時刻C送信
+  |←── 33ms ──→|←── 33ms ──→|
+  予定時刻を基準に次回を計算するのでズレが自動補正される
+```
+
+---
+
+## Kotlin → WebView 通信の仕組み
+
+```kotlin
+// Kotlin側（送信）
+webView.evaluateJavascript("showTime('12:34:56.789');", null)
+```
+
+```javascript
+// WebView側 HTML内のJavaScript（受信）
+function showTime(t) {
+    document.getElementById('time').textContent = t;
+}
+```
+
+WebViewは完全に**受信専用**。自分でタイマーを持たず、Kotlinから送られた文字列を表示するだけ。
+
+---
+
+## API 22 互換性メモ
+
+| 使用API | 最低要件 | API 22 |
+|---------|---------|--------|
+| `evaluateJavascript()` | API 19 | ✅ |
+| `WebSettings.javaScriptEnabled` | API 1 | ✅ |
+| `Handler(Looper.getMainLooper())` | API 1 | ✅ |
+| `Timer.scheduleAtFixedRate()` | Java標準 | ✅ |
+
+.  
+
+🦆
+
+# (Info) Android app development starting kit
 
 - ① Android Studio（IDE）をインストール
 - ② `API Lv22`用のSDKを追加
@@ -53,7 +215,7 @@
   - Android端末を開発者モードにする
   - IDEでRunを実行、KotlinアプリがAndroidで起動するか確認！
   - ⭐️手順はAIに教えてもらいましょう
-- 以上、正常動作を確認できれは完了です。🐈..
+- 以上、正常動作を確認できれは完了です。
 
 .  
 
