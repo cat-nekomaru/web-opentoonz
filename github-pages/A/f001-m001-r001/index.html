@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>WS Time Receiver</title>
+</head>
+<body>
+  <h2>Rx Time (ws://10.0.2.16:9000)</h2>
+  <p id="time">--:--:--</p>
+
+  <script>
+    const ws = new WebSocket("ws://10.0.2.16:9000");
+
+    ws.onopen    = () => console.log("接続成功");
+    ws.onmessage = (e) => document.getElementById("time").textContent = e.data;
+    ws.onerror   = (e) => console.error("エラー", e);
+    ws.onclose   = ()  => console.log("切断");
+  </script>
+</body>
+</html>
