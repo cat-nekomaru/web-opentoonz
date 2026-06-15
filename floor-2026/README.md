@@ -9,7 +9,7 @@
 .  
 
 |     | folder | status | test target |
-|:---:|:---:|:---:|:---|
+|:---:|:---:|:---:|---|
 | 6 | . |.|  |
 | 5 | . |.| `.wav` file format |
 | 4 | . |.| `.tlv` file format |

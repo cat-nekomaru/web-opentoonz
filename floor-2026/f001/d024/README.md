@@ -174,7 +174,7 @@ WebViewは完全に**受信専用**。自分でタイマーを持たず、Kotlin
 ## API 22 互換性メモ
 
 | 使用API | 最低要件 | API 22 |
-|---------|---------|--------|
+|---------|---------|:--------:|
 | `evaluateJavascript()` | API 19 | ✅ |
 | `WebSettings.javaScriptEnabled` | API 1 | ✅ |
 | `Handler(Looper.getMainLooper())` | API 1 | ✅ |

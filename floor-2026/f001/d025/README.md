@@ -23,7 +23,7 @@
 
 .  
 
-**🤖 m001-hello-SwiftUI テストコード**
+**🤖 m001_hello_SwiftUI テストコード**
 - 仕切り直しですね！今度は**テストなし**、シンプルな実装コードだけ作ります
 
 **🤖 方針確認**
@@ -153,7 +153,7 @@ Text(vm.timeString) が新しい文字列を表示
 ## 使用 API 一覧
 
 | 使用 API | 所属 | 最低要件 | macOS 26 |
-|---------|------|---------|----------|
+|---------|------|---------|:----------:|
 | `clock_gettime(CLOCK_REALTIME)` | Darwin / POSIX | macOS 10.12 | ✅ |
 | `timespec` | Darwin / POSIX | macOS 10.12 | ✅ |
 | `Timer.publish(every:on:in:)` | Combine | macOS 10.15 | ✅ |

@@ -8,7 +8,7 @@
 .  
 
 |    | room | OS, version | language |
-|:---|:---:|:---:|:---:|
+|:---|:---:|:---:|---|
 |`.tlw2` Tools| r001 | Android - API Lv28 | Kotlin, JavaScript |
 |`.tlw2` Flipbook| r002 | Android -  API Lv22 | Kotlin |
 |`.tlw2` Studio| r003 | macOS - 26.x | Swift |
