@@ -7,6 +7,15 @@
 
 . 
 
+## 動作の様子
+
+.  
+
+<div align=center>
+<video src="https://github.com/user-attachments/assets/c132a7dc-6d73-4cc6-81a5-cebb3b33c7ff"></video></div>
+
+.  
+
 ## 今回の内容
 
 - `Kotlin` 1000ms Timerを使用して時刻を取得
