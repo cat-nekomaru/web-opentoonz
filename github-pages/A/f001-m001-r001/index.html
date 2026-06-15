@@ -5,11 +5,11 @@
   <title>WS Time Receiver🕰️</title>
 </head>
 <body>
-  <h2>Rx Time (for Emulator, ws://10.0.2.16:9000)</h2>
+  <h2>Rx Time (for Emulator, ws://127.0.0.1:9000)</h2>
   <p id="time">--:--:--</p>
 
   <script>
-    const ws = new WebSocket("ws://10.0.2.16:9000");
+    const ws = new WebSocket("ws://127.0.0.1:9000");
 
     ws.onopen    = () => console.log("接続成功");
     ws.onmessage = (e) => document.getElementById("time").textContent = e.data;
