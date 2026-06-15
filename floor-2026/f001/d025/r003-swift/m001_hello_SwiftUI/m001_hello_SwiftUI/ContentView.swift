@@ -8,11 +8,7 @@ struct ContentView: View {
         Text(vm.timeString)
             .font(.system(size: 48, weight: .medium, design: .monospaced))
             .padding(32)
-            .onAppear  { vm.start() }
+            .onAppear   { vm.start() }
             .onDisappear { vm.stop() }
     }
-}
-
-#Preview {
-    ContentView()
 }
