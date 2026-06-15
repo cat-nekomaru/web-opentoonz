@@ -61,17 +61,18 @@ Swift（macOS 26）+ SwiftUI の時刻表示プロジェクト。
 ┌─────────────────────────────┐
 │       TimerViewModel        │
 │                             │
-│  Timer（33ms周期）           │
-│      ↓                      │
+│  Timer (33ms cycle)         │
+│      |                      │
 │  clock_gettime()            │
-│  → hh:mm:ss.sss            │
-│      ↓                      │
-│  @Published timeString ──────────→  ContentView
-└─────────────────────────────┘              │
-                                             ↓
-                                    Text(vm.timeString)
-                                             ↓
-                                    画面に時刻を表示
+│  -> hh:mm:ss.sss            │
+│      |                      │
+│  @Published timeString -----+-----> ContentView
+└─────────────────────────────┘             |
+                                            v
+                                   Text(vm.timeString)
+                                            |
+                                            v
+                                   Display on screen
 ```
 
 - **TimerViewModel側**：時刻の取得・フォーマット・公開のみ担当
