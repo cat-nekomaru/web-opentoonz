@@ -6,11 +6,34 @@
 🦉
 
 ## Memo | Recent Ideas & TODO
-- 本家OpenToonzのQtフレームワークに近いUIを狙う。学習コストの低減
-- 「SSH認証」の仕組み ← 検証：macOS〜Android or UTM + Alpine Linux
-- 板タブレットの筆圧検知について ← 検証：iPad + pen + JavaScript
+- OpenToonzのQt（キュート）← 検証：カーソルアイコン
+- 「SSH認証」の仕組み？ ← 検証：XServer VPS, Alpine Linux
+- 板タブレットの筆圧検知 ← 検証：iPad + pen + JS
 
 🕊️
+
+## 2026-6-15 | Day 25
+
+- Today's Achievements
+  - `Day 25` [d025 folder](floor-2026/f001/d025)を作成
+
+- Key Learnings
+  - ① `f001/d025/r003-swift/`で作業をする
+  - ⬇︎ macOSのデスクトップ用なのでXcodeを使用
+  - ⬇︎ Claudeにて作成 → NG。浮動小数のバク多数
+  - ⬇︎ ChatGPTでデバッグ → NG。ウデはいいけど設計が悪すぎる
+  - ⬇︎ トークン制限の回復を待ってから、
+  - ⬇︎ Claudeにて再チャレンジ → OK。すんなりと起動
+  - ⬇︎ 開発の能力は `ChatGPT > Claude > Gemini > Grok` こんな感じ
+  - ⬇︎ ドキュメントもAI任せで問題なし
+
+- Reflections
+  - 今日は簡単だった。Xcodeはむっちゃラクだ。しかも実機のアプリだからデバッガも使いやすい。逆に言うと、Android Studioに慣れてしまえば、それより大変なことって無い気がする
+  - この3日間でかなりスキルupできたかもしれない。なんかイケるような気がしてきた。だよね？ 🐈..
+
+. . . **Score**: 3/5  
+. . . **Update**: 2026-6-15  
+
 
 ## 2026-6-14 | Day 24
 

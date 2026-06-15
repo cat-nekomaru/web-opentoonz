@@ -26,17 +26,18 @@
 **🤖 m001-hello-SwiftUI テストコード**
 - 仕切り直しですね！今度は**テストなし**、シンプルな実装コードだけ作ります。
 
-**🤖 方針確認：**
-- `clock_gettime(CLOCK_REALTIME)` でAPFSタイム（nanosecond精度）を取得
+**🤖 方針確認**
+- `clock_gettime(CLOCK_REALTIME)` でApfsTime（ナノ秒）を取得
 - 33msループは `Timer` でシンプルに
-- SwiftUIは `Text` で受け取って表示するだけ3ファイルです。構造はシンプルにまとめました
+- SwiftUIは `Text` で受け取って表示するだけ
+- 3ファイルです。構造はシンプルにまとめました
 
 .  
 
 | 項目 | 内容 | |
 |-----|------|--|
 | 時刻取得 | `clock_gettime(CLOCK_REALTIME)` | APFSと同じカーネル時刻源 |
-| ms計算 | `tv_nsec / 1_000_000`|（整数除算、誤差ゼロ） |
+| ms計算 | `tv_nsec / 1_000_000`|整数除算、誤差ゼロ |
 | ループ | `Timer.publish` | シンプル、精度は雑でOK |
 | View | `Text(vm.timeString)`| 表示するだけ |
 
