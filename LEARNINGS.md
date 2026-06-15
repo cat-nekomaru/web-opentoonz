@@ -24,7 +24,7 @@
   - ⬇︎ ChatGPTでデバッグ → NG。ウデはいいけど設計が悪すぎる
   - ⬇︎ トークン制限の回復を待ってから、
   - ⬇︎ Claudeにて再チャレンジ → OK。Int演算で書き直した
-  - ⬇︎ コーディング能力：`ChatGPT > Claude > Gemini > Grok` 今月はこんな印象
+  - ⬇︎ コーディング依頼：`ChatGPT > Claude > Gemini > Grok` ← 現在の印象
   - ⬇︎ ドキュメントもAI任せで問題なし。これは便利だね
 
 - Reflections
