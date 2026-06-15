@@ -67,12 +67,11 @@ Swift（macOS 26）+ SwiftUI の時刻表示プロジェクト。
 │   -> hh:mm:ss.sss           │
 │       |                     │
 │   @Published timeString ----+-----> ContentView
-│                             │             |
-+-----------------------------+             |
-                                            v
++-----------------------------+            |
+                                           v
                                    Text(vm.timeString)
-                                            |
-                                            v
+                                           |
+                                           v
                                    Display on screen
 ```
 
