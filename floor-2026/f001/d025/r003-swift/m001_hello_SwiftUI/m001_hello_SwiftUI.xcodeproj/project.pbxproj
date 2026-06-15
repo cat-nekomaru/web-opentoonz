@@ -6,27 +6,8 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXContainerItemProxy section */
-		A26378EE2FDF7AE20045BDC6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A26378D82FDF7AE00045BDC6 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A26378DF2FDF7AE00045BDC6;
-			remoteInfo = m001_hello_SwiftUI;
-		};
-		A26378F82FDF7AE20045BDC6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A26378D82FDF7AE00045BDC6 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A26378DF2FDF7AE00045BDC6;
-			remoteInfo = m001_hello_SwiftUI;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		A26378E02FDF7AE00045BDC6 /* m001_hello_SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = m001_hello_SwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A26378ED2FDF7AE20045BDC6 /* m001_hello_SwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = m001_hello_SwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A26378F72FDF7AE20045BDC6 /* m001_hello_SwiftUIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = m001_hello_SwiftUIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -35,34 +16,10 @@
 			path = m001_hello_SwiftUI;
 			sourceTree = "<group>";
 		};
-		A26378F02FDF7AE20045BDC6 /* m001_hello_SwiftUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = m001_hello_SwiftUITests;
-			sourceTree = "<group>";
-		};
-		A26378FA2FDF7AE20045BDC6 /* m001_hello_SwiftUIUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = m001_hello_SwiftUIUITests;
-			sourceTree = "<group>";
-		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		A26378DD2FDF7AE00045BDC6 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A26378EA2FDF7AE20045BDC6 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A26378F42FDF7AE20045BDC6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -76,8 +33,6 @@
 			isa = PBXGroup;
 			children = (
 				A26378E22FDF7AE00045BDC6 /* m001_hello_SwiftUI */,
-				A26378F02FDF7AE20045BDC6 /* m001_hello_SwiftUITests */,
-				A26378FA2FDF7AE20045BDC6 /* m001_hello_SwiftUIUITests */,
 				A26378E12FDF7AE00045BDC6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -86,8 +41,6 @@
 			isa = PBXGroup;
 			children = (
 				A26378E02FDF7AE00045BDC6 /* m001_hello_SwiftUI.app */,
-				A26378ED2FDF7AE20045BDC6 /* m001_hello_SwiftUITests.xctest */,
-				A26378F72FDF7AE20045BDC6 /* m001_hello_SwiftUIUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -117,52 +70,6 @@
 			productReference = A26378E02FDF7AE00045BDC6 /* m001_hello_SwiftUI.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A26378EC2FDF7AE20045BDC6 /* m001_hello_SwiftUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A26379042FDF7AE20045BDC6 /* Build configuration list for PBXNativeTarget "m001_hello_SwiftUITests" */;
-			buildPhases = (
-				A26378E92FDF7AE20045BDC6 /* Sources */,
-				A26378EA2FDF7AE20045BDC6 /* Frameworks */,
-				A26378EB2FDF7AE20045BDC6 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				A26378EF2FDF7AE20045BDC6 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				A26378F02FDF7AE20045BDC6 /* m001_hello_SwiftUITests */,
-			);
-			name = m001_hello_SwiftUITests;
-			packageProductDependencies = (
-			);
-			productName = m001_hello_SwiftUITests;
-			productReference = A26378ED2FDF7AE20045BDC6 /* m001_hello_SwiftUITests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		A26378F62FDF7AE20045BDC6 /* m001_hello_SwiftUIUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A26379072FDF7AE20045BDC6 /* Build configuration list for PBXNativeTarget "m001_hello_SwiftUIUITests" */;
-			buildPhases = (
-				A26378F32FDF7AE20045BDC6 /* Sources */,
-				A26378F42FDF7AE20045BDC6 /* Frameworks */,
-				A26378F52FDF7AE20045BDC6 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				A26378F92FDF7AE20045BDC6 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				A26378FA2FDF7AE20045BDC6 /* m001_hello_SwiftUIUITests */,
-			);
-			name = m001_hello_SwiftUIUITests;
-			packageProductDependencies = (
-			);
-			productName = m001_hello_SwiftUIUITests;
-			productReference = A26378F72FDF7AE20045BDC6 /* m001_hello_SwiftUIUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -175,14 +82,7 @@
 				TargetAttributes = {
 					A26378DF2FDF7AE00045BDC6 = {
 						CreatedOnToolsVersion = 26.5;
-					};
-					A26378EC2FDF7AE20045BDC6 = {
-						CreatedOnToolsVersion = 26.5;
-						TestTargetID = A26378DF2FDF7AE00045BDC6;
-					};
-					A26378F62FDF7AE20045BDC6 = {
-						CreatedOnToolsVersion = 26.5;
-						TestTargetID = A26378DF2FDF7AE00045BDC6;
+						LastSwiftMigration = 2650;
 					};
 				};
 			};
@@ -201,28 +101,12 @@
 			projectRoot = "";
 			targets = (
 				A26378DF2FDF7AE00045BDC6 /* m001_hello_SwiftUI */,
-				A26378EC2FDF7AE20045BDC6 /* m001_hello_SwiftUITests */,
-				A26378F62FDF7AE20045BDC6 /* m001_hello_SwiftUIUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		A26378DE2FDF7AE00045BDC6 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A26378EB2FDF7AE20045BDC6 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A26378F52FDF7AE20045BDC6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -239,34 +123,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A26378E92FDF7AE20045BDC6 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A26378F32FDF7AE20045BDC6 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		A26378EF2FDF7AE20045BDC6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A26378DF2FDF7AE00045BDC6 /* m001_hello_SwiftUI */;
-			targetProxy = A26378EE2FDF7AE20045BDC6 /* PBXContainerItemProxy */;
-		};
-		A26378F92FDF7AE20045BDC6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A26378DF2FDF7AE00045BDC6 /* m001_hello_SwiftUI */;
-			targetProxy = A26378F82FDF7AE20045BDC6 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		A26378FF2FDF7AE20045BDC6 /* Debug */ = {
@@ -392,6 +249,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -412,6 +270,7 @@
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -422,6 +281,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -444,82 +304,6 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-			};
-			name = Release;
-		};
-		A26379052FDF7AE20045BDC6 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 26.5;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.nekomaru.m001-hello-SwiftUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/m001_hello_SwiftUI.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/m001_hello_SwiftUI";
-			};
-			name = Debug;
-		};
-		A26379062FDF7AE20045BDC6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 26.5;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.nekomaru.m001-hello-SwiftUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/m001_hello_SwiftUI.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/m001_hello_SwiftUI";
-			};
-			name = Release;
-		};
-		A26379082FDF7AE20045BDC6 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.nekomaru.m001-hello-SwiftUIUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = m001_hello_SwiftUI;
-			};
-			name = Debug;
-		};
-		A26379092FDF7AE20045BDC6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.nekomaru.m001-hello-SwiftUIUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = m001_hello_SwiftUI;
 			};
 			name = Release;
 		};
@@ -540,24 +324,6 @@
 			buildConfigurations = (
 				A26379022FDF7AE20045BDC6 /* Debug */,
 				A26379032FDF7AE20045BDC6 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A26379042FDF7AE20045BDC6 /* Build configuration list for PBXNativeTarget "m001_hello_SwiftUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A26379052FDF7AE20045BDC6 /* Debug */,
-				A26379062FDF7AE20045BDC6 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A26379072FDF7AE20045BDC6 /* Build configuration list for PBXNativeTarget "m001_hello_SwiftUIUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A26379082FDF7AE20045BDC6 /* Debug */,
-				A26379092FDF7AE20045BDC6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
