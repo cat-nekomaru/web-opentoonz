@@ -46,6 +46,156 @@ Android (Kotlin)
 ```
 
 .  
+.  
+
+# (Proj) m001_ws_TimeSender
+
+***※以下は全て作成者：Claude AIによる説明です***
+
+.
+
+Kotlin（API 28）+ Java-WebSocket の通信テストプロジェクト。  
+Kotlin側の1000msタイマーが現在時刻（`hh:mm:ss`）をWebSocketでブロードキャストし、  
+同一ネットワーク上のブラウザ（JavaScript）がそれを受信・表示する。
+
+---
+
+## 概要
+
+```
+:-----------------------------:
+:           Kotlin            :
+:                             :
+:    Timer (1000ms cycle)     :
+:           |                 :
+:    Get time hh:mm:ss        :
+:           |                 :
+:    wsServer.broadcast() ---------> WebSocket (port 9000)
+:                             :           |
+:-----------------------------:           |
+                                          v
+                               Browser: ws://192.168.x.x:9000
+                                          |
+                                          v
+                                   JS: ws.onmessage
+                                          |
+                                          v
+                                   Display on screen
+```
+
+- **Kotlin側**：WebSocketサーバーの起動・時刻の取得・ブロードキャストを担当
+- **ブラウザ側**：受け取った文字列を表示するだけ
+- **通信手段**：`Java-WebSocket`ライブラリ（`org.java-websocket:Java-WebSocket:1.5.4`）
+
+---
+
+## ファイル構成
+
+```
+m001_ws_TimeSender/
+├── app/src/main/java/com/neko/m001_ws_timesender/
+│   ├── MainActivity.kt            # タイマー・UI・サーバー管理
+│   └── TimeWebSocketServer.kt     # WebSocketサーバー本体
+├── app/src/main/res/
+│   ├── layout/activity_main.xml   # UI（ステータス表示・時刻表示）
+│   └── xml/network_security_config.xml  # ws://通信の許可設定
+├── app/src/main/AndroidManifest.xml
+└── app/build.gradle.kts
+```
+
+---
+
+## Kotlin → ブラウザ 通信の仕組み
+
+```kotlin
+// Kotlin側（送信）
+wsServer.broadcast("12:34:56")
+```
+
+```javascript
+// ブラウザ側（受信）
+const ws = new WebSocket("ws://192.168.179.61:9000");
+ws.onmessage = (e) => document.getElementById("time").textContent = e.data;
+```
+
+ブラウザは完全に**受信専用**。自分でタイマーを持たず、Kotlinから送られた文字列を表示するだけ。
+
+---
+
+## タイマーの実装：Handler + Runnable
+
+```kotlin
+private val timerRunnable = object : Runnable {
+    override fun run() {
+        val now = sdf.format(Date())
+        tvTime.text = now
+        wsServer.broadcast(now)
+        handler.postDelayed(this, 1000L)
+    }
+}
+```
+
+```
+[UIスレッド]
+     │
+     ├─ handler.post(timerRunnable)  ← onCreate() で開始
+     │
+     ↓
+ timerRunnable.run()
+     │
+     ├─ 時刻取得・UI更新・broadcast()
+     │
+     └─ handler.postDelayed(this, 1000ms)  ← 自己再投入でループ
+          │
+          ↓（1000ms後）
+     timerRunnable.run()  ← 繰り返し
+```
+
+| 項目 | 内容 |
+|------|------|
+| 実行スレッド | UIスレッド |
+| `runOnUiThread()` | 不要 |
+| 周期 | 1000ms（時刻表示が目的のため精度は十分） |
+| 停止方法 | `handler.removeCallbacks(timerRunnable)` |
+
+---
+
+## WebSocketサーバーの起動
+
+```kotlin
+wsServer = TimeWebSocketServer(9000)
+wsServer.isReuseAddr = true   // 再起動時のポート占有を防ぐ
+wsServer.start()
+```
+
+`isReuseAddr = true` はアプリ再起動時の `Address already in use` エラーを防ぐ**必須設定**。
+
+---
+
+## API 28 互換性メモ
+
+| 使用API / ライブラリ | 最低要件 | API 28 |
+|---------------------|---------|:--------:|
+| `Java-WebSocket 1.5.4` | Java 7+ | ✅ |
+| `Handler(Looper.getMainLooper())` | API 1 | ✅ |
+| `SimpleDateFormat` | Java標準 | ✅ |
+| `WebSocketServer.broadcast()` | Java-WebSocket | ✅ |
+| `network_security_config`（ws://許可） | API 24+ | ✅ |
+
+---
+
+## ハマりポイント まとめ
+
+| エラー | 原因 | 解決策 |
+|--------|------|--------|
+| `Unresolved reference 'R'` | パッケージ名の不一致 | `package com.neko.m001_ws_timesender` に統一 |
+| `checkDebugAarMetadata` FAILED | `compileSdk` が低すぎた | `compileSdk = 37` に変更 |
+| `platforms;android-37.1 not found` | `minorApiLevel = 1` が余分 | `compileSdk = 37` の1行に置換 |
+| `Address already in use` | ポート占有 | `isReuseAddr = true` を追加 |
+
+.  
+
+🦆
 
 ## (Info) Android app development starting kit
 
