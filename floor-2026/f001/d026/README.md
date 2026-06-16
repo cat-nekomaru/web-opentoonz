@@ -130,7 +130,7 @@ pcmBuffer = ShortArray(size) { i -> if (i < 4) Short.MAX_VALUE else 0 }
 先頭4サンプル: 32767（Short.MAX_VALUE = ピーク音）
 残り 4,796サンプル: 0（無音）
 
-→ Button ② で再生すると「ピッ」と短く鳴る
+→ Button ② で再生すると「プツッ」と短く鳴る
 → Button ① → ② の1kHz「ピー」との違いが耳で確認できる
 ```
 
