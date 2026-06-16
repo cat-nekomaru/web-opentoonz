@@ -143,7 +143,7 @@ UI側から一言で済む設計。
 
 ---
 
-## ハマりポイント
+## ハマりポイント（ビルドのエラー）まとめ
 
 | エラー | 原因 | 解決策 |
 |--------|------|--------|
@@ -152,6 +152,7 @@ UI側から一言で済む設計。
 | `minSdkVersion 22 cannot be smaller than 23` (activity) | activity 1.13.0 が minSdk23以上を要求 | `implementation(libs.androidx.activity.ktx)` を削除 |
 | `Theme.Material3 not found` | materialライブラリ削除の余波 | `themes.xml` を `Theme.AppCompat.Light.NoActionBar` に変更 |
 | `layout_constraintXxx not found` | ConstraintLayout削除の余波 | `activity_main.xml` を空の `LinearLayout` に差替 |
+| `AudioTrack constructor is deprecated` | API21以降はBuilderが推奨 | 警告のみ、動作に影響なし |
 
 .  
 
