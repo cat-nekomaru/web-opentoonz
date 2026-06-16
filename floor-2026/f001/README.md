@@ -7,11 +7,11 @@
 
 .  
 
-|    | room | mdID | OS, version | language, IP address |
-|----|------|:----:|-------------|-------------------|
-|`.tlw2` Tools| r001 |0x01| Android <BR> API Lv28 | Kotlin <BR> JavaScript - browser <BR> 192.168.179.61:9000 <BR> 127.0.0.1:9000 - emulator |
-|`.tlw2` Flipbook| r002 |0x02| Android <BR> API Lv22 | Kotlin <BR> 192.168.179.60:9000 |
-|`.tlw2` Studio| r003 |0x03| macOS <BR> 26.0 | Swift <BR> 192.168.179.50:9000 |
+|    | room | mdID | OS, version | language | IP address |
+|----|------|:----:|-------------|----------|------------|
+|`.tlw2` Tools| r001 |0x01| Android <BR> API Lv28 | Kotlin <BR> JavaScript - browser | 192.168.179.61:9000 <BR> 127.0.0.1:9000 - emulator |
+|`.tlw2` Flipbook| r002 |0x02| Android <BR> API Lv22 | Kotlin | 192.168.179.60:9000 |
+|`.tlw2` Studio| r003 |0x03| macOS <BR> 26.0 | Swift | 192.168.179.50:9000 |
 
 .  
 
