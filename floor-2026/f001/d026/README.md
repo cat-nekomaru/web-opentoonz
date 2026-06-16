@@ -184,6 +184,13 @@ JS側から `cmd: "silence"` の一言で済む設計。
 🦆
 
 ---
+.
+
+<div align=center>
+
+**(Proj) zipファイルを [用意しました](https://github.com/cat-nekomaru/web-opentoonz/tree/main/floor-2026/f001/d026/download)**
+
+</div>
 
 .  
 
