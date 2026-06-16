@@ -12,6 +12,7 @@
 .  
 
 <div align=center>
+⭐️WIP<BR>
 <video src="⭐️"></video></div>
 
 .  
@@ -20,12 +21,12 @@
 
 ***※以下は全て作成者：Claude AIによる説明です***
 
-Kotlin（API 22）+ addJavascriptInterface の音声通信テストプロジェクト。
+Kotlin（API 22）+ addJavascriptInterface の音声通信テストプロジェクト。  
 WebView（JavaScript）のボタン操作がBase64エンコードしたwavデータをエンジン側に送信し、Kotlin側がそれをデコードしてAudioTrackで再生する。
 
 ```
 :--------------------------------------:
-:             WebView (UI)             :
+:             WebView - UI             :
 :                                      :
 :  [Load Sine]    [Play]    [Silent]   :
 :       |           |           |      :
@@ -33,10 +34,10 @@ WebView（JavaScript）のボタン操作がBase64エンコードしたwavデー
 :       |           |           |      :
 :--------------------------------------:
                    |
-        addJavascriptInterface
+         addJavascriptInterface()
                    |
    :-------------------------------:
-   :         Kotlin (Engine)       :
+   :        Kotlin - Engine        :
    :                               :
    :   AudioBridge                 :
    :     loadWav(b64)              :
@@ -171,7 +172,7 @@ UI側から一言で済む設計。
 <div align=center>
 <img width=430 src=img/d027-s01.png><BR>
 <img width=430 src=img/d027-s02.png><BR>
-<img width=570 src=img/d027-s03.png><BR>
+<img width=620 src=img/d027-s03.png><BR>
 </div>
 
 .  
