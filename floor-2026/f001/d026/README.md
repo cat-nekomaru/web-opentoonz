@@ -12,7 +12,7 @@
 .  
 
 <div align=center>
-<video src="⭐️"></video></div>
+<video src="https://github.com/user-attachments/assets/8884fc5b-cef5-4cb1-b1a1-517bf07f0e95"></video></div>
 
 .  
 
@@ -23,8 +23,7 @@
 .
 
 Kotlin（API 28）+ Java-WebSocket の音声通信テストプロジェクト。  
-ブラウザ（JavaScript）のボタン操作がBase64エンコードしたwavデータをWebSocketで送信し、  
-Kotlin側がそれを受信・デコードして AudioTrack で再生する。
+ブラウザ（JavaScript）のボタン操作がBase64エンコードしたwavデータをWebSocketで送信し、Kotlin側がそれを受信・デコードして AudioTrack で再生する。
 
 ---
 
@@ -183,6 +182,8 @@ JS側から `cmd: "silence"` の一言で済む設計。
 .
 
 🦆
+
+---
 
 .  
 
