@@ -12,8 +12,7 @@
 .  
 
 <div align=center>
-⭐️WIP<BR>
-<video src="⭐️"></video></div>
+<video src="https://github.com/user-attachments/assets/9c809209-1b89-4028-901a-51feb5458cab"></video></div>
 
 .  
 
@@ -173,6 +172,7 @@ UI側から一言で済む設計。
 <img width=430 src=img/d027-s01.png><BR>
 <img width=430 src=img/d027-s02.png><BR>
 <img width=620 src=img/d027-s03.png><BR>
+<img height=380 src=img/d027-s04.png>
 </div>
 
 .  
