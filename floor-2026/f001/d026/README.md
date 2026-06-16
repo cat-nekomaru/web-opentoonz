@@ -33,7 +33,7 @@ int i=0
 <img width=450 src=img/d026-s01.png><BR>
 <img width=450 src=img/d026-s02.png><BR>
 <img width=550 src=img/d026-s03.png><BR>
-<img width=380 src=img/d026-s04.png>
+<img height=450 src=img/d026-s04.png>
 </div>
 
 .  
