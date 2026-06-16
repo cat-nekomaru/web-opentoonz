@@ -9,7 +9,7 @@
 
 |    | room | mdID | OS, version | language |
 |----|------|:----:|-------------|----------|
-|`.tlw2` Tools| r001 |0x01| Android - API Lv28 | Kotlin, JavaScript |
+|`.tlw2` Tools| r001 |0x01| Android - API Lv28 | browser/JavaScript, Koltlin |
 |`.tlw2` Flipbook| r002 |0x02| Android -  API Lv22 | Kotlin |
 |`.tlw2` Studio| r003 |0x03| macOS - 26.0 | Swift |
 
