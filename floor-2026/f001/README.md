@@ -10,8 +10,8 @@
 |`.tlw2`| room | mdID | OS, version | language, address |
 |-------|:----:|:----:|-------------|-------------------|
 |Tools| r001 |0x01| Android <BR> API Lv28 | Kotlin <BR> JavaScript - browser <BR> 192.168.179.61:9000 <BR> 127.0.0.1:9000 - emu. |
-|Flipbook| r002 |0x02| Android <BR> API Lv22 | Kotlin | 192.168.179.60:9000 |
-|Studio| r003 |0x03| macOS <BR> 26.0 | Swift | 192.168.179.50:9000 |
+|Flipbook| r002 |0x02| Android <BR> API Lv22 | Kotlin <BR> 192.168.179.60:9000 |
+|Studio| r003 |0x03| macOS <BR> 26.0 | Swift <BR> 192.168.179.50:9000 |
 
 .  
 
