@@ -15,7 +15,7 @@
 ## 2026-6-17 | Day 27
 
 - Today's Achievements
-  - `Day 27` [d027 folder](floor-2027/f001/d026)を作成
+  - `Day 27` [d027 folder](floor-2026/f001/d027)を作成
 
 - Key Learnings
   - ① `f001/d027/r002-api22-kt/`で作業をする
