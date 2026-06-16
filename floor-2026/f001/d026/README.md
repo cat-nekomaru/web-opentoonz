@@ -30,30 +30,30 @@ Kotlin（API 28）+ Java-WebSocket の音声通信テストプロジェクト。
 ## 概要
 
 ```
-:-----------------------------:
-:         JavaScript          :
-:                             :
-:    Button ① wav送信         :
-:           |                 :
-:    Base64(wav) -----------------→ WebSocket (ws://192.168.x.x:9000)
-:                             :           |
-:    Button ② 再生指示 ----------→  cmd: "play"
-:                             :           |
-:    Button ③ 無音指示 ----------→  cmd: "silence"
-:                             :           |
-:-----------------------------:           |
-                                          ↓
-                               :-----------------------------:
-                               :          Kotlin             :
-                               :                             :
-                               :    WsServer (port 9000)     :
-                               :           |                 :
-                               :    Base64デコード            :
-                               :           |                 :
-                               :    pcmBuffer: ShortArray    :
-                               :           |                 :
-                               :    AudioTrack.play()        :
-                               :-----------------------------:
+:-------------------------------:
+:          JavaScript           :
+:                               :
+:    Button 1: Send WAV         :
+:          |                    :
+:        Base64(wav) -------------> WebSocket (ws://192.168.x.x:9000)
+:                               :         |
+:    Button 2: Play Command --------> cmd: "play"
+:                               :         |
+:    Button 3: Silence Command -------> cmd: "silence"
+:                               :         |
+:-------------------------------:         |
+                                          V
+                              :-------------------------------:
+                              :            Kotlin             :
+                              :                               :
+                              :     WsServer (port 9000)      :
+                              :              |                :
+                              :        Base64 Decode          :
+                              :              |                :
+                              :     pcmBuffer: ShortArray     :
+                              :              |                :
+                              :       AudioTrack.play()       :
+                              :-------------------------------:
 ```
 
 - **JavaScript側**：wavデータの生成・Base64エンコード・WebSocket送信を担当
