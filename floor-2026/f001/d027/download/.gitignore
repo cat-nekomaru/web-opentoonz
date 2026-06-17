@@ -2,7 +2,7 @@
 
 
 *.apk
-!download/m002-api22-beep.apk
+!m002-api22-beep.apk
 
 
 
