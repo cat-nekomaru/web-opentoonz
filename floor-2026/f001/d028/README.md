@@ -22,8 +22,8 @@
 
 .
 
-SwiftUI（macOS 26）+ WKWebView の音声通信テストプロジェクト。
-HTML（JavaScript）のボタン操作がBase64エンコードしたwavデータをWKWebViewブリッジで送信し、Swift側がそれを受信・デコードして AVAudioEngine で再生する。
+SwiftUI（macOS 26）のネイティブUIと AVAudioEngine を組み合わせた音声再生テストプロジェクト。
+ボタン操作で Base64 エンコードした wav データをエンジン側に渡し、AVAudioPlayerNode で再生する。
 
 ---
 
@@ -31,35 +31,35 @@ HTML（JavaScript）のボタン操作がBase64エンコードしたwavデータ
 
 ```
 :--------------------------------------:
-:             WebView - UI             :
+:           SwiftUI - UI               :
 :                                      :
-:  [SINE]        [PLAY]    [SILENT]   :
-:    |              |          |       :
+:  [SINE]       [PLAY]     [SILENT]   :
+:    |             |           |       :
 :  Base64(wav)  cmd:play  cmd:silent   :
-:    |              |          |       :
+:    |             |           |       :
 :--------------------------------------:
-                   |
-     messageHandlers.beepEngine
-                   |
-   :-------------------------------:
-   :         Swift - Engine        :
-   :                               :
-   :   BeepCoordinator             :
-   :     loadWAV(b64)              :
-   :       Base64 decode           :
-   :       AVAudioPCMBuffer        :
-   :                               :
-   :     play()                    :
-   :       AVAudioPlayerNode       :
-   :                               :
-   :     silentPulse()             :
-   :       [1.0 x4][0.0...]        :
-   :-------------------------------:
+                  |
+          function call
+                  |
+  :-------------------------------:
+  :       Swift - Engine          :
+  :                               :
+  :   BeepAudioEngine             :
+  :     loadWAV(b64)              :
+  :       Base64 decode           :
+  :       AVAudioPCMBuffer        :
+  :                               :
+  :     play()                    :
+  :       AVAudioPlayerNode       :
+  :                               :
+  :     silentPulse()             :
+  :       [1.0 x4][0.0...]        :
+  :-------------------------------:
 ```
 
-- **HTML側**：wavデータの生成・Base64エンコード・WKWebViewブリッジ送信を担当
-- **Swift側**：メッセージ受信・Base64デコード・AVAudioEngine再生を担当
-- **通信手段**：`WKScriptMessageHandler`（`window.webkit.messageHandlers.beepEngine`）
+- **SwiftUI側**：wav データの生成・Base64 埋め込み・ボタン操作・ログ表示を担当
+- **Engine側**：Base64 デコード・AVAudioPCMBuffer 生成・AVAudioPlayerNode 再生を担当
+- **通信手段**：同一プロセス内の直接関数呼び出し
 
 ---
 
@@ -67,28 +67,13 @@ HTML（JavaScript）のボタン操作がBase64エンコードしたwavデータ
 
 ```
 m002_swift_beep/
-├── BeepEngine.swift   # WKWebView host / audio engine / SwiftUI app
-└── ui.html            # 3-button UI + Base64 wav embedded
+├── ContentView.swift       # SwiftUI UI + Base64 wav embedded + @main
+└── BeepAudioEngine.swift   # AVAudioEngine / AVAudioPlayerNode
 ```
 
 ---
 
-## 通信プロトコル（JSON）
-
-```javascript
-// Button 1: wav send
-{ "cmd": "loadWAV", "data": "UklGR..." }   // Base64 wav
-
-// Button 2: play
-{ "cmd": "play" }
-
-// Button 3: silent pulse
-{ "cmd": "silentPulse" }
-```
-
----
-
-## wavデータの仕様
+## wav データの仕様
 
 | item | value |
 |------|-------|
@@ -104,16 +89,16 @@ m002_swift_beep/
 ## Swift側の処理フロー
 
 ```swift
-// cmd: loadWAV -> Base64 decode -> AVAudioPCMBuffer
+// Button SINE -> Base64 decode -> AVAudioPCMBuffer
 let data = Data(base64Encoded: base64)
 let file = try AVAudioFile(forReading: tmpURL)
 try file.read(into: pcmBuffer)
 
-// cmd: play -> AVAudioPlayerNode
+// Button PLAY -> AVAudioPlayerNode
 playerNode.scheduleBuffer(buffer, at: nil, options: [])
 playerNode.play()
 
-// cmd: silentPulse -> generate buffer on engine side
+// Button SILENT -> generate buffer on engine side
 for i in 0..<1632 {
     channelData[i] = (i < 4) ? 1.0 : 0.0
 }
@@ -121,16 +106,16 @@ for i in 0..<1632 {
 
 ---
 
-## Button 3（silentPulse）の設計メモ
+## Button SILENT の設計メモ
 
 ```
 First 4 samples : 1.0 (Float32 peak)
 Remaining 1,628 : 0.0 (silence)
 
--> play via Button 2: audible as a very short click
--> contrast with Button 1 -> 2: sustained 1kHz tone
+-> PLAY: audible as a very short click
+-> contrast with SINE -> PLAY: sustained 1kHz tone ("pit")
 -> buffer is generated on the Swift side;
-   JS sends only the one-word command "silentPulse"
+   UI passes only the function call "silentPulse()"
 ```
 
 ---
@@ -139,11 +124,12 @@ Remaining 1,628 : 0.0 (silence)
 
 | API / Framework | belongs to | requirement | macOS 26 |
 |-----------------|-----------|-------------|:--------:|
-| `WKWebView` | WebKit | macOS 10.10 | ✅ |
-| `WKScriptMessageHandler` | WebKit | macOS 10.10 | ✅ |
-| `WKUserContentController` | WebKit | macOS 10.10 | ✅ |
-| `evaluateJavaScript(_:completionHandler:)` | WebKit | macOS 10.10 | ✅ |
-| `NSViewRepresentable` | SwiftUI | macOS 10.15 | ✅ |
+| `SwiftUI` | SwiftUI | macOS 10.15 | ✅ |
+| `@main` | Swift 5.3 | macOS 11.0 | ✅ |
+| `App` | SwiftUI | macOS 11.0 | ✅ |
+| `WindowGroup` | SwiftUI | macOS 11.0 | ✅ |
+| `@State` | SwiftUI | macOS 10.15 | ✅ |
+| `ScrollViewReader` | SwiftUI | macOS 11.0 | ✅ |
 | `AVAudioEngine` | AVFAudio | macOS 10.10 | ✅ |
 | `AVAudioPlayerNode` | AVFAudio | macOS 10.10 | ✅ |
 | `AVAudioFile(forReading:)` | AVFAudio | macOS 10.10 | ✅ |
@@ -153,10 +139,6 @@ Remaining 1,628 : 0.0 (silence)
 | `Data(base64Encoded:)` | Foundation | macOS 10.9 | ✅ |
 | `Data.write(to:)` | Foundation | macOS 10.9 | ✅ |
 | `FileManager.temporaryDirectory` | Foundation | macOS 10.12 | ✅ |
-| `JSONSerialization` | Foundation | macOS 10.7 | ✅ |
-| `App` (SwiftUI lifecycle) | SwiftUI | macOS 11.0 | ✅ |
-| `WindowGroup` | SwiftUI | macOS 11.0 | ✅ |
-| `@main` | Swift 5.3 | macOS 11.0 | ✅ |
 
 .
 
@@ -175,8 +157,8 @@ Remaining 1,628 : 0.0 (silence)
 
 <div align=center>
 <img width=450 src=img/d028-s01.png><BR>
-<img width=450 src=img/d028-s02.png><BR>
-<img width=450 src=img/d028-s03.png><BR>
+<img width=620 src=img/d028-s02.png><BR>
+<img width=480 src=img/d028-s03.png><BR>
 </div>
 
 .  

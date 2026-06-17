@@ -86,7 +86,7 @@ private struct LogEntry: Identifiable {
 
 struct ContentView: View {
 
-    @StateObject private var engine = BeepAudioEngine()
+    @State private var engine = BeepAudioEngine()
 
     @State private var uiLogs:  [LogEntry] = []
     @State private var engLogs: [LogEntry] = []
@@ -106,20 +106,21 @@ struct ContentView: View {
     // MARK: Header
 
     private var headerBar: some View {
-        HStack {
-            Text("m002_swift_beep")
-                .font(.system(size: 12, weight: .semibold, design: .monospaced))
-            Spacer()
-            Text("d028 · mdID 0x16 · macOS 26 · r003")
-                .font(.system(size: 10, design: .monospaced))
-                .foregroundStyle(.secondary)
+        VStack(spacing: 0) {
+            HStack {
+                Text("m002_swift_beep")
+                    .font(.system(size: 12, weight: .semibold, design: .monospaced))
+                Spacer()
+                Text("d028 · mdID 0x16 · macOS 26 · r003")
+                    .font(.system(size: 10, design: .monospaced))
+                    .foregroundStyle(.secondary)
+            }
+            .padding(.horizontal, 14)
+            .padding(.vertical, 8)
+            Divider()
         }
-        .padding(.horizontal, 14)
-        .padding(.vertical, 8)
-        .background(Color(nsColor: .windowBackgroundColor))
-        Divider()
     }
-
+    
     // MARK: Buttons
 
     private var buttonRow: some View {

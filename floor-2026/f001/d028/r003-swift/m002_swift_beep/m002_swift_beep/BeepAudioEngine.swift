@@ -3,7 +3,7 @@
 
 import AVFoundation
 
-final class BeepAudioEngine: ObservableObject {
+final class BeepAudioEngine {   // ObservableObject を削除
 
     private let engine      = AVAudioEngine()
     private let playerNode  = AVAudioPlayerNode()
@@ -85,11 +85,8 @@ final class BeepAudioEngine: ObservableObject {
             }
         }
         buffer = pulse
-        ensureRunning()
-        playerNode.stop()
-        playerNode.scheduleBuffer(pulse, at: nil, options: [])
-        playerNode.play()
-        return "silent pulse — \(numSamples) samples [1.0 x4][0.0...] — playing"
+        // playerNode.stop() と playerNode.play() を削除
+        return "silent pulse — \(numSamples) samples [1.0 x4][0.0...] — ready"
     }
 
     // Clear
