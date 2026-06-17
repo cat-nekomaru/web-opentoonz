@@ -11,8 +11,8 @@
 
 .  
 
-<div align=center>⭐️WIP⭐️<BR>
-<video src="⭐️"></video></div>
+<div align=center>
+<video src="https://github.com/user-attachments/assets/e006debc-9c37-46e3-b71a-92647ae08824"></video></div>
 
 .  
 
@@ -33,28 +33,28 @@ SwiftUI（macOS 26）のネイティブUIと AVAudioEngine を組み合わせた
 :--------------------------------------:
 :           SwiftUI - UI               :
 :                                      :
-:  [SINE]       [PLAY]     [SILENT]   :
+:  [SINE]       [PLAY]     [SILENT]    :
 :    |             |           |       :
 :  Base64(wav)  cmd:play  cmd:silent   :
 :    |             |           |       :
 :--------------------------------------:
                   |
-          function call
+            function call
                   |
-  :-------------------------------:
-  :       Swift - Engine          :
-  :                               :
-  :   BeepAudioEngine             :
-  :     loadWAV(b64)              :
-  :       Base64 decode           :
-  :       AVAudioPCMBuffer        :
-  :                               :
-  :     play()                    :
-  :       AVAudioPlayerNode       :
-  :                               :
-  :     silentPulse()             :
-  :       [1.0 x4][0.0...]        :
-  :-------------------------------:
+   :-------------------------------:
+   :        Swift - Engine         :
+   :                               :
+   :   BeepAudioEngine             :
+   :     loadWAV(b64)              :
+   :       Base64 decode           :
+   :       AVAudioPCMBuffer        :
+   :                               :
+   :     play()                    :
+   :       AVAudioPlayerNode       :
+   :                               :
+   :     silentPulse()             :
+   :       [1.0 x4][0.0...]        :
+   :-------------------------------:
 ```
 
 - **SwiftUI側**：wav データの生成・Base64 埋め込み・ボタン操作・ログ表示を担当
