@@ -12,6 +12,25 @@
 
 🕊️
 
+## 2026-6-18 | Day 28
+
+- Today's Achievements
+  - `Day 28` [d028 folder](floor-2026/f001/d028)を作成
+
+- Key Learnings
+  - ① `f001/d028/r003-swift/`で作業をする
+    - ⭐️書きかけ
+    - x
+    - x
+    - x
+
+- Reflections
+  - ＊
+
+. . . **Score**: 4/5  
+. . . **Update**: 2026-6-18  
+
+
 ## 2026-6-17 | Day 27
 
 - Today's Achievements
