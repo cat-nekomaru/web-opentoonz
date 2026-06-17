@@ -1,0 +1,10 @@
+# White List (for APKs)
+
+
+*.apk
+!download/m002-api22-beep.apk
+
+
+
+
+# end
