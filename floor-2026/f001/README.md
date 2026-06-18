@@ -23,9 +23,9 @@
 | Day 26 | [d026](./d026/) | m002 | r001 |0x14| JS+Kt API 28, Button, Base64 wav   |
 | Day 27 | [d027](./d027/) | m002 | r002 |0x15| Kotlin API 22, WebView, Beep       |
 | Day 28 | [d028](./d028/) | m002 | r003 |0x16| macOS 26, SwiftUI, Beep            |
-| Day 29 | [d029](./d029/) | m003 | r001 |0x17| ws: msg, between UI and Engine    |
-| ------ | . | . | . |0x18| message, UI and Engine |
-| ------ | . | . | . |0x19| message, UI and Engine |
+| Day 29 | [d029](./d029/) | m003 | r001 |0x17| ws: Tx PNG bin, change color, Rx   |
+| ------ | . | . | . |0x18| Tx/Rx PNG, between UI and Engine |
+| ------ | . | . | . |0x19| Tx/Rx PNG, between UI and Engine |
 | ------ | . | . | . |0x1a| so simple - echo server |
 | ------ | . | . | . |0x1b| so simple - echo server |
 | ------ | . | . | . |0x1c| ws: msg, with TimeStamp |

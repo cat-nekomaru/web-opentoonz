@@ -15,7 +15,7 @@
 | 4 | . |.| `.tlv` file format |
 | 3 | . |.| `.PNG` file format |
 | 2 | . |.| file R/W, transfer binary data (screenshot)|
-| 1 | [f001](./f001) | entry 2026-6-12 | webSocket, system call, time stamp, beep |
+| 1 | [f001](https://github.com/cat-nekomaru/web-opentoonz/blob/main/floor-2026/f001/README.md) | entry 2026-6-12 | webSocket, system call, time stamp, beep |
 
 .  
 
