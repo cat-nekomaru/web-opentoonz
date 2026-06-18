@@ -1,7 +1,7 @@
 # Day 23（d023）
 .  
 
-コーディングをしますか？（はい／[いいえ](../)）
+コーディングをしますか？（はい／[いいえ](https://github.com/cat-nekomaru/web-opentoonz/blob/main/floor-2026/f001/README.md)）
 
 💻 
 
