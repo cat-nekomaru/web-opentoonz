@@ -1,6 +1,0 @@
-#!/bin/sh
-# Gradle wrapper起動スクリプト (標準的な内容を簡略化)
-# 通常は Android Studio で "Sync Project with Gradle Files" を実行すると
-# 正式なgradlew/gradlew.batが自動生成されます。
-DIR="$(cd "$(dirname "$0")" && pwd)"
-exec java -jar "$DIR/gradle/wrapper/gradle-wrapper.jar" "$@"

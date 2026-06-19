@@ -18,16 +18,16 @@
   - `Day 29` [d029 folder](floor-2026/f001/d029)を作成
 
 - Key Learnings
-  - ＊⭐️書きかけ
+  - ① `f001/d029/r001-api28-kt/`で作業をする
   - ＊
   - ＊
   - ＊
   - ＊
 
 - Reflections
-  - ＊
+  - ＊書きかけ⭐️
 
-. . . **Score**: ⭐️/5  
+. . . **Score**: 3/5  
 . . . **Update**: 2026-6-19  
 
 

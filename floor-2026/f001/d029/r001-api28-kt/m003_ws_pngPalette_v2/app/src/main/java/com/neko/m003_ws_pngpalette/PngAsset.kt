@@ -1,4 +1,4 @@
-package com.m003.wspngpalette
+package com.neko.m003_ws_pngpalette
 
 /**
  * PngAsset.kt
@@ -17,7 +17,7 @@ object PngAsset {
     const val EXPECTED_SIZE_BYTES: Int = 19969
 
     // Base64本体 (100文字ごとに折り返し)
-    private val base64Parts: Array<String> = arrayOf(
+    private val base64Parts:    Array<String> = arrayOf(
         "iVBORw0KGgoAAAANSUhEUgAAAfQAAAH0CAMAAAD8CC+4AAADAFBMVEUUFBjr6+bZPDzmfiLxxA+CyDwnrmAavJw0mNspVNuORK3H",
         "PKrnTIaVpaZuVDz///8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
         "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",

@@ -14,4 +14,4 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "m003_ws_pngPalette"
-include ':app'
+include(":app")

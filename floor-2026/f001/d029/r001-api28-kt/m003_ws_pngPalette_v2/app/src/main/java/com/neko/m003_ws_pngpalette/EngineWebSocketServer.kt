@@ -1,4 +1,4 @@
-package com.m003.wspngpalette
+package com.neko.m003_ws_pngpalette
 
 import org.java_websocket.WebSocket
 import org.java_websocket.handshake.ClientHandshake
