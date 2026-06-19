@@ -1,0 +1,8 @@
+// m003_ws_pngPalette : engine (Android, Kotlin, API 28+)
+// プロジェクトルート build.gradle
+// AGP/Kotlinプラグインはここで宣言だけ行い、実際の適用は app/build.gradle 側で行う
+// (plugins{} DSL方式に統一。buildscript{}方式との混在はGradleのキャッシュ不整合の原因になりやすいため避ける)
+plugins {
+    id 'com.android.application' version '8.1.4' apply false
+    id 'org.jetbrains.kotlin.android' version '1.9.22' apply false
+}
