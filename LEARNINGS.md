@@ -22,7 +22,8 @@
   - ＊
   - ＊
   - ＊
-  - ＊
+  - 参考web１：[WebSocketのバイナリメッセージを試したら、ウェ..](https://blog.agektmr.com/ja/2012/03/websocket.html)
+  - 参考web２：[BBっとWORDS ／ その95「PNGの現状と今後」](https://bb.watch.impress.co.jp/cda/bbword/15612.html)
 
 - Reflections
   - ＊書きかけ⭐️
