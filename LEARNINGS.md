@@ -7,7 +7,7 @@
 
 ## Memo | Recent Ideas & TODO
 - OpenToonzのQt（キュート）← 検証：カーソルアイコン
-- 「SSH認証」の仕組み？ ← 検証：XServer VPS, Alpine Linux
+- 「SSH認証」の仕組みとは ← 検証：XServer VPS, Alpine Linux
 - 板タブレットの筆圧検知 ← 検証：iPad + pen + JS
 
 🕊️
@@ -19,14 +19,22 @@
 
 - Key Learnings
   - ① `f001/d029/r001-api28-kt/`で作業をする
-  - ＊
-  - ＊
-  - ＊
+    - Claude AIによる作業。これまでと同じパターン
+    - WebSocketを挟んだテストは3回目なので、依頼文にも慣れてきた
+    - 設計のボトルネックは2点。1つはAndroid SDKの互換性。2つ目はws:周り
+    - もし片方を先行して深く理解するならSDKの互換性のほうだろうね
+    - ws:はIPアドレス、エラー処理、SSH、エミュレータにも関係している（中規模）
+    - org.java-websocketは各APIレベルで共有できる。一度動けば触らなくてOK
+    - 1プロジェクト内でAPIレベル混在はAI NLPも苦手、これは設計者の担当かな
+    - Xcode依存を抑えるためにも `Kotlin（POSIX）+ JS` の知識は有益
+    - 今は無関係だけど、windowsにはモバイル機器が出てこないのでラクだ
   - 参考web１：[WebSocketのバイナリメッセージを試したら、ウェ..](https://blog.agektmr.com/ja/2012/03/websocket.html)
   - 参考web２：[BBっとWORDS ／ その95「PNGの現状と今後」](https://bb.watch.impress.co.jp/cda/bbword/15612.html)
 
 - Reflections
-  - ＊書きかけ⭐️
+  - 今回からアルゴリズムが複雑なので、コード量が倍増していて仕組みを追いきれない
+  - 依頼するプロンプトの精度不足が多発している。これは僕の知識が追いついていない証拠だろう。でもマニュアル化／テンプレート化しすぎると（見かけ上の）トラブルが解消されるので、それはそれで知識不足が可視化できないことが問題
+  - 枯れた技術を使うのがラクな開発だとわかってきた。AI NLPの回答も同様で、新しい技術には全然対応できないしね。🐈..
 
 . . . **Score**: 4/5  
 . . . **Update**: 2026-6-19  
