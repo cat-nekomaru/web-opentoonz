@@ -24,12 +24,12 @@
 | Day 27 | [d027](./d027/) | m002 | r002 |0x15| Kotlin API 22, WebView, Beep       |
 | Day 28 | [d028](./d028/) | m002 | r003 |0x16| macOS 26, SwiftUI, Beep            |
 | Day 29 | [d029](./d029/) | m003 | r001 |0x17| ws: Tx cmd, Rx PNG, Tx edit, Rx PNG|
-| ------ | . | . | . |0x18| PNG edit, Kotlin API22 |
-| ------ | . | . | . |0x19| PNG edit, macOS 26 swift |
-| ------ | . | . | . |0x1a| so simple - echo server |
-| ------ | . | . | . |0x1b| so simple - echo server |
-| ------ | . | . | . |0x1c| ws: msg, with TimeStamp |
-| ------ | . | . | . |0x1d| ws: msg, with TimeStamp |
+| ---- | . | m003 | r002 |0x18| PNG edit, Kotlin API22 |
+| ---- | . | m003 | r003 |0x19| PNG edit, macOS 26 swift |
+| ---- | . | . | . |0x1a| so simple - echo server |
+| ---- | . | . | . |0x1b| so simple - echo server |
+| ---- | . | . | . |0x1c| ws: msg, with TimeStamp |
+| ---- | . | . | . |0x1d| ws: msg, with TimeStamp |
 
 .  
 
