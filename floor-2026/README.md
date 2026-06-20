@@ -11,12 +11,12 @@
 |`Floor`|folder|entry date| test target |
 |:-----:|:----:|:--------:|-------------|
 |   8   |   .  |     .    | . |
-|   7   |   .  |     .    | `.wav` file format |
-|   6   |   .  |     .    | `.tlv` file format |
-|   5   |   .  |     .    | file I/O, PNG transfer |
-|   4   |   .  |     .    | Alpine Linux, VPS, ftp |
-|   3   |   .  |     .    | Raspberry Pi, wss, https |
-|   2   |   .  |     .    | Raspberry Pi, SSH, Python |
+|   7   |   .  |     .    | . |
+|   6   |   .  |     .    | file I/O                 |
+|   5   |   .  |     .    | SSH, ftp, https, wss     |
+|   4   |   .  |     .    | `.tlv` format            |
+|   3   |   .  |     .    | `.wav` format, USB audio |
+|   2   |   .  |     .    | Alpine VM, Raspberry Pi, VPS |
 |   1   | [f001](https://github.com/cat-nekomaru/web-opentoonz/blob/main/floor-2026/f001/README.md) | 2026-6-12 | webSocket, beep, PNG palette, echo server |
 
 .  
