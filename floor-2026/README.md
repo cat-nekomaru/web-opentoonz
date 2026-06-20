@@ -22,7 +22,7 @@
 # overview
 
 <div align=center>
-<img width=450 src=../TLW2/img/tlw2-simple-02.png>
+<img width=450 src=./img/f001-room-1-0-0.png>
 </div>
 
 .  
