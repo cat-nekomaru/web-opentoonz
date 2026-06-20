@@ -12,6 +12,28 @@
 
 🕊️
 
+## 2026-6-21 | Day 31
+
+- Today's Achievements
+  - （更新）実装ターゲットの図面 `floor-2026/img/f001-room-1-0-0.png`
+  - （作成）実装ターゲットの図面 `floor-2026/img/f002-room-0-0-1.png`
+
+- Key Learnings
+  - ① `Floor 1` [図面を更新](floor-2026/img/f001-room-1-0-0.png)
+    - x
+    - 書きかけ⭐️
+    - x
+  - ② `Floor 2` [図面を作成](floor-2026/img/f002-room-0-0-1.png)
+    - x
+    - x
+
+- Reflections
+  - ＊
+
+. . . **Score**: ⭐️/5  
+. . . **Update**: 2026-6-21  
+
+
 ## 2026-6-20 | Day 30
 
 - Today's Achievements
