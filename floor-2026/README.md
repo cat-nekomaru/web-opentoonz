@@ -16,7 +16,7 @@
 |   5   |   .  |     .    | `tcp` SSH, ftp, https, wss         |
 |   4   |   .  |     .    | `.tlv` file format, docs: API list |
 |   3   |   .  |     .    | `.wav` file format, AVAudioEngine  |
-|   2   |   .  |     .    | `posix` Alpine VM, Raspberry Pi, VPS |
+|   2   |   .  |     .    | `posix` Raspberry Pi, Alpine VM, VPS |
 |   1   | [f001](https://github.com/cat-nekomaru/web-opentoonz/blob/main/floor-2026/f001/README.md) | 2026-6-12 | `.tlw2` webSocket, beep, PNG palette, echo server |
 
 .  
