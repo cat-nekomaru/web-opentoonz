@@ -6,11 +6,39 @@
 🦉
 
 ## Memo | Recent Ideas & TODO
-- 「SSH認証」の仕組みとは ← 検証：XServer VPS, Alpine Linux, pi5
+- `Floor 2` SSH認証の仕組み
 - 板タブレットの筆圧検知 ← 検証：iPad + pen + JS
 - OpenToonzのQt（キュート）← 検証：カーソルアイコン
 
 🕊️
+
+## 2026-6-22 | Day 32
+
+- Today's Achievements
+  - `Floor 2`の図面を更新
+  - `Apple Container`をインストール
+
+- Key Learnings
+  - ① `Floor 2`
+    - ドラフト版の[図面を更新する](floor-2026/img/f002-room-0-0-2.png)
+    - 何をするか決められないと、デザイン要素では作図が進まない
+    - つい最近、AppleオフィシャルのLinuxコンテナがリリースされる
+    - きっと便利に違いないので、それをメインにして進めよう
+  - ② `Container 1.0` バーチャルマシン入門
+    - Google AIに概要を教えてもらう
+    - Python：`Alpine + Python`のVMから使うのが通常の手法
+    - Alpine VM：Go, Rust, C言語のバイナリ, macでビルド, 静的リンク
+    - DHCP　：LAN接続 → MACアドレスでのIP指定はOK。WifiだとNG
+    - GUI利用：swiftUIからコンテナの起動／停止なども可能
+    - 今日はインストールまで完了。とりあえず図面作りに必要な確認なので
+
+- Reflections
+  - 大きな目標が決められないと、小さなプランは立てられない。そういうプランが立てられないと、今やっている作業の定義がとても不安定になる。プロジェクトの主体性というのは、次の目標がうまく立てられてこそ機能するようだ。ここには、メンバーの人数はさほど関係ない（そんな印象）
+  - Claude AIに課金しているのにここ数日は使っておらず。やれやれ。🐈..
+
+. . . **Score**: 3/5  
+. . . **Update**: 2026-6-22  
+
 
 ## 2026-6-21 | Day 31
 
