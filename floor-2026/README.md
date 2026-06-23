@@ -17,8 +17,8 @@
 |   5   |   .  |     .    | `tcp` SSH, ftp, https, wss, VPS    |
 |   4   |   .  |     .    | `.wav` file format, AVAudioEngine  |
 |   3   |   .  |     .    | `disk` file I/O, JSON              |
-|   2   | [f002](https://github.com/cat-nekomaru/web-opentoonz/blob/main/floor-2026/f002/README.md) | 2026-6-23 | `posix` Raspberry Pi, Alpine VM        |
-|   1   | [f001](https://github.com/cat-nekomaru/web-opentoonz/blob/main/floor-2026/f001/README.md) | 2026-6-12 | `.tlw2` webSocket, beep, PNG palette |
+|   2   | [f002](https://github.com/cat-nekomaru/web-opentoonz/blob/main/floor-2026/f002/README.md) | 23 Jun | `posix` Raspberry Pi, Alpine VM        |
+|   1   | [f001](https://github.com/cat-nekomaru/web-opentoonz/blob/main/floor-2026/f001/README.md) | 12 Jun | `.tlw2` webSocket, beep, PNG       |
 
 .  
 
