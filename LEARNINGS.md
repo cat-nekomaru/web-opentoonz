@@ -6,11 +6,42 @@
 🦉
 
 ## Memo | Recent Ideas & TODO
-- `Floor 2` SSH認証の仕組み
 - 板タブレットの筆圧検知 ← 検証：iPad + pen + JS
 - OpenToonzのQt（キュート）← 検証：カーソルアイコン
 
 🕊️
+
+## 2026-6-23 | Day 33
+
+- Today's Achievements
+  - `Floor 3` ドラフト図面
+  - `Floor 2` Raspberry Pi 5（4GB）
+
+- Key Learnings
+  - ① ＊
+    - x
+    - x
+    - x
+    - x
+    - x
+  - ② ＊
+    - Claude AI：
+    - SSH認証：
+    - VNC：
+    - RDP：
+    - x
+    - x
+    - x
+    - x
+    - x
+  - 参考web：[Raspberry Pi 5 入門 - セットアップ](https://note.com/npaka/n/n254a702ca95e)
+
+- Reflections
+  - ＊書きかけ⭐️
+
+. . . **Score**: 3/5  
+. . . **Update**: 2026-6-23  
+
 
 ## 2026-6-22 | Day 32
 

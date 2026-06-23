@@ -17,7 +17,7 @@
 |  ---  |   .  |     .    | `.tlv` file format, docs: API list |
 |  ---  |   .  |     .    | `.wav` file format, AVAudioEngine  |
 |   3   |   .  |     .    | `.tlw2` NATS server, RaspPi, PC, Android    |
-|   2   |   .  |     .    | `posix` Raspberry Pi, Alpine VM, VPS        |
+|   2   | [f002](https://github.com/cat-nekomaru/web-opentoonz/blob/main/floor-2026/f002/README.md) | 2026-6-23 | `posix` Raspberry Pi, Alpine VM, VPS        |
 |   1   | [f001](https://github.com/cat-nekomaru/web-opentoonz/blob/main/floor-2026/f001/README.md) | 2026-6-12 | `.tlw2` webSocket, beep, PNG palette, echo server |
 
 .  
