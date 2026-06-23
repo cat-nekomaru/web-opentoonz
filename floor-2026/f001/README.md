@@ -1,7 +1,8 @@
 # Floor 1（f001）
 .  
 
-ここはフロア1の入り口です（進む／[戻る](../)）
+ここはフロア1の入り口です（進む／[戻る](https://github.com/cat-nekomaru/web-opentoonz/blob/main/floor-2026/README.md)）
+
 
 🚪
 
