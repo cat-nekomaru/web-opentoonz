@@ -1,33 +1,38 @@
 # Day 33（d033）
 
+Raspberry Pi 5（4GB）を導入しました。
+
 .  
+
+🍓🥧
+
+## 今回の内容 LIST
 
 - 対応ずみ
   - 古い32GB microSDカード（W: 2MB/sec）
-  - SSH：パスワード認証
+  - 無線LAN
   - DHCPクライアント
   - MACアドレスから固定IPの取得
   - ディスプレイなしでのOS起動
-  - 無線LAN
+  - SSH：パスワード認証
   - VNCとRDPの比較
   - ドライヤーの冷風による放熱
 
 - 未対応
   - 遅くないmicroSD
-  - 金属ケース
   - ヒートシンクとFAN
+  - 金属ケース
   - 有線LAN
   - SSH：公開鍵認証
-  - HDMI：音を出す
   - HAT：PoE, NVMe
-  - コンパイル：Python, C lang, Kotlin
+  - HDMI：音を出す
+  - 実行：Python, C lang, Kotlin
+  - コンテナ：Docker, NATSサーバー
   - ブラウザ：JavaScript, webGPU, WebSocket
-  - Dockerコンテナ
-  - NATSサーバー
 
 .  
 
-# Raspberry Pi 5 — "RDP" xrdpセットアップ手順
+# "RDP" xrdpセットアップ手順
 
 ***※以下は全てClaude AIによる説明です***
 
