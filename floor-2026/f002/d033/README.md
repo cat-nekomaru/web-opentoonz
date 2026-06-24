@@ -1,7 +1,35 @@
+# Day 33（d033）
 
-# (f002/d033) Raspberry Pi 5 — "RDP" xrdpセットアップ手順
+.  
 
-***※以下は全て作成者：Claude AIによる説明です***
+- 対応ずみ
+  - 古い32GB microSDカード（W: 2MB/sec）
+  - SSH：パスワード認証
+  - DHCPクライアント
+  - MACアドレスから固定IPの取得
+  - ディスプレイなしでのOS起動
+  - 無線LAN
+  - VNCとRDPの比較
+  - ドライヤーの冷風による放熱
+
+- 未対応
+  - 遅くないmicroSD
+  - 金属ケース
+  - ヒートシンクとFAN
+  - 有線LAN
+  - SSH：公開鍵認証
+  - HDMI：音を出す
+  - HAT：PoE, NVMe
+  - コンパイル：Python, C lang, Kotlin
+  - ブラウザ：JavaScript, webGPU, WebSocket
+  - Dockerコンテナ
+  - NATSサーバー
+
+.  
+
+# Raspberry Pi 5 — "RDP" xrdpセットアップ手順
+
+***※以下は全てClaude AIによる説明です***
 
 .  
 
