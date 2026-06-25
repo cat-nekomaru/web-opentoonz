@@ -1,6 +1,6 @@
 # Floor 2（f002）
 
-<img width=550 height=80 src=../img/md-top-f002.png>
+<img width=550 height=80 alt="猫が基板に向かうイラスト" src=../img/md-top-f002.png>
 
 ここはフロア2の入り口です（進む／[戻る](https://github.com/cat-nekomaru/web-opentoonz/blob/main/floor-2026/README.md)）
 
