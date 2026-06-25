@@ -14,11 +14,27 @@
 ## 2026-6-25 | Day 34
 
 - Today's Achievements
-  - ＊
+  - `Floor 6`（overview）作図
+  - `Floor *`（.md）ヘッダー画像
+  - `Floor 2`（d034）Alpine VM
 
 - Key Learnings
-  - ＊
-
+  - ①
+    - x
+    - x
+    - x
+    - x
+  - ②
+    - x
+    - x
+    - x
+    - x
+  - ③
+    - x
+    - x
+    - x
+    - x
+    
 - Reflections
   - ＊書きかけ⭐️
 
@@ -30,7 +46,7 @@
 
 - Today's Achievements
   - `Floor 6`（overview）図面ドラフト
-  - `Floor 2`（r033）Raspberry Pi 5
+  - `Floor 2`（d033）Raspberry Pi 5
 
 - Key Learnings
   - ① `Floor 6`

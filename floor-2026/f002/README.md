@@ -20,8 +20,8 @@
 
 | `Day`  |      folder     |mother| room |mdID|  characteristics    |
 |:------:|:---------------:|:----:|:----:|:--:|---------------------|
-| Day 33 | [d033](./d033/) | m010 | r001 |0x11| compare VNC - RDP   |
-| Day 34 | [d034](./d034/) | m010 | r002 |0x12| Apple container 1.0 |
+| Day 33 | [d033](./d033/) | m010 | r010 |0x11| compare VNC - RDP   |
+| Day 34 | [d034](./d034/) | m010 | r020 |0x12| Apple container `1.0.0` |
 |   ---  | . | . | . |0x13| |
 |   ---  | . | . | . |0x14| |
 |   ---  | . | . | . |0x15| |

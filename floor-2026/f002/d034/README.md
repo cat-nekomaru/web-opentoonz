@@ -2,7 +2,7 @@
 
 ***※以下は全てClaude AIによる説明です***
 
-[Apple Container 1.0](https://github.com/apple/container) を使って、AlpineのVM（コンテナ）を試しました。
+[Apple Container](https://github.com/apple/container) `1.0.0` を使って、Alpine LinuxのVM（コンテナ）を試しました。
 
 .  
 
