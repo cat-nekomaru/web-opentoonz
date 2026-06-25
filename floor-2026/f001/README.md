@@ -1,5 +1,6 @@
 # Floor 1（f001）
-.  
+
+<img width=550 height=80 src=../img/md-top-f001.png>
 
 ここはフロア1の入り口です（進む／[戻る](https://github.com/cat-nekomaru/web-opentoonz/blob/main/floor-2026/README.md)）
 

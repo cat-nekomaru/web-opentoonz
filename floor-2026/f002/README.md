@@ -1,8 +1,6 @@
 # Floor 2（f002）
 
-<div align=left>
-<img width=550 height=80 src=../img/md-top2.png>
-</div>
+<img width=550 height=80 src=../img/md-top-f002.png>
 
 ここはフロア2の入り口です（進む／[戻る](https://github.com/cat-nekomaru/web-opentoonz/blob/main/floor-2026/README.md)）
 
