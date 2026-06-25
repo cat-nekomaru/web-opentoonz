@@ -1,6 +1,6 @@
 # Floor（2026）
 
-.  
+<img width=550 height=80 alt="猫が城に向かうイラスト" src=./img/md-top-2026.png>
 
 ここは城への入り口です（進む／[戻る](https://github.com/cat-nekomaru/web-opentoonz/)）
 
