@@ -15,7 +15,7 @@
 
 - Today's Achievements
   - `mac mini 2018` を購入
-  - `Floor 2 / Day 35` [Raspberry Pi 5](floor-2026/f001/d026)
+  - `Floor 2 / Day 35` [Raspberry Pi 5](floor-2026/f002/d035)
 
 - Key Learnings
   - ① `mac mini`
