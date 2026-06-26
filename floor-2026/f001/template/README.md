@@ -55,9 +55,9 @@ UI側のUI部品（uiID）：
 .  
 
 <div align=center>
-<img width=450 src=img/d⭐️-s01.png><BR>
-<img width=450 src=img/d⭐️-s02.png><BR>
-<img width=450 src=img/d⭐️-s03.png><BR>
+<img width=450 src=img/d000-s01.png><BR>
+<img width=450 src=img/d000-s02.png><BR>
+<img width=450 src=img/d000-s03.png><BR>
 </div>
 
 .  

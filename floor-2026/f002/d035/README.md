@@ -193,10 +193,10 @@ echo 0 | sudo tee /sys/class/thermal/cooling_device0/cur_state
 .  
 
 <div align=center>
-<img width=400 src=img/d033-s01.png><BR>
-<img width=400 src=img/d033-s02.png><BR>
-<img width=350 src=img/d033-s03.png><BR>
-<img width=350 src=img/d033-s04.png><BR>
+<img width=400 src=img/d000-s01.png><BR>
+<img width=400 src=img/d000-s02.png><BR>
+<img width=350 src=img/d000-s03.png><BR>
+<img width=350 src=img/d000-s04.png><BR>
 </div>
 
 
