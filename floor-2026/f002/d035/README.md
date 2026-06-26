@@ -11,8 +11,8 @@ Raspberry Pi 5のメンテナンス。
 
 - 対応ずみ
   - microSDカード
-    - d033 → 32GB, Write 2MB/s, Verify 87MB/s
-    - d035 → 128GB, Write 60MB/s, Verify 87MB/s
+    - d033 → SanDisk 32GB／2019年／Write 2MB/s／Verify 87MB/s
+    - d035 → Kioxia 128GB／2026年／Write 60MB/s／Verify 87MB/s
   - 無線LAN
     - DHCPクライアント
     - MACアドレスから固定IPの取得
