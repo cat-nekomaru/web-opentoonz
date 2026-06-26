@@ -228,7 +228,7 @@ WebViewは完全に**受信専用**。自分でタイマーを持たず、Kotlin
 <img width=450 src=img/d024-s02.png><BR>
 <img width=450 src=img/d024-s03.png><BR>
 <img width=450 src=img/d024-s04.png><BR>
-<img width=600 src=img/d024-s05.png><BR><BR>
+<img width=600 src=img/d024-s05.png><BR>
 <img width=220 src=img/d024-s06.png><BR>
 </div>
 

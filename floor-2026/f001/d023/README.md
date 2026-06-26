@@ -260,8 +260,8 @@ wsServer.start()
 .  
 
 <div align=center>
-<img width=450 src=img/d023-s01.png><BR><BR>
-<img width=450 src=img/d023-s02.png><BR><BR>
+<img width=450 src=img/d023-s01.png><BR>
+<img width=450 src=img/d023-s02.png><BR>
 <img width=450 src=img/d023-s03.png>
 </div>
 
