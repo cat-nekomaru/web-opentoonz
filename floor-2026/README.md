@@ -25,8 +25,8 @@
 # overview
 
 <div align=center>
-<img width=450 src=./img/f006-room-0-1-0.png><BR><BR>
-<img width=450 src=./img/f002-room-0-0-3.png><BR><BR>
+<img width=450 src=./img/f006-room-0-1-0.png><BR>
+<img width=450 src=./img/f002-room-0-1-0.png><BR>
 <img width=450 src=./img/f001-room-1-0-0.png>
 </div>
 
