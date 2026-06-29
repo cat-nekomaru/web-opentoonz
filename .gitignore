@@ -2,6 +2,7 @@
 #
 
 # Mac OS specific files
+Icon*
 .DS_Store
 .DS_Store?
 ._*
