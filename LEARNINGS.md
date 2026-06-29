@@ -33,7 +33,8 @@
     - Android StudioはmacOS 12でも動作OK
   - ② `ラズベリーパイ`🍓🥧
     - Amazonから荷物が届く
-    - KioxiaのSDカードは過不足なし。ヒートシングも良好
+      - KioxiaのSDカードは過不足なし
+      - ヒートシンクも良好
     - 金属ケースや増設kitがAmazonで入手できるのは便利だな
     - PCと比べると性能は貧弱、でも10年以上のサポート期間はすごい
     
@@ -49,9 +50,9 @@
 ## 2026-6-25 | Day 34
 
 - Today's Achievements
-  - `Floor 6`（overview）作図
-  - `Floor *`（.md）ヘッダー画像
-  - `Floor 2`（d034）Alpine VM
+  - `Floor 6 / img`（overview）作図
+  - `Floor * / img`（.md）ヘッダー画像
+  - `Floor 2 / Day 34` Alpine VM
 
 - Key Learnings
   - ① `Floor 6`
@@ -80,8 +81,8 @@
 ## 2026-6-23 | Day 33
 
 - Today's Achievements
-  - `Floor 6`（overview）図面ドラフト
-  - `Floor 2`（d033）Raspberry Pi 5
+  - `Floor 6 / img`（overview）図面ドラフト
+  - `Floor 2 / Day 33` Raspberry Pi 5
 
 - Key Learnings
   - ① `Floor 6`
@@ -116,7 +117,7 @@
 ## 2026-6-22 | Day 32
 
 - Today's Achievements
-  - `Floor 2`の図面を更新
+  - `Floor 2 / img` 図面を更新
   - `Apple Container`をインストール
 
 - Key Learnings
@@ -225,7 +226,7 @@
 ## 2026-6-19 | Day 29
 
 - Today's Achievements
-  - `Day 29` [d029 folder](floor-2026/f001/d029)を作成
+  - `Floor 1 / Day 29` [d029 folder](floor-2026/f001/d029)を作成
 
 - Key Learnings
   - ① `f001/d029/r001-api28-kt/`で作業をする
@@ -253,7 +254,7 @@
 ## 2026-6-18 | Day 28
 
 - Today's Achievements
-  - `Day 28` [d028 folder](floor-2026/f001/d028)を作成
+  - `Floor 1 / Day 28` [d028 folder](floor-2026/f001/d028)を作成
 
 - Key Learnings
   - ① `f001/d028/r003-swift/`で作業をする
@@ -289,7 +290,7 @@
 ## 2026-6-17 | Day 27
 
 - Today's Achievements
-  - `Day 27` [d027 folder](floor-2026/f001/d027)を作成
+  - `Floor 1 / Day 27` [d027 folder](floor-2026/f001/d027)を作成
   - エミュレータ動画キャプチャを再作成
 
 - Key Learnings
@@ -331,7 +332,7 @@
 
 - Today's Achievements
   - `floor 1` [README.md](floor-2026/f001)を更新
-  - `Day 26` [d026 folder](floor-2026/f001/d026)を作成
+  - `Floor 1 / Day 26` [d026 folder](floor-2026/f001/d026)を作成
 
 - Key Learnings
   - ① `f001/README.md`を更新する
@@ -357,7 +358,7 @@
 ## 2026-6-15 | Day 25
 
 - Today's Achievements
-  - `Day 25` [d025 folder](floor-2026/f001/d025)を作成
+  - `Floor 1 / Day 25` [d025 folder](floor-2026/f001/d025)を作成
 
 - Key Learnings
   - ① `f001/d025/r003-swift/`で作業をする
@@ -408,7 +409,7 @@
 
 - Today's Achievements
   - `floor 1` [README.md](floor-2026/f001)を更新
-  - `Day 23` [d023 folder](floor-2026/f001/d023)を作成
+  - `Floor 1 / Day 23` [d023 folder](floor-2026/f001/d023)を作成
 
 - Key Learnings
   - ① `f001/README.md`を更新
