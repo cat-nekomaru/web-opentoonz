@@ -35,7 +35,7 @@
 # overview
 
 <div align=center>
-<img width=450 src=../img/f002-room-0-1-2.png>
+<img width=450 src=../img/f002-room-0-1-3.png>
 </div>
 
 .  
