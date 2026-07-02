@@ -21,7 +21,6 @@
 
 - （ここがAIによる説明エリア。(Proj)から🦆まで）
 
-
 🦆
 
 ---
@@ -36,8 +35,8 @@
 .  
 
 <div align=center>
-<img width=450 src=img/d000-s01.png><BR>
-<img width=450 src=img/d000-s02.png><BR>
+<img width=380 src=img/d000-s01.png><BR>
+<img width=500 src=img/d000-s02.png><BR>
 <img width=450 src=img/d000-s03.png><BR>
 </div>
 

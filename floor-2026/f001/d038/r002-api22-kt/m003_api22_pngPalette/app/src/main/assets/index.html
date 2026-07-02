@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>m003_api22_pngPalette</title>
+<style>
+  body { font-family: monospace; margin: 8px; background: #f0f0ee; }
+  h3 { margin: 4px 0 8px; }
+  .row { margin: 6px 0; display: flex; align-items: center; flex-wrap: wrap; gap: 6px; }
+  button { padding: 8px 14px; font-family: monospace; }
+  label { min-width: 130px; display: inline-block; }
+  input[type=range] { width: 160px; vertical-align: middle; }
+  input[type=number] { width: 60px; }
+  #H { width: 250px; height: 250px; border: 1px dashed #888; background: #ddd;
+       image-rendering: pixelated; display: block; }
+  #swatch { width: 28px; height: 28px; border: 1px solid #444; display: inline-block; }
+  #log { width: 100%; height: 110px; font-family: monospace; font-size: 11px;
+         box-sizing: border-box; resize: vertical; }
+</style>
+</head>
+<body>
+<h3>m003_api22_pngPalette (mdID=0x18)</h3>
+
+<!-- buttons A / B / C -->
+<div class="row">
+  <button id="A">Load Raw PNG</button>
+  <button id="B">Apply Palette Edit</button>
+  <button id="C">Clear Buffer</button>
+</div>
+
+<!-- palette settings D / E / F / G -->
+<div class="row">
+  <label>Palette Index (D)</label>
+  <input type="number" id="D" min="0" max="15" value="0"> / 15
+</div>
+<div class="row">
+  <label>R (E)</label><input type="range" id="E" min="0" max="255" value="128"><span id="Ev">128</span>
+</div>
+<div class="row">
+  <label>G (F)</label><input type="range" id="F" min="0" max="255" value="128"><span id="Fv">128</span>
+</div>
+<div class="row">
+  <label>B (G)</label><input type="range" id="G" min="0" max="255" value="128"><span id="Gv">128</span>
+  <span id="swatch"></span>
+</div>
+
+<!-- image buffer H -->
+<div class="row"><img id="H" alt="(buffer H)"></div>
+
+<!-- log -->
+<div class="row">
+  <textarea id="log" readonly></textarea>
+</div>
+<div class="row">
+  <button id="logClear">Clear Log</button>
+</div>
+
+<script>
+function $(id) { return document.getElementById(id); }
+
+function log(msg) {
+  var t = new Date().toTimeString().substring(0, 8);
+  var box = $("log");
+  box.value += "[" + t + "] " + msg + "\n";
+  box.scrollTop = box.scrollHeight;
+}
+
+// ---- UI -> Engine: send JSON command --------------------------------
+function sendCmd(obj) {
+  var json = JSON.stringify(obj);
+  log("TX " + json);
+  AndroidBridge.postMessage(json);
+}
+
+// ---- Engine -> UI: callbacks (called via evaluateJavascript) --------
+function onPngFromEngine(b64) {
+  $("H").src = "data:image/png;base64," + b64;
+  log("RX PNG binary (" + Math.floor(b64.length * 3 / 4) + " bytes approx)");
+}
+function onLogFromEngine(msg) {
+  log("ENGINE " + msg);
+}
+
+// ---- buttons --------------------------------------------------------
+$("A").onclick = function () { sendCmd({ cmd: "raw" }); };
+
+$("B").onclick = function () {
+  sendCmd({
+    cmd: "edit",
+    index: parseInt($("D").value, 10) || 0,
+    r: parseInt($("E").value, 10),
+    g: parseInt($("F").value, 10),
+    b: parseInt($("G").value, 10)
+  });
+};
+
+$("C").onclick = function () {
+  $("H").removeAttribute("src");
+  log("buffer H cleared");
+};
+
+$("logClear").onclick = function () { $("log").value = ""; };
+
+// ---- slider readouts + swatch ---------------------------------------
+function refreshSwatch() {
+  var r = $("E").value, g = $("F").value, b = $("G").value;
+  $("Ev").textContent = r; $("Fv").textContent = g; $("Gv").textContent = b;
+  $("swatch").style.background = "rgb(" + r + "," + g + "," + b + ")";
+}
+["E", "F", "G"].forEach(function (id) { $(id).oninput = refreshSwatch; });
+refreshSwatch();
+
+log("UI ready (buffer H is undefined until first command)");
+</script>
+</body>
+</html>
