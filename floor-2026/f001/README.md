@@ -26,7 +26,7 @@
 | Day 27 | [d027](./d027/) | m002 | r002 |0x15| Kotlin API 22, WebView, Beep       |
 | Day 28 | [d028](./d028/) | m002 | r003 |0x16| macOS 26, SwiftUI, Beep            |
 | Day 29 | [d029](./d029/) | m003 | r001 |0x17| ws: Tx cmd, Rx PNG, Tx edit, Rx PNG|
-| ---- | . | . | . |.| PNG edit, Kotlin API22  |
+| Day 38 | [d038](./d038/) | m003 | r002 |0x18| Kotlin API22, WebView, PNG edit    |
 | ---- | . | . | . |.| PNG edit, macOS 26 swift|
 | ---- | . | . | . |.| so simple - echo server |
 | ---- | . | . | . |.| so simple - echo server |
